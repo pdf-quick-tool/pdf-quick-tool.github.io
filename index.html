@@ -620,22 +620,76 @@
         }
 
         function loadAds() {
-            // Ejemplo de inyección dinámica de scripts de anuncios (Placeholder para Adsterra o Adsense)
-            console.log("Consentimiento otorgado: Cargando scripts publicitarios de terceros...");
+            console.log("Consentimiento otorgado: Cargando anuncios...");
 
+            // 1. Banner Header (728x90)
             const adHeader = document.getElementById('ad-header');
-            if (adHeader) adHeader.innerHTML = 'ANUNCIO CARGADO (Header)';
+            if (adHeader) {
+                adHeader.innerHTML = ''; // Limpiar placeholder
+                const scriptOptions = document.createElement('script');
+                scriptOptions.type = 'text/javascript';
+                scriptOptions.text = `
+                    atOptions = {
+                        'key' : 'f5694fa303c5f03ed4a14796f1bf5bad',
+                        'format' : 'iframe',
+                        'height' : 90,
+                        'width' : 728,
+                        'params' : {}
+                    };
+                `;
+                adHeader.appendChild(scriptOptions);
 
-            const adPostAction = document.getElementById('ad-post-action');
-            if (adPostAction) adPostAction.innerHTML = 'ANUNCIO CARGADO (Contenido)';
+                const scriptInvoke = document.createElement('script');
+                scriptInvoke.type = 'text/javascript';
+                scriptInvoke.src = 'https://www.highperformanceformat.com/f5694fa303c5f03ed4a14796f1bf5bad/invoke.js';
+                adHeader.appendChild(scriptInvoke);
+            }
 
+            // 2. Banner Sidebar (160x600)
             const adSidebar = document.getElementById('ad-sidebar');
-            if (adSidebar) adSidebar.innerHTML = 'ANUNCIO CARGADO (Sidebar)';
+            if (adSidebar) {
+                adSidebar.innerHTML = ''; // Limpiar
+                const scriptOptions = document.createElement('script');
+                scriptOptions.type = 'text/javascript';
+                scriptOptions.text = `
+                    atOptions = {
+                        'key' : '44885ebdeb361ae842bace64da1acde6',
+                        'format' : 'iframe',
+                        'height' : 600,
+                        'width' : 160,
+                        'params' : {}
+                    };
+                `;
+                adSidebar.appendChild(scriptOptions);
 
-            // Aquí agregarías la lógica real, ejemplo:
-            // const script = document.createElement('script');
-            // script.src = 'URL_DEL_NETWORK_DE_ANUNCIOS';
-            // document.body.appendChild(script);
+                const scriptInvoke = document.createElement('script');
+                scriptInvoke.type = 'text/javascript';
+                scriptInvoke.src = 'https://www.highperformanceformat.com/44885ebdeb361ae842bace64da1acde6/invoke.js';
+                adSidebar.appendChild(scriptInvoke);
+            }
+
+            // 3. Banner Post-Action (300x250)
+            const adPostAction = document.getElementById('ad-post-action');
+            if (adPostAction) {
+                adPostAction.innerHTML = ''; // Limpiar
+                const scriptOptions = document.createElement('script');
+                scriptOptions.type = 'text/javascript';
+                scriptOptions.text = `
+                    atOptions = {
+                        'key' : 'ee19ea6f3757704c1079ebff94578ddd',
+                        'format' : 'iframe',
+                        'height' : 250,
+                        'width' : 300,
+                        'params' : {}
+                    };
+                `;
+                adPostAction.appendChild(scriptOptions);
+
+                const scriptInvoke = document.createElement('script');
+                scriptInvoke.type = 'text/javascript';
+                scriptInvoke.src = 'https://www.highperformanceformat.com/ee19ea6f3757704c1079ebff94578ddd/invoke.js';
+                adPostAction.appendChild(scriptInvoke);
+            }
         }
 
         document.addEventListener('DOMContentLoaded', () => {
