@@ -64,7 +64,7 @@
                 <option value="fr">Français</option>
             </select>
         </div>
-        <h1 class="text-4xl font-extrabold tracking-tight sm:text-5xl mb-4" data-i18n="title_main">
+        <h1 class="text-4xl font-extrabold tracking-tight sm:text-5xl mt-6 mb-4" data-i18n="title_main">
             PDF Quick-Tool
         </h1>
         <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto" data-i18n="subtitle_main">
@@ -221,11 +221,10 @@
                         <a href="mailto:soporte.pdfquicktool@gmail.com"
                             class="text-blue-500 hover:underline">soporte.pdfquicktool@gmail.com</a>
                     </p>
-                    <a href="https://www.buymeacoffee.com/tu_usuario" target="_blank"
-                        class="inline-flex items-center justify-center px-4 py-2 bg-yellow-400 hover:bg-yellow-500 text-yellow-900 font-semibold rounded-lg transition-colors text-sm"
-                        data-i18n="footer_coffee_btn">
-                        <i class="fas fa-coffee mr-2"></i> Invitame un café
-                    </a>
+                    <p class="text-sm font-semibold text-gray-800 dark:text-gray-200 mt-4">
+                        <i class="fas fa-coffee text-yellow-500 mr-2"></i>
+                        <span data-i18n="footer_coffee_btn">¿Te sirvió? Invitame un café en Ko-fi</span>
+                    </p>
                 </div>
             </div>
         </div>
@@ -299,7 +298,8 @@
                 cookie_accept: "Aceptar y Usar Gratis",
                 cookie_decline: "Rechazar",
                 footer_cookie_settings: "Configuración de Cookies",
-                footer_coffee_btn: "<i class='fas fa-coffee mr-2'></i> Invitame un café"
+                footer_coffee_btn: "¿Te sirvió? Invitame un café en Ko-fi",
+                kofi_button: "Apoyame en ko-fi"
             },
             en: {
                 title_main: "PDF Quick-Tool",
@@ -345,7 +345,8 @@
                 cookie_accept: "Accept and Use for Free",
                 cookie_decline: "Decline",
                 footer_cookie_settings: "Cookie Settings",
-                footer_coffee_btn: "<i class='fas fa-coffee mr-2'></i> Buy me a coffee"
+                footer_coffee_btn: "Did it help? Buy me a coffee on Ko-fi",
+                kofi_button: "Support me on ko-fi"
             },
             pt: {
                 title_main: "PDF Quick-Tool",
@@ -391,7 +392,8 @@
                 cookie_accept: "Aceitar e Usar Grátis",
                 cookie_decline: "Recusar",
                 footer_cookie_settings: "Configurações de Cookies",
-                footer_coffee_btn: "<i class='fas fa-coffee mr-2'></i> Pague-me un café"
+                footer_coffee_btn: "Ajudou você? Pague-me um café no Ko-fi",
+                kofi_button: "Apoie-me no ko-fi"
             },
             de: {
                 title_main: "PDF Quick-Tool",
@@ -437,7 +439,8 @@
                 cookie_accept: "Akzeptieren & Gratis nutzen",
                 cookie_decline: "Ablehnen",
                 footer_cookie_settings: "Cookie-Einstellungen",
-                footer_coffee_btn: "<i class='fas fa-coffee mr-2'></i> Spendier mir einen Kaffee"
+                footer_coffee_btn: "Hat es geholfen? Spendier mir einen Kaffee auf Ko-fi",
+                kofi_button: "Unterstütze mich auf ko-fi"
             },
             fr: {
                 title_main: "PDF Quick-Tool",
@@ -483,7 +486,8 @@
                 cookie_accept: "Accepter et utiliser",
                 cookie_decline: "Refuser",
                 footer_cookie_settings: "Paramètres des cookies",
-                footer_coffee_btn: "<i class='fas fa-coffee mr-2'></i> Offrez-moi un café"
+                footer_coffee_btn: "Ça vous a aidé ? Offrez-moi un café sur Ko-fi",
+                kofi_button: "Soutenez-moi sur ko-fi"
             }
         };
 
@@ -524,6 +528,26 @@
                 document.getElementById('btn-text').innerText = translations[currentLang].processing_btn;
             } else {
                 document.getElementById('btn-text').innerText = translations[currentLang].process_btn;
+            }
+
+            // Actualizar Widget de Ko-fi
+            updateKofiWidget(lang);
+        }
+
+        function updateKofiWidget(lang) {
+            // Eliminar el iframe previo de Ko-fi si existe para forzar un re-dibujado
+            const existingWidget = document.querySelector('.floatingchat-container-wrap');
+            if (existingWidget) {
+                existingWidget.remove();
+            }
+
+            if (typeof kofiWidgetOverlay !== 'undefined') {
+                kofiWidgetOverlay.draw('pdfquicktool', {
+                    'type': 'floating-chat',
+                    'floating-chat.donateButton.text': translations[lang].kofi_button,
+                    'floating-chat.donateButton.background-color': '#323842',
+                    'floating-chat.donateButton.text-color': '#fff'
+                });
             }
         }
 
@@ -893,6 +917,22 @@
             a.click();
         }
     </script>
+
+    <!-- Ko-fi Widget Styles -->
+    <style>
+        /* Forzar ubicación en la esquina inferior izquierda */
+        .floatingchat-container-wrap {
+            left: 16px !important;
+            right: auto !important;
+            z-index: 100000 !important;
+        }
+
+        /* Arreglo para el iframe que se inserta dinámicamente */
+        .floatingchat-container {
+            width: 100vw !important;
+        }
+    </style>
+    <script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
 </body>
 
 </html>
