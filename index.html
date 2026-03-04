@@ -40,9 +40,7 @@
     <script src="https://cdn.tailwindcss.com" defer></script>
     <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js" defer></script>
-    <script>
-        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-    </script>
+    <!-- PDF.js configuration moved to main script block to avoid ReferenceError with 'defer' -->
     <!-- FontAwesome No-Render-Blocking -->
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style"
         onload="this.onload=null;this.rel='stylesheet'">
@@ -533,17 +531,23 @@
                 }
             });
 
-            // Actualizar SEO (Títulos y Metadatos Dinámicos)
+            // Actualizar SEO (Títulos y Metadatos Dinámicos) con comprobaciones de seguridad
+            const ogTitle = document.querySelector('meta[property="og:title"]');
             if (translations[lang].page_title) {
                 document.title = translations[lang].page_title;
-                document.querySelector('meta[property="og:title"]').content = translations[lang].page_title;
+                if (ogTitle) ogTitle.content = translations[lang].page_title;
             }
+
+            const metaDesc = document.querySelector('meta[name="description"]');
+            const ogDesc = document.querySelector('meta[property="og:description"]');
             if (translations[lang].meta_description) {
-                document.querySelector('meta[name="description"]').content = translations[lang].meta_description;
-                document.querySelector('meta[property="og:description"]').content = translations[lang].meta_description;
+                if (metaDesc) metaDesc.content = translations[lang].meta_description;
+                if (ogDesc) ogDesc.content = translations[lang].meta_description;
             }
-            if (translations[lang].meta_keywords) {
-                document.querySelector('meta[name="keywords"]').content = translations[lang].meta_keywords;
+
+            const metaKeywords = document.querySelector('meta[name="keywords"]');
+            if (translations[lang].meta_keywords && metaKeywords) {
+                metaKeywords.content = translations[lang].meta_keywords;
             }
 
             // Actualizar estado del botón de procesamiento
@@ -575,9 +579,13 @@
         }
 
         /* --- LOGICA DE INITIALIZACION (COOKIES + LENGUAJE POR GEOLOCALIZACION) --- */
-        const cookieBanner = document.getElementById('cookie-banner');
+        let cookieBanner; // Se inicializa en DOMContentLoaded
 
         async function initApp() {
+            // Configuración de PDF.js (movido aquí para asegurar que pdfjsLib esté definido con 'defer')
+            if (typeof pdfjsLib !== 'undefined') {
+                pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+            }
             const savedLang = localStorage.getItem('pdfqt_lang');
             const consent = localStorage.getItem('pdfqt_consent');
 
@@ -638,6 +646,7 @@
         }
 
         function showConsentBanner() {
+            if (!cookieBanner) return;
             setTimeout(() => {
                 cookieBanner.classList.remove('translate-y-full');
             }, 1000);
@@ -645,13 +654,13 @@
 
         function acceptCookies() {
             localStorage.setItem('pdfqt_consent', 'true');
-            cookieBanner.classList.add('translate-y-full');
+            if (cookieBanner) cookieBanner.classList.add('translate-y-full');
             loadAds();
         }
 
         function declineCookies() {
             localStorage.setItem('pdfqt_consent', 'false');
-            cookieBanner.classList.add('translate-y-full');
+            if (cookieBanner) cookieBanner.classList.add('translate-y-full');
 
             // Opcional: borrar el texto "Esperando consentimiento" si rechazaron
             ['ad-header', 'ad-post-action', 'ad-sidebar'].forEach(id => {
@@ -712,6 +721,7 @@
         }
 
         document.addEventListener('DOMContentLoaded', () => {
+            cookieBanner = document.getElementById('cookie-banner');
             initApp();
         });
 
