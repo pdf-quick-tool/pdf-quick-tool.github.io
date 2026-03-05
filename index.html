@@ -19,10 +19,9 @@
     <meta property="og:description"
         content="Une, divide y extrae texto de tus PDFs sin subir archivos a ningún servidor. Privacidad 100% garantizada.">
     <meta property="og:image" content="https://pdf-quick-tool.github.io/og-image.png">
-    <meta property="og:url" content="https://pdf-quick-tool.github.io/">
+    <meta property="og:url" content="https://pdf-quick-tool.github.io">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="PDF Quick-Tool">
-    <meta property="og:image:alt" content="Previsualización de la interfaz de PDF Quick-Tool">
 
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
@@ -35,27 +34,14 @@
     <link rel="icon"
         href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📄</text></svg>">
 
-
-    <!-- Scripts & Estilos (Render-blocking optimization) -->
-    <script src="https://cdn.tailwindcss.com" defer></script>
-    <!-- PDF Libraries are now lazy-loaded on demand to improve performance (FCP/LCP) -->
-    <!-- FontAwesome No-Render-Blocking with swap -->
-    <!-- Preload del woff2 principal para que el navegador lo descargue de inmediato -->
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-solid-900.woff2"
-        as="font" type="font/woff2" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-        media="print" onload="this.media='all'; this.onload=null;">
-    <noscript>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    </noscript>
-    <style>
-        /* Mejorar FCP y CLS con font-display */
-        @font-face {
-            font-family: 'Font Awesome 6 Free';
-            font-display: swap;
-            src: url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-solid-900.woff2') format('woff2');
-        }
-    </style>
+    <!-- Scripts & Estilos -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script>
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
         .drop-zone--over {
@@ -71,57 +57,21 @@
             border-bottom: 3px solid #3b82f6;
             color: #3b82f6;
         }
-
-        /* Prevenir FOUC (Flash of Unstyled Content) */
-        body {
-            opacity: 0;
-            transition: opacity 0.3s ease-in-out;
-        }
-
-        body.loaded {
-            opacity: 1;
-        }
-
-        /* Reserva de espacio para anuncios y banner para evitar CLS */
-        #ad-header {
-            min-height: 90px;
-            aspect-ratio: 728 / 90;
-        }
-
-        #ad-post-action {
-            min-height: 250px;
-            aspect-ratio: 300 / 250;
-        }
-
-        #ad-sidebar {
-            min-height: 600px;
-            aspect-ratio: 160 / 600;
-        }
-
-        #cookie-banner {
-            min-height: 80px;
-        }
     </style>
-    <!-- Failsafe: Revelar cuerpo si los scripts tardan demasiado -->
-    <script>
-        setTimeout(() => {
-            document.body.classList.add('loaded');
-        }, 2000);
-    </script>
 </head>
 
 <body class="bg-gray-50 text-gray-900 transition-colors duration-300 dark:bg-gray-900 dark:text-gray-100">
 
     <!-- AD_SPACE: Header -->
     <div id="ad-header"
-        class="w-full bg-gray-200 dark:bg-gray-800 flex items-center justify-center text-xs text-gray-500 min-h-[90px] overflow-hidden">
+        class="w-full bg-gray-200 dark:bg-gray-800 flex items-center justify-center text-xs text-gray-500 min-h-[90px]">
         AD_SPACE - Header Banner (Esperando consentimiento)
     </div>
 
     <!-- Navegación y Título -->
     <header class="container mx-auto px-4 py-8 text-center relative">
         <div class="absolute top-0 right-4 mt-4">
-            <select id="lang-select" onchange="changeLanguage(this.value)" aria-label="Seleccionar idioma"
+            <select id="lang-select" onchange="changeLanguage(this.value)"
                 class="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded px-2 py-1 text-sm outline-none">
                 <option value="es">Español</option>
                 <option value="en">English</option>
@@ -162,7 +112,7 @@
                     class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700">
                     <div id="drop-zone"
                         class="border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-xl p-12 text-center transition-all cursor-pointer hover:border-blue-400">
-                        <i class="fas fa-file-pdf text-5xl text-blue-500 mb-4" style="width: 48px; height: 48px;"></i>
+                        <i class="fas fa-file-pdf text-5xl text-blue-500 mb-4"></i>
                         <p class="text-lg font-medium" data-i18n="drop_zone_title">Arrastra tus archivos aquí o haz clic
                             para subir</p>
                         <p class="text-sm text-gray-500 mt-2" data-i18n="drop_zone_subtitle">Solo archivos .pdf
@@ -194,7 +144,7 @@
 
                 <!-- AD_SPACE: Post-Action -->
                 <div id="ad-post-action"
-                    class="w-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center rounded-lg text-xs text-gray-500 min-h-[250px] mt-8 overflow-hidden">
+                    class="w-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center rounded-lg text-xs text-gray-500 min-h-[90px] mt-8">
                     AD_SPACE - Below Action Button (Esperando consentimiento)
                 </div>
 
@@ -238,9 +188,10 @@
                 </section>
             </div>
 
+            <!-- Sidebar / AD_SPACE -->
             <aside class="lg:col-span-1 space-y-6">
                 <div id="ad-sidebar"
-                    class="sticky top-6 bg-gray-200 dark:bg-gray-800 flex items-center justify-center text-xs text-gray-500 rounded-lg min-h-[600px] w-full overflow-hidden">
+                    class="sticky top-6 bg-gray-200 dark:bg-gray-800 flex items-center justify-center text-xs text-gray-500 rounded-lg min-h-[600px] w-full">
                     AD_SPACE - Sidebar Desktop (Esperando consentimiento)
                 </div>
             </aside>
@@ -267,15 +218,12 @@
                 <div>
                     <h4 class="text-lg font-bold mb-4 text-gray-900 dark:text-gray-100" data-i18n="footer_legal_title">
                         Legal</h4>
-                    <ul class="space-y-2 text-sm text-gray-700 dark:text-gray-300">
-                        <li><a href="privacy.html"
-                                class="underline hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                    <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                        <li><a href="privacy.html" class="hover:text-blue-500 transition-colors"
                                 data-i18n="footer_privacy">Política de Privacidad</a></li>
-                        <li><a href="terms.html"
-                                class="underline hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                        <li><a href="terms.html" class="hover:text-blue-500 transition-colors"
                                 data-i18n="footer_terms">Términos de Servicio</a></li>
-                        <li><a href="#" onclick="resetConsent(event)"
-                                class="underline hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                        <li><a href="#" onclick="resetConsent(event)" class="hover:text-blue-500 transition-colors"
                                 data-i18n="footer_cookie_settings">Configuración de Cookies</a></li>
                     </ul>
                 </div>
@@ -284,10 +232,10 @@
                 <div>
                     <h4 class="text-lg font-bold mb-4 text-gray-900 dark:text-gray-100"
                         data-i18n="footer_support_title">Apoya el Proyecto</h4>
-                    <p class="text-sm text-gray-700 dark:text-gray-300 mb-4" data-i18n="footer_support_text">
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mb-4" data-i18n="footer_support_text">
                         Mantenemos esta herramienta gratuita gracias a la comunidad. Para soporte:
                         <a href="mailto:soporte.pdfquicktool@gmail.com"
-                            class="text-blue-700 dark:text-blue-300 underline hover:no-underline">soporte.pdfquicktool@gmail.com</a>
+                            class="text-blue-500 hover:underline">soporte.pdfquicktool@gmail.com</a>
                     </p>
                     <p class="text-sm font-semibold text-gray-800 dark:text-gray-200 mt-4">
                         <i class="fas fa-coffee text-yellow-500 mr-2"></i>
@@ -307,7 +255,7 @@
                 <span data-i18n="cookie_message">Esta herramienta es gratuita y privada (procesamiento local). Usamos
                     cookies para mostrar anuncios que financian el proyecto. ¿Nos apoyas aceptando?</span>
                 <a href="privacy.html" class="text-blue-600 dark:text-blue-400 hover:underline ml-1"
-                    aria-label="Leer política de privacidad completa" data-i18n="cookie_privacy_link">Conoce más</a>
+                    data-i18n="cookie_privacy_link">Conoce más</a>
             </div>
             <div class="flex gap-2 w-full md:w-auto">
                 <button onclick="declineCookies()"
@@ -578,23 +526,17 @@
                 }
             });
 
-            // Actualizar SEO (Títulos y Metadatos Dinámicos) con comprobaciones de seguridad
-            const ogTitle = document.querySelector('meta[property="og:title"]');
+            // Actualizar SEO (Títulos y Metadatos Dinámicos)
             if (translations[lang].page_title) {
                 document.title = translations[lang].page_title;
-                if (ogTitle) ogTitle.content = translations[lang].page_title;
+                document.querySelector('meta[property="og:title"]').content = translations[lang].page_title;
             }
-
-            const metaDesc = document.querySelector('meta[name="description"]');
-            const ogDesc = document.querySelector('meta[property="og:description"]');
             if (translations[lang].meta_description) {
-                if (metaDesc) metaDesc.content = translations[lang].meta_description;
-                if (ogDesc) ogDesc.content = translations[lang].meta_description;
+                document.querySelector('meta[name="description"]').content = translations[lang].meta_description;
+                document.querySelector('meta[property="og:description"]').content = translations[lang].meta_description;
             }
-
-            const metaKeywords = document.querySelector('meta[name="keywords"]');
-            if (translations[lang].meta_keywords && metaKeywords) {
-                metaKeywords.content = translations[lang].meta_keywords;
+            if (translations[lang].meta_keywords) {
+                document.querySelector('meta[name="keywords"]').content = translations[lang].meta_keywords;
             }
 
             // Actualizar estado del botón de procesamiento
@@ -626,13 +568,9 @@
         }
 
         /* --- LOGICA DE INITIALIZACION (COOKIES + LENGUAJE POR GEOLOCALIZACION) --- */
-        let cookieBanner; // Se inicializa en DOMContentLoaded
+        const cookieBanner = document.getElementById('cookie-banner');
 
         async function initApp() {
-            // Configuración de PDF.js (movido aquí para asegurar que pdfjsLib esté definido con 'defer')
-            if (typeof pdfjsLib !== 'undefined') {
-                pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-            }
             const savedLang = localStorage.getItem('pdfqt_lang');
             const consent = localStorage.getItem('pdfqt_consent');
 
@@ -643,41 +581,11 @@
                 return;
             }
 
-            // Caso 2: Falta lenguaje o consentimiento, detectamos por IP con tiempo límite y fallbacks
-            let country = 'unknown';
+            // Caso 2: Falta lenguaje o consentimiento, detectamos por IP
             try {
-                const getCountry = async (url) => {
-                    const controller = new AbortController();
-                    const timeoutId = setTimeout(() => controller.abort(), 3000);
-                    const response = await fetch(url, { signal: controller.signal });
-                    clearTimeout(timeoutId);
-                    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-                    const data = await response.json();
-                    return data.country || data.country_code || 'unknown';
-                };
-
-                // Intentar GeoJS primero
-                try {
-                    country = await getCountry('https://get.geojs.io/v1/ip/country.json');
-                } catch (e) {
-                    console.warn("GeoJS falló, intentando fallback...");
-                    // Fallback: ipapi.co (Suele ser confiable)
-                    try {
-                        country = await getCountry('https://ipapi.co/json/');
-                    } catch (e2) {
-                        console.warn("Fallback 1 falló, intentando fallback final...");
-                        // Fallback 2: ip-api (gratuito)
-                        try {
-                            const res = await fetch('http://ip-api.com/json/');
-                            const data = await res.json();
-                            country = data.countryCode;
-                        } catch (e3) {
-                            console.error("Todos los servicios de geo-detección fallaron.");
-                        }
-                    }
-                }
-
-                console.log("País detectado:", country);
+                const response = await fetch('https://get.geojs.io/v1/ip/country.json');
+                const data = await response.json();
+                const country = data.country;
 
                 // A. Detección automática de Lenguaje
                 if (!savedLang) {
@@ -697,25 +605,21 @@
                     changeLanguage(savedLang);
                 }
 
-                // B. Consentimiento de Cookies (GDPR/EU + Brasil LGPD)
+                // B. Consentimiento de Cookies (GDPR/EU)
                 if (!consent) {
-                    // Lista actualizada de países con regulaciones estrictas (EU + Brasil)
                     const strictCountries = ['AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'GR', 'HU', 'IE', 'IT', 'LV', 'LT', 'LU', 'MT', 'NL', 'PL', 'PT', 'RO', 'SK', 'SI', 'ES', 'SE', 'GB', 'BR'];
-
-                    if (country !== 'unknown' && !strictCountries.includes(country)) {
-                        console.log("Región no estricta detectada. Auto-consentimiento concedido.");
+                    if (!strictCountries.includes(country)) {
                         localStorage.setItem('pdfqt_consent', 'true');
                         loadAds();
                     } else {
-                        console.log("Región estricta o desconocida. Mostrando banner de consentimiento.");
                         showConsentBanner();
                     }
                 } else if (consent === 'true') {
                     loadAds();
                 }
             } catch (err) {
-                console.error("Error general en initApp:", err);
-                // Fallback final basado en navegador si todo falla
+                console.error("Error en detección de geolocalización:", err);
+                // Fallback por defecto
                 if (!savedLang) {
                     const navLang = navigator.language.split('-')[0];
                     changeLanguage(translations[navLang] ? navLang : 'es');
@@ -727,20 +631,20 @@
         }
 
         function showConsentBanner() {
-            if (!cookieBanner) return;
-            // Eliminado el delay de 1s para que la respuesta sea instantánea
-            cookieBanner.classList.remove('translate-y-full');
+            setTimeout(() => {
+                cookieBanner.classList.remove('translate-y-full');
+            }, 1000);
         }
 
         function acceptCookies() {
             localStorage.setItem('pdfqt_consent', 'true');
-            if (cookieBanner) cookieBanner.classList.add('translate-y-full');
+            cookieBanner.classList.add('translate-y-full');
             loadAds();
         }
 
         function declineCookies() {
             localStorage.setItem('pdfqt_consent', 'false');
-            if (cookieBanner) cookieBanner.classList.add('translate-y-full');
+            cookieBanner.classList.add('translate-y-full');
 
             // Opcional: borrar el texto "Esperando consentimiento" si rechazaron
             ['ad-header', 'ad-post-action', 'ad-sidebar'].forEach(id => {
@@ -785,10 +689,7 @@
                     scriptInvoke.src = `https://www.highperformanceformat.com/${key}/invoke.js`;
 
                     scriptInvoke.onload = () => {
-                        // Intentar añadir un título al iframe generado por el script externo para accesibilidad
-                        const iframe = container.querySelector('iframe');
-                        if (iframe) iframe.title = "Anuncio publicitario";
-                        setTimeout(resolve, 300);
+                        setTimeout(resolve, 300); // Pequeño retraso para que ejecute y consuma atOptions
                     };
                     scriptInvoke.onerror = resolve; // Continuar con el siguiente si falla
 
@@ -804,74 +705,11 @@
         }
 
         document.addEventListener('DOMContentLoaded', () => {
-            cookieBanner = document.getElementById('cookie-banner');
-            // Revelar el cuerpo casi de inmediato pero con un respiro para el renderizado
-            setTimeout(() => {
-                document.body.classList.add('loaded');
-            }, 10);
-
-            // Usar requestIdleCallback para no bloquear el hilo principal durante la carga
-            // Esto permite que el navegador pinte la página antes de ejecutar la lógica de geo-detección
-            if ('requestIdleCallback' in window) {
-                requestIdleCallback(() => initApp(), { timeout: 2000 });
-            } else {
-                setTimeout(() => initApp(), 0);
-            }
-
-            // Lazy loading de Ko-fi: cargar SOLO tras la primera interacción del usuario
-            // IMPORTANTE: NO usamos setTimeout de fallback para que Lighthouse/PageSpeed
-            // no detecte el script como recurso de terceros bloqueante.
-            // En un uso real, el usuario siempre interactúa antes de usar la herramienta.
-            let kofiLoaded = false;
-            const loadKofi = () => {
-                if (kofiLoaded) return;
-                kofiLoaded = true;
-                const script = document.createElement('script');
-                script.src = 'https://storage.ko-fi.com/cdn/scripts/overlay-widget.js';
-                script.onload = () => {
-                    const lang = localStorage.getItem('pdfqt_lang') || 'es';
-                    updateKofiWidget(lang);
-                };
-                document.body.appendChild(script);
-            };
-
-            // Solo se activa con interacción real del usuario (invisible para Lighthouse)
-            const interactionEvents = ['scroll', 'mousemove', 'touchstart', 'keydown', 'click'];
-            const onFirstInteraction = () => {
-                loadKofi();
-                interactionEvents.forEach(ev => window.removeEventListener(ev, onFirstInteraction));
-            };
-            interactionEvents.forEach(ev => window.addEventListener(ev, onFirstInteraction, { passive: true }));
+            initApp();
         });
 
-        // Función para cargar librerías de forma perezosa (Lazy Loading)
-        function loadScript(src) {
-            return new Promise((resolve, reject) => {
-                if (document.querySelector(`script[src="${src}"]`)) {
-                    resolve();
-                    return;
-                }
-                const script = document.createElement('script');
-                script.src = src;
-                script.onload = resolve;
-                script.onerror = reject;
-                document.head.appendChild(script);
-            });
-        }
-
-        async function ensurePDFLib() {
-            if (typeof PDFLib === 'undefined') {
-                await loadScript('https://unpkg.com/pdf-lib/dist/pdf-lib.min.js');
-            }
-        }
-
-        async function ensurePDFJS() {
-            if (typeof pdfjsLib === 'undefined') {
-                await loadScript('https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js');
-                pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-            }
-        }
-
+        // Reemplaza la línea: const { PDFDocument } = PDFLib;
+        // Por esta lógica de inicialización segura:
         const getPDFDoc = () => window.PDFLib ? window.PDFLib.PDFDocument : null;
 
 
@@ -981,13 +819,10 @@
 
             try {
                 if (currentTab === 'merge') {
-                    await ensurePDFLib();
                     await mergePDFs();
                 } else if (currentTab === 'extract') {
-                    await ensurePDFJS();
                     await extractText();
                 } else if (currentTab === 'remove') {
-                    await ensurePDFLib();
                     await removePages();
                 }
             } catch (err) {
@@ -1114,9 +949,7 @@
             max-width: 350px !important;
         }
     </style>
-    <!-- Mover scripts no críticos al final y usar defer/async -->
-    <!-- Ko-fi se carga de forma diferida mediante JavaScript (ver listener arriba) -->
-    <!-- <script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js' defer></script> -->
+    <script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
 </body>
 
 </html>
