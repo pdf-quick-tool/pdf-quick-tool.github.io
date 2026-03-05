@@ -4,72 +4,225 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Términos de Servicio | PDF Quick-Tool</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title id="page-title">Términos de Servicio | PDF Quick-Tool</title>
+    <meta name="description"
+        content="Términos y condiciones de uso de PDF Quick-Tool. Herramienta gratuita de procesamiento local de PDFs.">
+    <meta name="robots" content="noindex, follow">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📄</text></svg>">
+
+    <!-- Scripts & Estilos optimizados -->
+    <script src="https://cdn.tailwindcss.com" defer></script>
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-solid-900.woff2"
+        as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        media="print" onload="this.media='all'; this.onload=null;">
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    </noscript>
 </head>
 
 <body
     class="bg-gray-50 text-gray-900 transition-colors duration-300 dark:bg-gray-900 dark:text-gray-100 flex flex-col min-h-screen">
+
     <header class="container mx-auto px-4 py-8 text-center border-b border-gray-200 dark:border-gray-800">
         <h1 class="text-3xl font-bold mb-2">PDF Quick-Tool</h1>
-        <p class="text-gray-500">Términos y Condiciones de Uso</p>
-        <a href="index.html" class="inline-block mt-4 text-blue-600 dark:text-blue-400 hover:underline"><i
-                class="fas fa-arrow-left mr-2"></i>Volver a la herramienta</a>
+        <p id="page-subtitle" class="text-gray-500">Términos y Condiciones de Uso</p>
+        <a href="index.html" id="back-link" class="inline-block mt-4 text-blue-600 dark:text-blue-400 hover:underline">
+            <i class="fas fa-arrow-left mr-2"></i><span>Volver a la herramienta</span>
+        </a>
     </header>
 
     <main class="container mx-auto px-4 py-12 flex-grow max-w-4xl">
-        <article class="prose dark:prose-invert max-w-none bg-white dark:bg-gray-800 p-8 rounded-2xl shadow">
-            <h2>1. Aceptación de los Términos</h2>
-            <p>Al acceder y utilizar PDF Quick-Tool, aceptas estar sujeto a los presentes Términos de Servicio. Si no
-                estás de acuerdo con alguna de las partes, te rogamos no hacer uso de esta herramienta web.</p>
-
-            <h2>2. Uso de la Herramienta</h2>
-            <p>PDF Quick-Tool se proporciona "TAL CUAL" ("AS IS"), de forma gratuita, y está destinada a ser una
-                utilidad web privada para el procesamiento de archivos PDF de manera local en el ordenador del usuario.
-            </p>
-            <ul>
-                <li>Eres responsable del contenido de los archivos que procesas.</li>
-                <li>No se permite el uso de herramientas automatizadas, scrapers o bots que sobrecarguen nuestra
-                    interfaz pública mediante ataques o abusos.</li>
-            </ul>
-
-            <h2>3. Disponibilidad y Responsabilidad</h2>
-            <p>Al tratarse de una herramienta que se ejecuta 100% en el entorno cliente (navegador web), no nos
-                responsabilizamos por:</p>
-            <ul>
-                <li>Problemas de rendimiento derivados de la carga de archivos excesivamente grandes o dispositivos con
-                    recursos limitados.</li>
-                <li>Errores o corrupciones de archivos resultantes de utilizar la herramienta (por favor, mantén siempre
-                    copias originales y de seguridad de tus documentos).</li>
-            </ul>
-
-            <h2>4. Ausencia de Garantías</h2>
-            <p>Garantizamos el máximo esfuerzo por proveerte la mejor herramienta web posible para procesar tus
-                documentos de forma privada. Sin embargo, los desarrolladores de PDF Quick-Tool no otorgan ninguna
-                garantía explícita o implícita sobre la exactitud de los textos extraídos, la idoneidad y fiabilidad
-                general de la aplicación web.</p>
-
-            <h2>5. Enlaces y Anuncios de Terceros</h2>
-            <p>Nuestra web puede alojar enlaces, botones, y anuncios provistos por servicios de terceros (dependiendo de
-                tu consentimiento de cookies). No asumimos responsabilidad alguna sobre el contenido de dichas páginas
-                externas, ni garantizamos la disponibilidad o idoneidad de productos mostrados en los banners
-                publicitarios.</p>
-
-            <h2>6. Propiedad Intelectual</h2>
-            <p>El diseño de la aplicación y la estructura central pertenecen a los desarrolladores de la herramienta. El
-                software hace uso de librerías de terceros bajo modelos Open Source (como <code>pdf-lib</code> o
-                <code>pdf.js</code>), por lo cual operamos respetando las debidas licencias originales establecidas por
-                sus equipos de desarrollo.
-            </p>
+        <article id="content"
+            class="prose dark:prose-invert max-w-none bg-white dark:bg-gray-800 p-8 rounded-2xl shadow">
+            <!-- El contenido se inyecta por JS -->
         </article>
     </main>
 
     <footer class="bg-gray-100 dark:bg-gray-950 py-8 text-center text-sm text-gray-500">
-        <p>&copy; 2024 PDF Quick-Tool. Herramienta de procesamiento local.</p>
+        <p>&copy; 2024 PDF Quick-Tool.</p>
         <p class="mt-2">Contacto: <a href="mailto:soporte.pdfquicktool@gmail.com"
                 class="text-blue-600 dark:text-blue-400 hover:underline">soporte.pdfquicktool@gmail.com</a></p>
     </footer>
+
+    <script>
+        const termsContent = {
+            es: {
+                title: "Términos de Servicio | PDF Quick-Tool",
+                subtitle: "Términos y Condiciones de Uso",
+                back: "Volver a la herramienta",
+                body: `
+                    <h2>1. Aceptación de los Términos</h2>
+                    <p>Al acceder y utilizar PDF Quick-Tool, aceptas estar sujeto a los presentes Términos de Servicio. Si no estás de acuerdo con alguna de las partes, te rogamos no hacer uso de esta herramienta web.</p>
+
+                    <h2>2. Uso de la Herramienta</h2>
+                    <p>PDF Quick-Tool se proporciona "TAL CUAL" ("AS IS"), de forma gratuita, y está destinada a ser una utilidad web privada para el procesamiento de archivos PDF de manera local en el ordenador del usuario.</p>
+                    <ul>
+                        <li>Eres responsable del contenido de los archivos que procesas.</li>
+                        <li>No se permite el uso de herramientas automatizadas, scrapers o bots que sobrecarguen nuestra interfaz pública.</li>
+                    </ul>
+
+                    <h2>3. Disponibilidad y Responsabilidad</h2>
+                    <p>Al tratarse de una herramienta que se ejecuta 100% en el entorno cliente (navegador web), no nos responsabilizamos por:</p>
+                    <ul>
+                        <li>Problemas de rendimiento derivados de la carga de archivos excesivamente grandes o dispositivos con recursos limitados.</li>
+                        <li>Errores o corrupciones de archivos resultantes de utilizar la herramienta (por favor, mantén siempre copias originales y de seguridad de tus documentos).</li>
+                    </ul>
+
+                    <h2>4. Ausencia de Garantías</h2>
+                    <p>Garantizamos el máximo esfuerzo por proveerte la mejor herramienta web posible para procesar tus documentos de forma privada. Sin embargo, los desarrolladores de PDF Quick-Tool no otorgan ninguna garantía explícita o implícita sobre la exactitud de los textos extraídos o la fiabilidad general de la aplicación.</p>
+
+                    <h2>5. Enlaces y Anuncios de Terceros</h2>
+                    <p>Nuestra web puede alojar enlaces, botones, y anuncios provistos por servicios de terceros (dependiendo de tu consentimiento de cookies). No asumimos responsabilidad alguna sobre el contenido de dichas páginas externas.</p>
+
+                    <h2>6. Propiedad Intelectual</h2>
+                    <p>El diseño de la aplicación y la estructura central pertenecen a los desarrolladores de la herramienta. El software hace uso de librerías de terceros bajo modelos Open Source (como <code>pdf-lib</code> o <code>pdf.js</code>), por lo cual operamos respetando las debidas licencias originales.</p>
+                `
+            },
+            en: {
+                title: "Terms of Service | PDF Quick-Tool",
+                subtitle: "Terms and Conditions of Use",
+                back: "Back to the tool",
+                body: `
+                    <h2>1. Acceptance of Terms</h2>
+                    <p>By accessing and using PDF Quick-Tool, you agree to be bound by these Terms of Service. If you disagree with any part of the terms, please do not use this web tool.</p>
+
+                    <h2>2. Use of the Tool</h2>
+                    <p>PDF Quick-Tool is provided "AS IS", free of charge, and is intended to be a private web utility for processing PDF files locally on the user's computer.</p>
+                    <ul>
+                        <li>You are responsible for the content of the files you process.</li>
+                        <li>The use of automated tools, scrapers or bots that overload our public interface is not permitted.</li>
+                    </ul>
+
+                    <h2>3. Availability and Liability</h2>
+                    <p>Since this is a tool that runs 100% in the client environment (web browser), we are not responsible for:</p>
+                    <ul>
+                        <li>Performance issues arising from loading excessively large files or devices with limited resources.</li>
+                        <li>File errors or corruptions resulting from using the tool (please always keep original and backup copies of your documents).</li>
+                    </ul>
+
+                    <h2>4. Disclaimer of Warranties</h2>
+                    <p>We guarantee maximum effort to provide you with the best possible web tool for processing your documents privately. However, the developers of PDF Quick-Tool do not grant any express or implied warranty regarding the accuracy of extracted texts or the general reliability of the application.</p>
+
+                    <h2>5. Third-Party Links and Advertisements</h2>
+                    <p>Our website may host links, buttons, and advertisements provided by third-party services (depending on your cookie consent). We assume no responsibility for the content of such external pages.</p>
+
+                    <h2>6. Intellectual Property</h2>
+                    <p>The application design and core structure belong to the tool's developers. The software uses third-party libraries under Open Source models (such as <code>pdf-lib</code> or <code>pdf.js</code>), which we operate respecting the original licenses established by their development teams.</p>
+                `
+            },
+            pt: {
+                title: "Termos de Serviço | PDF Quick-Tool",
+                subtitle: "Termos e Condições de Uso",
+                back: "Voltar à ferramenta",
+                body: `
+                    <h2>1. Aceitação dos Termos</h2>
+                    <p>Ao acessar e usar o PDF Quick-Tool, você concorda em estar sujeito a estes Termos de Serviço. Se você discordar de alguma parte dos termos, por favor, não use esta ferramenta web.</p>
+
+                    <h2>2. Uso da Ferramenta</h2>
+                    <p>O PDF Quick-Tool é fornecido "NO ESTADO EM QUE SE ENCONTRA" ("AS IS"), gratuitamente, e destina-se a ser um utilitário web privado para processamento de arquivos PDF localmente no computador do usuário.</p>
+                    <ul>
+                        <li>Você é responsável pelo conteúdo dos arquivos que processa.</li>
+                        <li>O uso de ferramentas automatizadas, scrapers ou bots que sobrecarreguem nossa interface pública não é permitido.</li>
+                    </ul>
+
+                    <h2>3. Disponibilidade e Responsabilidade</h2>
+                    <p>Por ser uma ferramenta que funciona 100% no ambiente cliente (navegador web), não nos responsabilizamos por:</p>
+                    <ul>
+                        <li>Problemas de desempenho decorrentes do carregamento de arquivos excessivamente grandes ou dispositivos com recursos limitados.</li>
+                        <li>Erros ou corrupções de arquivos resultantes do uso da ferramenta (mantenha sempre cópias originais e de backup de seus documentos).</li>
+                    </ul>
+
+                    <h2>4. Isenção de Garantias</h2>
+                    <p>Garantimos o máximo esforço para fornecer a melhor ferramenta web possível para processar seus documentos de forma privada. No entanto, os desenvolvedores do PDF Quick-Tool não oferecem nenhuma garantia expressa ou implícita sobre a precisão dos textos extraídos ou a confiabilidade geral da aplicação.</p>
+
+                    <h2>5. Links e Anúncios de Terceiros</h2>
+                    <p>Nosso site pode hospedar links, botões e anúncios fornecidos por serviços de terceiros (dependendo do seu consentimento de cookies). Não assumimos responsabilidade pelo conteúdo dessas páginas externas.</p>
+
+                    <h2>6. Propriedade Intelectual</h2>
+                    <p>O design da aplicação e a estrutura central pertencem aos desenvolvedores da ferramenta. O software usa bibliotecas de terceiros sob modelos Open Source (como <code>pdf-lib</code> ou <code>pdf.js</code>), operando respeitando as licenças originais estabelecidas por suas equipes de desenvolvimento.</p>
+                `
+            },
+            de: {
+                title: "Nutzungsbedingungen | PDF Quick-Tool",
+                subtitle: "Nutzungsbedingungen",
+                back: "Zurück zum Tool",
+                body: `
+                    <h2>1. Annahme der Bedingungen</h2>
+                    <p>Durch den Zugriff auf und die Nutzung von PDF Quick-Tool erklären Sie sich mit diesen Nutzungsbedingungen einverstanden. Wenn Sie mit einem Teil der Bedingungen nicht einverstanden sind, bitten wir Sie, dieses Web-Tool nicht zu verwenden.</p>
+
+                    <h2>2. Nutzung des Tools</h2>
+                    <p>PDF Quick-Tool wird "WIE ES IST" ("AS IS"), kostenlos, bereitgestellt und soll ein privates Web-Dienstprogramm zur lokalen Verarbeitung von PDF-Dateien auf dem Computer des Benutzers sein.</p>
+                    <ul>
+                        <li>Sie sind für den Inhalt der von Ihnen verarbeiteten Dateien verantwortlich.</li>
+                        <li>Die Verwendung automatisierter Tools, Scraper oder Bots, die unsere öffentliche Schnittstelle überlasten, ist nicht gestattet.</li>
+                    </ul>
+
+                    <h2>3. Verfügbarkeit und Haftung</h2>
+                    <p>Da es sich um ein Tool handelt, das 100% in der Client-Umgebung (Webbrowser) läuft, sind wir nicht verantwortlich für:</p>
+                    <ul>
+                        <li>Leistungsprobleme, die durch das Laden übermäßig großer Dateien oder Geräte mit begrenzten Ressourcen entstehen.</li>
+                        <li>Dateifehler oder -beschädigungen, die durch die Nutzung des Tools entstehen (bitte halten Sie immer Original- und Sicherungskopien Ihrer Dokumente bereit).</li>
+                    </ul>
+
+                    <h2>4. Haftungsausschluss</h2>
+                    <p>Wir garantieren maximale Anstrengung, Ihnen das bestmögliche Web-Tool zur privaten Verarbeitung Ihrer Dokumente bereitzustellen. Die Entwickler von PDF Quick-Tool übernehmen jedoch keine ausdrückliche oder implizite Garantie für die Genauigkeit extrahierter Texte oder die allgemeine Zuverlässigkeit der Anwendung.</p>
+
+                    <h2>5. Links und Werbung Dritter</h2>
+                    <p>Unsere Website kann Links, Schaltflächen und Werbeanzeigen von Drittanbieterdiensten hosten (abhängig von Ihrer Cookie-Einwilligung). Wir übernehmen keine Verantwortung für den Inhalt solcher externen Seiten.</p>
+
+                    <h2>6. Geistiges Eigentum</h2>
+                    <p>Das Anwendungsdesign und die Kernstruktur gehören den Entwicklern des Tools. Die Software verwendet Bibliotheken von Drittanbietern unter Open-Source-Modellen (wie <code>pdf-lib</code> oder <code>pdf.js</code>) und respektiert dabei die ursprünglichen Lizenzen.</p>
+                `
+            },
+            fr: {
+                title: "Conditions d'Utilisation | PDF Quick-Tool",
+                subtitle: "Conditions d'Utilisation",
+                back: "Retour à l'outil",
+                body: `
+                    <h2>1. Acceptation des Conditions</h2>
+                    <p>En accédant et en utilisant PDF Quick-Tool, vous acceptez d'être lié par ces Conditions d'Utilisation. Si vous n'êtes pas d'accord avec une partie des conditions, veuillez ne pas utiliser cet outil web.</p>
+
+                    <h2>2. Utilisation de l'Outil</h2>
+                    <p>PDF Quick-Tool est fourni "TEL QUEL" ("AS IS"), gratuitement, et est destiné à être un utilitaire web privé pour traiter des fichiers PDF localement sur l'ordinateur de l'utilisateur.</p>
+                    <ul>
+                        <li>Vous êtes responsable du contenu des fichiers que vous traitez.</li>
+                        <li>L'utilisation d'outils automatisés, de scrapers ou de bots qui surchargent notre interface publique n'est pas autorisée.</li>
+                    </ul>
+
+                    <h2>3. Disponibilité et Responsabilité</h2>
+                    <p>S'agissant d'un outil fonctionnant à 100% dans l'environnement client (navigateur web), nous ne sommes pas responsables de :</p>
+                    <ul>
+                        <li>Les problèmes de performances liés au chargement de fichiers excessivement volumineux ou à des appareils aux ressources limitées.</li>
+                        <li>Les erreurs ou corruptions de fichiers résultant de l'utilisation de l'outil (veuillez toujours conserver des copies originales et de sauvegarde de vos documents).</li>
+                    </ul>
+
+                    <h2>4. Exclusion de Garanties</h2>
+                    <p>Nous garantissons un effort maximum pour vous fournir le meilleur outil web possible pour traiter vos documents en toute confidentialité. Cependant, les développeurs de PDF Quick-Tool n'accordent aucune garantie expresse ou implicite quant à l'exactitude des textes extraits ou la fiabilité générale de l'application.</p>
+
+                    <h2>5. Liens et Publicités Tiers</h2>
+                    <p>Notre site peut héberger des liens, des boutons et des publicités fournis par des services tiers (selon votre consentement aux cookies). Nous n'assumons aucune responsabilité quant au contenu de ces pages externes.</p>
+
+                    <h2>6. Propriété Intellectuelle</h2>
+                    <p>Le design de l'application et la structure centrale appartiennent aux développeurs de l'outil. Le logiciel utilise des bibliothèques tierces sous des modèles Open Source (comme <code>pdf-lib</code> ou <code>pdf.js</code>), en respectant les licences originales établies par leurs équipes de développement.</p>
+                `
+            }
+        };
+
+        function applyLanguage() {
+            const lang = localStorage.getItem('pdfqt_lang') || 'es';
+            const t = termsContent[lang] || termsContent['es'];
+
+            document.documentElement.lang = lang;
+            document.title = t.title;
+            document.getElementById('page-subtitle').textContent = t.subtitle;
+            document.getElementById('back-link').querySelector('span').textContent = t.back;
+            document.getElementById('content').innerHTML = t.body;
+        }
+
+        applyLanguage();
+    </script>
 </body>
 
 </html>
