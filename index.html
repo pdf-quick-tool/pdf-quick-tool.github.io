@@ -645,7 +645,10 @@
             // Caso 1: Todo configurado o fallo previo
             if (savedLang && (consent === 'true' || consent === 'false')) {
                 changeLanguage(savedLang);
-                if (consent === 'true') loadAds();
+                if (consent === 'true') {
+                    loadAds();
+                    loadAnalytics();
+                }
                 return;
             }
 
@@ -712,12 +715,14 @@
                         console.log("Región no estricta detectada. Auto-consentimiento concedido.");
                         localStorage.setItem('pdfqt_consent', 'true');
                         loadAds();
+                        loadAnalytics();
                     } else {
                         console.log("Región estricta o desconocida. Mostrando banner de consentimiento.");
                         showConsentBanner();
                     }
                 } else if (consent === 'true') {
                     loadAds();
+                    loadAnalytics();
                 }
             } catch (err) {
                 console.error("Error general en initApp:", err);
@@ -742,6 +747,7 @@
             localStorage.setItem('pdfqt_consent', 'true');
             if (cookieBanner) cookieBanner.classList.add('translate-y-full');
             loadAds();
+            loadAnalytics();
         }
 
         function declineCookies() {
@@ -753,6 +759,19 @@
                 const el = document.getElementById(id);
                 if (el && el.innerHTML.includes('Esperando')) el.innerHTML = 'Espacio libre de anuncios';
             });
+        }
+
+        function loadAnalytics() {
+            console.log("Cargando Google Analytics...");
+            const script = document.createElement('script');
+            script.async = true;
+            script.src = 'https://www.googletagmanager.com/gtag/js?id=G-ZRXF3C02KS';
+            document.head.appendChild(script);
+
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', 'G-ZRXF3C02KS');
         }
 
         function resetConsent(e) {
