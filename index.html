@@ -187,6 +187,83 @@
                                 class="w-full p-3 rounded-lg border dark:bg-gray-700 dark:border-gray-600">
                         </div>
 
+                        <div id="extract-config"
+                            class="hidden mb-6 rounded-2xl border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm overflow-hidden transition-all duration-300">
+
+                            <!-- Harmonious Clickable Header -->
+                            <label
+                                class="flex items-center justify-between p-5 border-b border-gray-100 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700/50 cursor-pointer transition-colors"
+                                id="ocr-header-module" aria-label="Toggle OCR">
+                                <div class="flex items-center space-x-4">
+                                    <div class="bg-blue-100 dark:bg-blue-900/60 p-3 rounded-xl text-blue-700 dark:text-blue-300 shadow-sm transition-colors"
+                                        id="ocr-icon-bg">
+                                        <i class="fas fa-file-search text-lg" id="ocr-icon"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-base font-bold text-gray-900 dark:text-white leading-none"
+                                            data-i18n="ocr_title">Optimizar Lectura (OCR)</h4>
+                                        <p class="text-[13px] text-gray-600 dark:text-gray-400 mt-1.5 font-medium"
+                                            data-i18n="ocr_subtitle">Detecta texto en imágenes o fotos</p>
+                                    </div>
+                                </div>
+
+                                <!-- Standard, Highly Visible Toggle -->
+                                <div class="relative inline-flex items-center cursor-pointer ml-4 shrink-0">
+                                    <input type="checkbox" id="ocr-toggle" class="sr-only peer"
+                                        onchange="toggleOCRVisuals(this)">
+                                    <div
+                                        class="w-14 h-7 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-500/30 rounded-full peer dark:bg-gray-600 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[3px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all dark:border-gray-500 peer-checked:bg-blue-600">
+                                    </div>
+                                </div>
+                            </label>
+
+                            <div class="p-5 flex flex-col space-y-4">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center space-x-3">
+                                        <span id="ocr-status-badge"
+                                            class="px-3 py-1 rounded-full text-[11px] tracking-widest uppercase font-bold bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-gray-600 transition-colors"
+                                            data-i18n="ocr_off">DESACTIVADO</span>
+                                        <p class="text-[13px] text-gray-700 dark:text-gray-300 font-semibold"
+                                            data-i18n="ocr_privacy_note">Privacidad 100% Local</p>
+                                    </div>
+                                </div>
+                                <p class="text-xs leading-relaxed text-gray-500 dark:text-gray-400"
+                                    data-i18n="ocr_disclaimer">Nota: Si es la primera vez, descargará los datos
+                                    necesarios (~10MB) de internet.</p>
+
+                                <div id="ocr-tip"
+                                    class="hidden mt-1 p-4 bg-amber-50 dark:bg-amber-900/30 border border-amber-200 dark:border-amber-700/50 rounded-xl flex items-start space-x-3 transition-all duration-500 shadow-sm">
+                                    <i class="fas fa-lightbulb text-amber-500 dark:text-amber-400 mt-0.5 text-lg"></i>
+                                    <div class="flex-1">
+                                        <p class="text-[13px] text-amber-900 dark:text-amber-100 font-bold mb-1">¡Aviso!
+                                        </p>
+                                        <p class="text-xs text-amber-800 dark:text-amber-200/90 leading-relaxed"
+                                            data-i18n="ocr_tip_text">Este PDF parece ser una imagen. ¡Activá el OCR
+                                            arriba para leer su texto!</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="ocr-status"
+                            class="hidden mt-4 p-5 bg-gray-50 dark:bg-gray-800/60 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm transition-all">
+                            <div class="flex items-center justify-between mb-3">
+                                <div class="flex items-center space-x-3">
+                                    <i class="fas fa-circle-notch fa-spin text-blue-600 dark:text-blue-400"></i>
+                                    <p id="ocr-status-text"
+                                        class="text-[13px] font-bold text-gray-800 dark:text-gray-200"></p>
+                                </div>
+                                <span id="ocr-percentage"
+                                    class="text-xs font-bold text-gray-500 dark:text-gray-400">0%</span>
+                            </div>
+                            <div
+                                class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 shadow-inner overflow-hidden">
+                                <div id="ocr-progress"
+                                    class="bg-blue-600 dark:bg-blue-500 h-full rounded-full transition-all duration-300 ease-out relative"
+                                    style="width: 0%"></div>
+                            </div>
+                        </div>
+
                         <button id="process-btn"
                             class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl transition-all flex items-center justify-center space-x-2 mt-4">
                             <span id="btn-text" data-i18n="process_btn">Procesar Archivo</span>
@@ -373,7 +450,19 @@
                 cookie_decline: "Rechazar",
                 footer_cookie_settings: "Configuración de Cookies",
                 footer_coffee_btn: "¿Te sirvió? Invitame un café en Ko-fi",
-                kofi_button: "Apoyame"
+                kofi_button: "Apoyame",
+                enable_ocr: "Habilitar OCR (Para PDFs escaneados)",
+                ocr_disclaimer: "El proceso es local pero puede ser lento y requiere descargar archivos adicionales (aprox. 10MB) la primera vez.",
+                ocr_loading_worker: "Configurando motor de OCR...",
+                ocr_processing_page: "Reconociendo texto: Página ",
+                ocr_complete: "OCR completado!",
+                ocr_suggest: "No se detectó texto. ¿Quieres intentar habilitar OCR?",
+                ocr_tip_text: "Este PDF parece una imagen. ¡Activá el OCR arriba para leerlo!",
+                ocr_title: "Optimizar Lectura (OCR)",
+                ocr_subtitle: "Detecta texto en imágenes o fotos",
+                ocr_on: "ACTIVADO",
+                ocr_off: "DESACTIVADO",
+                ocr_privacy_note: "Privacidad 100% Local"
             },
             en: {
                 title_main: "PDF Quick-Tool",
@@ -420,7 +509,19 @@
                 cookie_decline: "Decline",
                 footer_cookie_settings: "Cookie Settings",
                 footer_coffee_btn: "Did it help? Buy me a coffee on Ko-fi",
-                kofi_button: "Support me"
+                kofi_button: "Support me",
+                enable_ocr: "Enable OCR (For scanned PDFs)",
+                ocr_disclaimer: "Processing is local but can be slow and requires additional files (approx. 10MB) the first time.",
+                ocr_loading_worker: "Setting up OCR engine...",
+                ocr_processing_page: "Recognizing text: Page ",
+                ocr_complete: "OCR Complete!",
+                ocr_suggest: "No text detected. Do you want to try enabling OCR?",
+                ocr_tip_text: "This PDF seems to be an image. Enable OCR above to read it!",
+                ocr_title: "Optimize Reading (OCR)",
+                ocr_subtitle: "Detect text in images or photos",
+                ocr_on: "ENABLED",
+                ocr_off: "DISABLED",
+                ocr_privacy_note: "100% Local Privacy"
             },
             pt: {
                 title_main: "PDF Quick-Tool",
@@ -565,11 +666,11 @@
             }
         };
 
-        let currentLang = localStorage.getItem('pdfqt_lang');
+        let currentLang = localStorage.getItem('pdfqt_lang') || 'es';
 
         function changeLanguage(lang) {
-            // Revertir a 'en' si el lenguaje no está en nuestro diccionario
-            if (!translations[lang]) lang = 'en';
+            // Revertir a 'es' si el lenguaje no está en nuestro diccionario
+            if (!translations[lang]) lang = 'es';
 
             currentLang = lang;
             localStorage.setItem('pdfqt_lang', lang);
@@ -897,6 +998,12 @@
             }
         }
 
+        async function ensureTesseract() {
+            if (typeof Tesseract === 'undefined') {
+                await loadScript('https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js');
+            }
+        }
+
         const getPDFDoc = () => window.PDFLib ? window.PDFLib.PDFDocument : null;
 
 
@@ -910,6 +1017,7 @@
             document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('tab-active'));
             document.getElementById(`tab-${tab}`).classList.add('tab-active');
             document.getElementById('remove-pages-config').classList.toggle('hidden', tab !== 'remove');
+            document.getElementById('extract-config').classList.toggle('hidden', tab !== 'extract');
             resetUI();
         }
 
@@ -917,6 +1025,44 @@
             selectedFiles = [];
             document.getElementById('file-list').innerHTML = '';
             document.getElementById('config-area').classList.add('hidden');
+            document.getElementById('ocr-status').classList.add('hidden');
+            document.getElementById('ocr-toggle').checked = false;
+            toggleOCRVisuals(document.getElementById('ocr-toggle'));
+        }
+
+        function toggleOCRVisuals(checkbox) {
+            const container = document.getElementById('extract-config');
+            const header = document.getElementById('ocr-header-module');
+            const iconBg = document.getElementById('ocr-icon-bg');
+            const badge = document.getElementById('ocr-status-badge');
+
+            if (checkbox.checked) {
+                container.classList.add('border-blue-500', 'dark:border-blue-500', 'ring-1', 'ring-blue-500/50', 'shadow-md');
+                container.classList.remove('border-gray-100', 'dark:border-gray-700', 'shadow-sm');
+
+                header.classList.add('bg-blue-50/50', 'dark:bg-blue-900/20');
+                header.classList.remove('bg-gray-50', 'dark:bg-gray-800/50');
+
+                iconBg.classList.add('bg-blue-600', 'dark:bg-blue-500', 'text-white', 'dark:text-white');
+                iconBg.classList.remove('bg-blue-100', 'dark:bg-blue-900/60', 'text-blue-700', 'dark:text-blue-300');
+
+                badge.innerText = translations[currentLang].ocr_on;
+                badge.classList.remove('bg-gray-100', 'dark:bg-gray-700', 'text-gray-600', 'dark:text-gray-300', 'border-gray-200', 'dark:border-gray-600');
+                badge.classList.add('bg-blue-100', 'dark:bg-blue-900/40', 'text-blue-700', 'dark:text-blue-300', 'border-blue-200', 'dark:border-blue-800');
+            } else {
+                container.classList.remove('border-blue-500', 'dark:border-blue-500', 'ring-1', 'ring-blue-500/50', 'shadow-md');
+                container.classList.add('border-gray-100', 'dark:border-gray-700', 'shadow-sm');
+
+                header.classList.remove('bg-blue-50/50', 'dark:bg-blue-900/20');
+                header.classList.add('bg-gray-50', 'dark:bg-gray-800/50');
+
+                iconBg.classList.remove('bg-blue-600', 'dark:bg-blue-500', 'text-white', 'dark:text-white');
+                iconBg.classList.add('bg-blue-100', 'dark:bg-blue-900/60', 'text-blue-700', 'dark:text-blue-300');
+
+                badge.innerText = translations[currentLang].ocr_off;
+                badge.classList.add('bg-gray-100', 'dark:bg-gray-700', 'text-gray-600', 'dark:text-gray-300', 'border-gray-200', 'dark:border-gray-600');
+                badge.classList.remove('bg-blue-100', 'dark:bg-blue-900/40', 'text-blue-700', 'dark:text-blue-300', 'border-blue-200', 'dark:border-blue-800');
+            }
         }
 
         // File Selection Logic
@@ -951,7 +1097,7 @@
             }
         };
 
-        function handleFiles(files) {
+        async function handleFiles(files) {
             const pdfFiles = files.filter(f => f.name.toLowerCase().endsWith('.pdf'));
 
             if (pdfFiles.length === 0) return;
@@ -962,6 +1108,25 @@
             } else {
                 // Solo un archivo para extraer o eliminar
                 selectedFiles = [pdfFiles[0]];
+
+                // Proactive OCR Check
+                if (currentTab === 'extract') {
+                    try {
+                        await ensurePDFJS();
+                        const arrayBuffer = await pdfFiles[0].arrayBuffer();
+                        const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+                        const page = await pdf.getPage(1);
+                        const textContent = await page.getTextContent();
+                        const hasText = textContent.items.some(item => item.str.trim().length > 0);
+
+                        const tipEl = document.getElementById('ocr-tip');
+                        if (!hasText) {
+                            tipEl.classList.remove('hidden');
+                        } else {
+                            tipEl.classList.add('hidden');
+                        }
+                    } catch (e) { console.error("Proactive check failed", e); }
+                }
             }
             updateFileList();
         }
@@ -993,7 +1158,9 @@
         }
 
         // PDF Processing
+        let isProcessing = false;
         document.getElementById('process-btn').onclick = async () => {
+            if (isProcessing) return;
             if (currentTab === 'merge' && selectedFiles.length < 2) {
                 alert(currentLang === 'es' ? 'Selecciona al menos 2 archivos para unir.' : 'Please select at least 2 files to merge.');
                 return;
@@ -1003,6 +1170,7 @@
 
             loader.classList.remove('hidden');
             btnText.innerText = translations[currentLang].processing_btn;
+            isProcessing = true;
 
             try {
                 if (currentTab === 'merge') {
@@ -1020,6 +1188,7 @@
             } finally {
                 loader.classList.add('hidden');
                 btnText.innerText = translations[currentLang].process_btn;
+                isProcessing = false;
             }
         };
 
@@ -1049,13 +1218,86 @@
             const file = selectedFiles[0];
             const arrayBuffer = await file.arrayBuffer();
             const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+            const useOCR = document.getElementById('ocr-toggle').checked;
 
             let fullText = '';
-            for (let i = 1; i <= pdf.numPages; i++) {
-                const page = await pdf.getPage(i);
-                const textContent = await page.getTextContent();
-                const pageText = textContent.items.map(item => item.str).join(' ');
-                fullText += `--- ${translations[currentLang].page_text} ${i} ---\n${pageText}\n\n`;
+            let textFound = false;
+
+            if (useOCR) {
+                await ensureTesseract();
+                const ocrStatus = document.getElementById('ocr-status');
+                const ocrStatusText = document.getElementById('ocr-status-text');
+                const ocrProgress = document.getElementById('ocr-progress');
+
+                ocrStatus.classList.remove('hidden');
+                ocrStatusText.innerText = translations[currentLang].ocr_loading_worker;
+                ocrProgress.style.width = '0%';
+                document.getElementById('ocr-percentage').innerText = '0%';
+
+                // Map 2-letter codes to Tesseract 3-letter codes
+                const langMap = {
+                    'es': 'spa',
+                    'en': 'eng',
+                    'pt': 'por',
+                    'de': 'deu',
+                    'fr': 'fra'
+                };
+                const tesseractLang = langMap[currentLang] || 'eng';
+
+                const worker = await Tesseract.createWorker(tesseractLang, 1, {
+                    logger: m => {
+                        if (m.status === 'recognizing text') {
+                            const pageNum = parseInt(ocrStatusText.getAttribute('data-page') || 1);
+                            const totalPages = pdf.numPages;
+                            const pageProgress = m.progress;
+                            const totalProgress = ((pageNum - 1) / totalPages) + (pageProgress / totalPages);
+                            const percentage = Math.round(totalProgress * 100);
+                            ocrProgress.style.width = `${percentage}%`;
+                            document.getElementById('ocr-percentage').innerText = `${percentage}%`;
+                        }
+                    }
+                });
+
+                for (let i = 1; i <= pdf.numPages; i++) {
+                    ocrStatusText.innerText = translations[currentLang].ocr_processing_page + i + '/' + pdf.numPages;
+                    ocrStatusText.setAttribute('data-page', i);
+                    const page = await pdf.getPage(i);
+                    const viewport = page.getViewport({ scale: 1.5 }); // Balanced scale for speed/accuracy
+                    const canvas = document.createElement('canvas');
+                    const context = canvas.getContext('2d');
+                    canvas.height = viewport.height;
+                    canvas.width = viewport.width;
+
+                    await page.render({ canvasContext: context, viewport: viewport }).promise;
+
+                    const { data: { text } } = await worker.recognize(canvas);
+                    fullText += `--- ${translations[currentLang].page_text} ${i} ---\n${text}\n\n`;
+                    const currentPercentage = Math.round((i / pdf.numPages) * 100);
+                    ocrProgress.style.width = `${currentPercentage}%`;
+                    document.getElementById('ocr-percentage').innerText = `${currentPercentage}%`;
+                }
+
+                await worker.terminate();
+                ocrStatusText.innerText = translations[currentLang].ocr_complete;
+                textFound = fullText.trim().length > 0;
+            } else {
+                for (let i = 1; i <= pdf.numPages; i++) {
+                    const page = await pdf.getPage(i);
+                    const textContent = await page.getTextContent();
+                    const pageText = textContent.items.map(item => item.str).join(' ');
+                    if (pageText.trim()) textFound = true;
+                    fullText += `--- ${translations[currentLang].page_text} ${i} ---\n${pageText}\n\n`;
+                }
+            }
+
+            if (!textFound && !useOCR) {
+                if (confirm(translations[currentLang].ocr_suggest)) {
+                    document.getElementById('ocr-toggle').checked = true;
+                    // No descargamos nada automáticamente, dejamos que el usuario haga click de nuevo?
+                    // O relanzamos? Relancemos para mejor UX.
+                    await extractText();
+                    return;
+                }
             }
 
             const blob = new Blob([fullText], { type: "text/plain" });
