@@ -747,7 +747,6 @@
             if (savedLang && (consent === 'true' || consent === 'false')) {
                 changeLanguage(savedLang);
                 if (consent === 'true') {
-                    loadAds();
                     loadAnalytics();
                 }
                 return;
@@ -848,7 +847,6 @@
         function acceptCookies() {
             localStorage.setItem('pdfqt_consent', 'true');
             if (cookieBanner) cookieBanner.classList.add('translate-y-full');
-            loadAds();
             loadAnalytics();
         }
 
@@ -882,53 +880,7 @@
             location.reload(); // Recarga para volver a evaluar la lógica desde cero
         }
 
-        async function loadAds() {
-            console.log("Consentimiento otorgado: Cargando anuncios...");
-
-            const loadAd = (containerId, key, width, height) => {
-                return new Promise((resolve) => {
-                    const container = document.getElementById(containerId);
-                    if (!container) {
-                        resolve();
-                        return;
-                    }
-                    container.innerHTML = '';
-
-                    const scriptOptions = document.createElement('script');
-                    scriptOptions.type = 'text/javascript';
-                    scriptOptions.text = `
-                        atOptions = {
-                            'key' : '${key}',
-                            'format' : 'iframe',
-                            'height' : ${height},
-                            'width' : ${width},
-                            'params' : {}
-                        };
-                    `;
-                    container.appendChild(scriptOptions);
-
-                    const scriptInvoke = document.createElement('script');
-                    scriptInvoke.type = 'text/javascript';
-                    scriptInvoke.src = `https://www.highperformanceformat.com/${key}/invoke.js`;
-
-                    scriptInvoke.onload = () => {
-                        // Intentar añadir un título al iframe generado por el script externo para accesibilidad
-                        const iframe = container.querySelector('iframe');
-                        if (iframe) iframe.title = "Anuncio publicitario";
-                        setTimeout(resolve, 300);
-                    };
-                    scriptInvoke.onerror = resolve; // Continuar con el siguiente si falla
-
-                    container.appendChild(scriptInvoke);
-                });
-            };
-
-            // Cargamos los anuncios uno por uno (de forma secuencial)
-            // Esto evita que la variable global 'atOptions' se sobrescriba antes de usarla
-            await loadAd('ad-header', 'f5694fa303c5f03ed4a14796f1bf5bad', 728, 90);
-            await loadAd('ad-sidebar', '44885ebdeb361ae842bace64da1acde6', 160, 600);
-            await loadAd('ad-post-action', 'ee19ea6f3757704c1079ebff94578ddd', 300, 250);
-        }
+        // Adsterra ads removed - caused aggressive redirections on mobile data
 
         document.addEventListener('DOMContentLoaded', () => {
             cookieBanner = document.getElementById('cookie-banner');
@@ -966,12 +918,6 @@
             const interactionEvents = ['keydown', 'click'];
             const onFirstInteraction = () => {
                 loadKofi();
-                
-                // CARGA DIFERIDA DE ANUNCIOS: solo si hay consentimiento
-                if (localStorage.getItem('pdfqt_consent') === 'true') {
-                    loadAds();
-                }
-                
                 interactionEvents.forEach(ev => window.removeEventListener(ev, onFirstInteraction));
             };
             interactionEvents.forEach(ev => window.addEventListener(ev, onFirstInteraction, { passive: true }));
