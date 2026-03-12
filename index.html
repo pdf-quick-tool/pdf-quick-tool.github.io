@@ -815,14 +815,15 @@
                     if (country !== 'unknown' && !strictCountries.includes(country)) {
                         console.log("Región no estricta detectada. Auto-consentimiento concedido.");
                         localStorage.setItem('pdfqt_consent', 'true');
-                        loadAds();
+                        // No cargamos anuncios inmediatamente para evitar popups molestos al inicio
+                        // loadAds(); 
                         loadAnalytics();
                     } else {
                         console.log("Región estricta o desconocida. Mostrando banner de consentimiento.");
                         showConsentBanner();
                     }
                 } else if (consent === 'true') {
-                    loadAds();
+                    // loadAds(); // Se cargará tras la primera interacción
                     loadAnalytics();
                 }
             } catch (err) {
@@ -965,6 +966,12 @@
             const interactionEvents = ['scroll', 'mousemove', 'touchstart', 'keydown', 'click'];
             const onFirstInteraction = () => {
                 loadKofi();
+                
+                // CARGA DIFERIDA DE ANUNCIOS: solo si hay consentimiento
+                if (localStorage.getItem('pdfqt_consent') === 'true') {
+                    loadAds();
+                }
+                
                 interactionEvents.forEach(ev => window.removeEventListener(ev, onFirstInteraction));
             };
             interactionEvents.forEach(ev => window.addEventListener(ev, onFirstInteraction, { passive: true }));
