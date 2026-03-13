@@ -871,6 +871,52 @@
             }, 5000);
         }
 
+        function showBannerDebug(container, bannerContainer) {
+            // Crear elemento para debugging del banner
+            let bannerDebug = document.getElementById('banner-debug');
+            if (!bannerDebug) {
+                bannerDebug = document.createElement('div');
+                bannerDebug.id = 'banner-debug';
+                bannerDebug.style.cssText = 'position: fixed; top: 50px; left: 10px; background: #3b82f6; color: white; padding: 8px 12px; border-radius: 5px; font-size: 11px; z-index: 9999; font-weight: bold; max-width: 300px;';
+                document.body.appendChild(bannerDebug);
+            }
+            
+            const connection = navigator.connection ? navigator.connection.effectiveType : 'Unknown';
+            bannerDebug.innerHTML = `
+                <div>Banner Debug:</div>
+                <div>Container: ${container ? '✅' : '❌'}</div>
+                <div>Banner Container: ${bannerContainer ? '✅' : '❌'}</div>
+                <div>Connection: ${connection}</div>
+                <div>Mobile: ${/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ? '✅' : '❌'}</div>
+            `;
+            
+            // Ocultar después de 10 segundos
+            setTimeout(() => {
+                if (bannerDebug) {
+                    bannerDebug.style.display = 'none';
+                }
+            }, 10000);
+        }
+
+        function showBannerError(message) {
+            // Crear elemento para errores del banner
+            let bannerError = document.getElementById('banner-error');
+            if (!bannerError) {
+                bannerError = document.createElement('div');
+                bannerError.id = 'banner-error';
+                bannerError.style.cssText = 'position: fixed; top: 120px; left: 10px; background: #ef4444; color: white; padding: 8px 12px; border-radius: 5px; font-size: 11px; z-index: 9999; font-weight: bold; max-width: 300px;';
+                document.body.appendChild(bannerError);
+            }
+            bannerError.textContent = `❌ Banner Error: ${message}`;
+            
+            // Ocultar después de 8 segundos
+            setTimeout(() => {
+                if (bannerError) {
+                    bannerError.style.display = 'none';
+                }
+            }, 8000);
+        }
+
         function acceptCookies() {
             localStorage.setItem('pdfqt_consent', 'true');
             if (cookieBanner) cookieBanner.classList.add('translate-y-full');
@@ -922,11 +968,45 @@
 
             if (adsLoaded) return;
             adsLoaded = true;
+            
+            // Debugging: Verificar si el container existe
+            const container = document.getElementById('container-9c0160470687def6fc582f0096557057');
+            const bannerContainer = document.getElementById('native-banner-container');
+            
+            console.log('=== DEBUG NATIVE BANNER ===');
+            console.log('Container ID:', container ? 'EXISTS' : 'MISSING');
+            console.log('Banner Container:', bannerContainer ? 'EXISTS' : 'MISSING');
+            console.log('Consent:', consent);
+            console.log('User Agent:', navigator.userAgent);
+            console.log('Connection:', navigator.connection ? navigator.connection.effectiveType : 'Unknown');
+            
+            // Mostrar info en página
+            showBannerDebug(container, bannerContainer);
+            
             console.log('Cargando Native Banner...');
             const script = document.createElement('script');
             script.async = true;
             script.dataset.cfasync = 'false';
             script.src = 'https://pl28904959.effectivegatecpm.com/9c0160470687def6fc582f0096557057/invoke.js';
+            
+            // Eventos del script para debugging
+            script.onload = () => {
+                console.log('✅ Script del banner cargado exitosamente');
+                setTimeout(() => {
+                    const hasContent = container && container.innerHTML.trim() !== '';
+                    console.log('¿El banner tiene contenido?', hasContent);
+                    if (!hasContent) {
+                        console.log('❌ El container está vacío - posible bloqueo');
+                        showBannerError('Container vacío - posible bloqueo de carrier');
+                    }
+                }, 3000);
+            };
+            
+            script.onerror = (error) => {
+                console.error('❌ Error cargando script del banner:', error);
+                showBannerError('Error cargando script - posible bloqueo');
+            };
+            
             // The container is now directly in the HTML for reliability
             document.body.appendChild(script);
         }
