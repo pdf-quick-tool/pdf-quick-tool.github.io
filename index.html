@@ -735,6 +735,8 @@
             if (savedLang && (consent === 'true' || consent === 'false')) {
                 changeLanguage(savedLang);
                 if (consent === 'true') {
+                    loadAds();
+                    loadKofi();
                     loadAnalytics();
                 }
                 return;
@@ -802,15 +804,16 @@
                     if (country !== 'unknown' && !strictCountries.includes(country)) {
                         console.log("Región no estricta detectada. Auto-consentimiento concedido.");
                         localStorage.setItem('pdfqt_consent', 'true');
-                        // No cargamos anuncios inmediatamente para evitar popups molestos al inicio
-                        // loadAds(); 
+                        loadAds();
+                        loadKofi();
                         loadAnalytics();
                     } else {
                         console.log("Región estricta o desconocida. Mostrando banner de consentimiento.");
                         showConsentBanner();
                     }
                 } else if (consent === 'true') {
-                    // loadAds(); // Se cargará tras la primera interacción
+                    loadAds();
+                    loadKofi();
                     loadAnalytics();
                 }
             } catch (err) {
@@ -835,6 +838,8 @@
         function acceptCookies() {
             localStorage.setItem('pdfqt_consent', 'true');
             if (cookieBanner) cookieBanner.classList.add('translate-y-full');
+            loadAds();
+            loadKofi();
             loadAnalytics();
         }
 
@@ -868,8 +873,9 @@
             location.reload(); // Recarga para volver a evaluar la lógica desde cero
         }
 
-        // Native Banner - loads ONLY after first user click (safe, no redirects)
+        // Global state for lazy loading
         let adsLoaded = false;
+        let kofiLoaded = false;
         async function loadAds() {
             if (adsLoaded) return;
             adsLoaded = true;
@@ -893,6 +899,18 @@
             document.body.appendChild(script);
         }
 
+        function loadKofi() {
+            if (kofiLoaded) return;
+            kofiLoaded = true;
+            const script = document.createElement('script');
+            script.src = 'https://storage.ko-fi.com/cdn/scripts/overlay-widget.js';
+            script.onload = () => {
+                const lang = localStorage.getItem('pdfqt_lang') || 'es';
+                updateKofiWidget(lang);
+            };
+            document.body.appendChild(script);
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
             cookieBanner = document.getElementById('cookie-banner');
             // Revelar el cuerpo casi de inmediato pero con un respiro para el renderizado
@@ -907,32 +925,6 @@
             } else {
                 setTimeout(() => initApp(), 0);
             }
-
-            // Lazy loading de Ko-fi: cargar SOLO tras la primera interacción del usuario
-            // IMPORTANTE: NO usamos setTimeout de fallback para que Lighthouse/PageSpeed
-            // no detecte el script como recurso de terceros bloqueante.
-            // En un uso real, el usuario siempre interactúa antes de usar la herramienta.
-            let kofiLoaded = false;
-            const loadKofi = () => {
-                if (kofiLoaded) return;
-                kofiLoaded = true;
-                const script = document.createElement('script');
-                script.src = 'https://storage.ko-fi.com/cdn/scripts/overlay-widget.js';
-                script.onload = () => {
-                    const lang = localStorage.getItem('pdfqt_lang') || 'es';
-                    updateKofiWidget(lang);
-                };
-                document.body.appendChild(script);
-            };
-
-            // Solo se activa con interacción decidida (click o tecla)
-            const interactionEvents = ['keydown', 'click'];
-            const onFirstInteraction = () => {
-                loadKofi();
-                loadAds();
-                interactionEvents.forEach(ev => window.removeEventListener(ev, onFirstInteraction));
-            };
-            interactionEvents.forEach(ev => window.addEventListener(ev, onFirstInteraction, { passive: true }));
         });
 
         // Función para cargar librerías de forma perezosa (Lazy Loading)
