@@ -113,7 +113,9 @@
     <!-- Failsafe: Revelar cuerpo si los scripts tardan demasiado -->
     <script>
         // Inicializar lenguaje lo más pronto posible para evitar saltos de contenido (CLS/LCP)
-        const savedLang = localStorage.getItem('pdfqt_lang') || 'es';
+        const params = new URLSearchParams(window.location.search);
+        const langParam = params.get('lang');
+        const savedLang = langParam || localStorage.getItem('pdfqt_lang') || 'es';
         document.documentElement.lang = savedLang;
 
         setTimeout(() => {
@@ -729,6 +731,13 @@
         let cookieBanner; // Se inicializa en DOMContentLoaded
 
         async function initApp() {
+            // 1. Leer parámetro de URL primero para forzar idioma si existe
+            const urlParams = new URLSearchParams(window.location.search);
+            const urlLang = urlParams.get('lang');
+            if (urlLang && translations[urlLang]) {
+                localStorage.setItem('pdfqt_lang', urlLang);
+            }
+
             // Configuración de PDF.js (movido aquí para asegurar que pdfjsLib esté definido con 'defer')
             if (typeof pdfjsLib !== 'undefined') {
                 pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
@@ -802,9 +811,6 @@
                 if (!consent) {
                     // Lista actualizada de países con regulaciones estrictas (EU + Brasil)
                     const strictCountries = ['AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'GR', 'HU', 'IE', 'IT', 'LV', 'LT', 'LU', 'MT', 'NL', 'PL', 'PT', 'RO', 'SK', 'SI', 'ES', 'SE', 'GB', 'BR'];
-
-                    // Mostrar país detectado en la página
-                    showCountryInfo(country);
 
                     // Detectar si es móvil
                     const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
