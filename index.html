@@ -1177,9 +1177,9 @@
             };
             
             try {
-                // Importar dinámicamente el módulo ES ya resuelto para navegadores (+esm)
+                // Importar dinámicamente el módulo usando esm.sh compilado con todo en uno
                 if (!window.imglyRemoveBackground) {
-                    const module = await import("https://cdn.jsdelivr.net/npm/@imgly/background-removal@1.4.5/+esm");
+                    const module = await import("https://esm.sh/@imgly/background-removal@1.4.5?bundle");
                     window.imglyRemoveBackground = module.default || module.removeBackground;
                 }
 
