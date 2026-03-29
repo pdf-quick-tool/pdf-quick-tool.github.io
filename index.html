@@ -1166,7 +1166,7 @@
             if(bgProgressBar) bgProgressBar.style.width = "0%";
 
             const config = {
-                publicPath: 'https://cdn.jsdelivr.net/npm/@imgly/background-removal@1.4.5/dist/', 
+                publicPath: 'https://unpkg.com/@imgly/background-removal@1.4.5/dist/', 
                 progress: (key, current, total) => {
                     if (total > 0 && bgProgressText && bgProgressBar) {
                         const percent = Math.round((current / total) * 100);
@@ -1180,7 +1180,7 @@
                 // Importar dinámicamente el módulo ES desde unpkg
                 if (!window.imglyRemoveBackground) {
                     const module = await import("https://unpkg.com/@imgly/background-removal@1.4.5/dist/index.mjs");
-                    window.imglyRemoveBackground = module.default;
+                    window.imglyRemoveBackground = module.default || module.removeBackground;
                 }
 
                 const blob = await window.imglyRemoveBackground(file, config);
@@ -1188,7 +1188,7 @@
                 downloadBlob(blob, `${baseName}_nobg.png`);
             } catch(e) {
                 console.error("RemoveBG Error: ", e);
-                alert("Error al quitar el fondo: Revisa la consola o asegúrate de estar corriendo un servidor local.");
+                alert("Error al quitar el fondo: Revisa la consola. Si tienes bloqueadores de anuncios o un antivirus estricto, intenta desactivarlos momentáneamente.");
                 throw e;
             } finally {
                 if(bgStatus) bgStatus.classList.add('hidden');
