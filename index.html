@@ -1177,12 +1177,18 @@
             };
             
             try {
-                // @imgly/background-removal loaded via script tag creates `window.imglyRemoveBackground`
+                // Importar dinámicamente el módulo ES desde unpkg
+                if (!window.imglyRemoveBackground) {
+                    const module = await import("https://unpkg.com/@imgly/background-removal@1.4.5/dist/index.mjs");
+                    window.imglyRemoveBackground = module.default;
+                }
+
                 const blob = await window.imglyRemoveBackground(file, config);
                 const baseName = file.name.substring(0, file.name.lastIndexOf('.')) || 'image';
                 downloadBlob(blob, `${baseName}_nobg.png`);
             } catch(e) {
                 console.error("RemoveBG Error: ", e);
+                alert("Error al quitar el fondo: Revisa la consola o asegúrate de estar corriendo un servidor local.");
                 throw e;
             } finally {
                 if(bgStatus) bgStatus.classList.add('hidden');
