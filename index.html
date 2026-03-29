@@ -8,40 +8,40 @@
     <meta name="theme-color" content="#3b82f6">
 
     <!-- SEO Básico -->
-    <link rel="canonical" href="https://image-quick-tool.github.io/" />
-    <link rel="alternate" hreflang="x-default" href="https://image-quick-tool.github.io/" />
-    <link rel="alternate" hreflang="es" href="https://image-quick-tool.github.io/?lang=es" />
-    <link rel="alternate" hreflang="en" href="https://image-quick-tool.github.io/?lang=en" />
-    <link rel="alternate" hreflang="fr" href="https://image-quick-tool.github.io/?lang=fr" />
-    <link rel="alternate" hreflang="de" href="https://image-quick-tool.github.io/?lang=de" />
-    <link rel="alternate" hreflang="pt" href="https://image-quick-tool.github.io/?lang=pt" />
+    <link rel="canonical" href="https://pdf-quick-tool.github.io/" />
+    <link rel="alternate" hreflang="x-default" href="https://pdf-quick-tool.github.io/" />
+    <link rel="alternate" hreflang="es" href="https://pdf-quick-tool.github.io/?lang=es" />
+    <link rel="alternate" hreflang="en" href="https://pdf-quick-tool.github.io/?lang=en" />
+    <link rel="alternate" hreflang="fr" href="https://pdf-quick-tool.github.io/?lang=fr" />
+    <link rel="alternate" hreflang="de" href="https://pdf-quick-tool.github.io/?lang=de" />
+    <link rel="alternate" hreflang="pt" href="https://pdf-quick-tool.github.io/?lang=pt" />
 
-    <title>Image Quick-Tool: Comprimir, Redimensionar y Quitar Fondo Gratis Online</title>
+    <title>PDF Quick-Tool: Unir, Dividir y Extraer Texto Gratis Online</title>
     <meta name="description"
-        content="Herramienta gratuita para comprimir imágenes, redimensionar y quitar fondos localmente. Privacidad total: tus fotos nunca salen de tu navegador.">
+        content="Herramienta gratuita para unir PDF, extraer texto y eliminar páginas localmente. Privacidad total: tus archivos nunca salen de tu navegador.">
     <meta name="keywords"
-        content="comprimir imagen gratis online, redimensionar foto, quitar fondo ia gratis, image quick-tool">
+        content="unir pdf gratis online, extraer texto de pdf sin registro, eliminar paginas pdf, pdf quick-tool">
 
     <!-- OpenGraph (Redes Sociales) -->
-    <meta property="og:title" content="Image Quick-Tool: Procesa tus imágenes al instante">
+    <meta property="og:title" content="PDF Quick-Tool: Procesa tus PDF al instante">
     <meta property="og:description"
-        content="Comprime, redimensiona y quita fondos de tus imágenes sin subir archivos a ningún servidor. Privacidad 100% garantizada.">
-    <meta property="og:image" content="https://image-quick-tool.github.io/og-image.png">
-    <meta property="og:url" content="https://image-quick-tool.github.io/">
+        content="Une, divide y extrae texto de tus PDFs sin subir archivos a ningún servidor. Privacidad 100% garantizada.">
+    <meta property="og:image" content="https://pdf-quick-tool.github.io/og-image.png">
+    <meta property="og:url" content="https://pdf-quick-tool.github.io/">
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Image Quick-Tool">
-    <meta property="og:image:alt" content="Previsualización de la interfaz de Image Quick-Tool">
+    <meta property="og:site_name" content="PDF Quick-Tool">
+    <meta property="og:image:alt" content="Previsualización de la interfaz de PDF Quick-Tool">
 
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Image Quick-Tool: Procesa tus imágenes al instante">
+    <meta name="twitter:title" content="PDF Quick-Tool: Procesa tus PDF al instante">
     <meta name="twitter:description"
-        content="Comprime, redimensiona y quita fondos de tus fotos sin subir archivos a ningún servidor.">
-    <meta name="twitter:image" content="https://image-quick-tool.github.io/og-image.png">
+        content="Une, divide y extrae texto de tus PDFs sin subir archivos a ningún servidor.">
+    <meta name="twitter:image" content="https://pdf-quick-tool.github.io/og-image.png">
 
     <!-- Favicon -->
     <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🖼️</text></svg>">
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📄</text></svg>">
 
 
     <!-- Scripts & Estilos (Render-blocking optimization) -->
@@ -139,10 +139,10 @@
             </select>
         </div>
         <h1 class="text-4xl font-extrabold tracking-tight sm:text-5xl mt-6 mb-4" data-i18n="title_main">
-            Image Quick-Tool
+            PDF Quick-Tool
         </h1>
         <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto" data-i18n="subtitle_main">
-            La herramienta definitiva para <strong>comprimir imágenes gratis online</strong> y <strong>editar fotos sin
+            La herramienta definitiva para <strong>unir PDF gratis online</strong> y <strong>extraer texto de PDF sin
                 registro</strong>. 100% privado y seguro.
         </p>
     </header>
@@ -154,15 +154,15 @@
             <div class="lg:col-span-3 space-y-6">
 
                 <!-- Tabs -->
-                <nav class="flex justify-around border-b border-gray-200 dark:border-gray-700 mb-8 flex-wrap">
-                    <button onclick="switchTab('compress')" id="tab-compress" class="tab-btn pb-4 font-semibold tab-active flex-1 min-w-[120px]"
-                        data-i18n="tab_compress">Comprimir</button>
-                    <button onclick="switchTab('resize')" id="tab-resize" class="tab-btn pb-4 font-semibold flex-1 min-w-[120px]"
-                        data-i18n="tab_resize">Redimensionar</button>
-                    <button onclick="switchTab('format')" id="tab-format" class="tab-btn pb-4 font-semibold flex-1 min-w-[120px]"
-                        data-i18n="tab_format">Convertir Formato</button>
-                    <button onclick="switchTab('removebg')" id="tab-removebg" class="tab-btn pb-4 font-semibold flex-1 min-w-[120px]"
-                        data-i18n="tab_removebg">Quitar Fondo</button>
+                <nav class="flex justify-around border-b border-gray-200 dark:border-gray-700 mb-8">
+                    <button onclick="switchTab('merge')" id="tab-merge" class="tab-btn pb-4 font-semibold tab-active"
+                        data-i18n="tab_merge">Unir PDFs</button>
+                    <button onclick="switchTab('extract')" id="tab-extract" class="tab-btn pb-4 font-semibold"
+                        data-i18n="tab_extract">Extraer
+                        Texto</button>
+                    <button onclick="switchTab('remove')" id="tab-remove" class="tab-btn pb-4 font-semibold"
+                        data-i18n="tab_remove">Eliminar
+                        Páginas</button>
                 </nav>
 
                 <!-- Herramienta Interactiva -->
@@ -170,12 +170,13 @@
                     class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700">
                     <div id="drop-zone"
                         class="border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-xl p-12 text-center transition-all cursor-pointer hover:border-blue-400">
-                        <i class="fas fa-file-image text-5xl text-blue-500 mb-4" style="width: 48px; height: 48px;"></i>
+                        <i class="fas fa-file-pdf text-5xl text-blue-500 mb-4" style="width: 48px; height: 48px;"></i>
                         <p class="text-lg font-medium" data-i18n="drop_zone_title">Arrastra tus archivos aquí o haz clic
                             para subir</p>
-                        <p class="text-sm text-gray-600 dark:text-gray-400 mt-2" data-i18n="drop_zone_subtitle">
-                            Admite JPG, PNG y WEBP</p>
-                        <input type="file" id="file-input" class="hidden" multiple accept="image/jpeg, image/png, image/webp">
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mt-2" data-i18n="drop_zone_subtitle">Solo
+                            archivos .pdf
+                            admitidos</p>
+                        <input type="file" id="file-input" class="hidden" multiple accept=".pdf">
                     </div>
 
                     <!-- Lista de archivos seleccionados -->
@@ -183,54 +184,87 @@
 
                     <!-- Configuración según herramienta -->
                     <div id="config-area" class="mt-8 hidden">
-                        <div id="compress-config">
-                            <label class="block text-sm font-medium mb-2" data-i18n="compress_quality">Calidad de Compresión (1-100%):</label>
-                            <input type="range" id="quality-slider" min="1" max="100" value="80" oninput="document.getElementById('quality-val').innerText = this.value + '%'"
-                                class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700">
-                            <span id="quality-val" class="text-sm font-bold text-blue-600 dark:text-blue-400 mt-2 block">80%</span>
+                        <div id="remove-pages-config" class="hidden">
+                            <label class="block text-sm font-medium mb-2" data-i18n="pages_to_remove">Páginas a eliminar
+                                (ej: 1, 3-5):</label>
+                            <input type="text" id="pages-to-remove" placeholder="1, 4, 5"
+                                class="w-full p-3 rounded-lg border dark:bg-gray-700 dark:border-gray-600">
                         </div>
 
-                        <div id="resize-config" class="hidden space-y-4">
-                            <div>
-                                <label class="block text-sm font-medium mb-1" data-i18n="resize_width">Ancho (px):</label>
-                                <input type="number" id="resize-width" placeholder="Ej: 1920"
-                                    class="w-full p-2 rounded-lg border dark:bg-gray-700 dark:border-gray-600">
+                        <div id="extract-config"
+                            class="hidden mb-6 rounded-2xl border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm overflow-hidden transition-all duration-300">
+
+                            <!-- Harmonious Clickable Header -->
+                            <label
+                                class="flex items-center justify-between p-5 border-b border-gray-100 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700/50 cursor-pointer transition-colors"
+                                id="ocr-header-module" aria-label="Toggle OCR">
+                                <div class="flex items-center space-x-4">
+                                    <div class="bg-blue-100 dark:bg-blue-900/60 p-3 rounded-xl text-blue-700 dark:text-blue-300 shadow-sm transition-colors"
+                                        id="ocr-icon-bg">
+                                        <i class="fas fa-file-search text-lg" id="ocr-icon"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-base font-bold text-gray-900 dark:text-white leading-none"
+                                            data-i18n="ocr_title">Optimizar Lectura (OCR)</h4>
+                                        <p class="text-[13px] text-gray-600 dark:text-gray-400 mt-1.5 font-medium"
+                                            data-i18n="ocr_subtitle">Detecta texto en imágenes o fotos</p>
+                                    </div>
+                                </div>
+
+                                <!-- Standard, Highly Visible Toggle -->
+                                <div class="relative inline-flex items-center cursor-pointer ml-4 shrink-0">
+                                    <input type="checkbox" id="ocr-toggle" class="sr-only peer"
+                                        onchange="toggleOCRVisuals(this)">
+                                    <div
+                                        class="w-14 h-7 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-500/30 rounded-full peer dark:bg-gray-600 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[3px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all dark:border-gray-500 peer-checked:bg-blue-600">
+                                    </div>
+                                </div>
+                            </label>
+
+                            <div class="p-5 flex flex-col space-y-4">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center space-x-3">
+                                        <span id="ocr-status-badge"
+                                            class="px-3 py-1 rounded-full text-[11px] tracking-widest uppercase font-bold bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-gray-600 transition-colors"
+                                            data-i18n="ocr_off">DESACTIVADO</span>
+                                        <p class="text-[13px] text-gray-700 dark:text-gray-300 font-semibold"
+                                            data-i18n="ocr_privacy_note">Privacidad 100% Local</p>
+                                    </div>
+                                </div>
+                                <p class="text-xs leading-relaxed text-gray-500 dark:text-gray-400"
+                                    data-i18n="ocr_disclaimer">Nota: Si es la primera vez, descargará los datos
+                                    necesarios (~10MB) de internet.</p>
+
+                                <div id="ocr-tip"
+                                    class="hidden mt-1 p-4 bg-amber-50 dark:bg-amber-900/30 border border-amber-200 dark:border-amber-700/50 rounded-xl flex items-start space-x-3 transition-all duration-500 shadow-sm">
+                                    <i class="fas fa-lightbulb text-amber-500 dark:text-amber-400 mt-0.5 text-lg"></i>
+                                    <div class="flex-1">
+                                        <p class="text-[13px] text-amber-900 dark:text-amber-100 font-bold mb-1">¡Aviso!
+                                        </p>
+                                        <p class="text-xs text-amber-800 dark:text-amber-200/90 leading-relaxed"
+                                            data-i18n="ocr_tip_text">Este PDF parece ser una imagen. ¡Activá el OCR
+                                            arriba para leer su texto!</p>
+                                    </div>
+                                </div>
                             </div>
-                            <div>
-                                <label class="block text-sm font-medium mb-1" data-i18n="resize_height">Alto (px):</label>
-                                <input type="number" id="resize-height" placeholder="Ej: 1080"
-                                    class="w-full p-2 rounded-lg border dark:bg-gray-700 dark:border-gray-600">
-                            </div>
-                            <p class="text-xs text-gray-500" data-i18n="resize_aspect_ratio_note">* Si dejas un valor vacío, mantendremos la proporción original basada en el otro.</p>
                         </div>
 
-                        <div id="format-config" class="hidden">
-                            <label class="block text-sm font-medium mb-2" data-i18n="format_to">Convertir a formato:</label>
-                            <select id="format-select"
-                                class="w-full p-3 rounded-lg border bg-white dark:bg-gray-700 dark:border-gray-600">
-                                <option value="image/jpeg">JPG / JPEG</option>
-                                <option value="image/png">PNG</option>
-                                <option value="image/webp">WEBP</option>
-                            </select>
-                        </div>
-                        
-                        <div id="removebg-config" class="hidden mb-6 rounded-2xl border-2 border-green-200 dark:border-green-800 bg-green-50 dark:bg-green-900/20 shadow-sm overflow-hidden p-5">
-                            <div class="flex items-center space-x-3 mb-2">
-                                <i class="fas fa-magic text-green-600 dark:text-green-400 text-xl"></i>
-                                <h4 class="font-bold text-gray-900 dark:text-white" data-i18n="removebg_title">IA Local: Quitar Fondo</h4>
+                        <div id="ocr-status"
+                            class="hidden mt-4 p-5 bg-gray-50 dark:bg-gray-800/60 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm transition-all">
+                            <div class="flex items-center justify-between mb-3">
+                                <div class="flex items-center space-x-3">
+                                    <i class="fas fa-circle-notch fa-spin text-blue-600 dark:text-blue-400"></i>
+                                    <p id="ocr-status-text"
+                                        class="text-[13px] font-bold text-gray-800 dark:text-gray-200"></p>
+                                </div>
+                                <span id="ocr-percentage"
+                                    class="text-xs font-bold text-gray-500 dark:text-gray-400">0%</span>
                             </div>
-                            <p class="text-xs text-gray-600 dark:text-gray-300" data-i18n="removebg_disclaimer">
-                                El proceso ocurre 100% en tu dispositivo utilizando Inteligencia Artificial. La IA descargará los archivos base (aprox. 40MB) la primera vez. Ninguna foto sale de tu PC.
-                            </p>
-                            <!-- Barra de progreso para descarga local del modelo y de trabajo -->
-                            <div id="bg-model-status" class="hidden mt-4">
-                                <div class="flex justify-between text-xs font-semibold mb-1 text-gray-700 dark:text-gray-300">
-                                    <span id="bg-model-status-text" data-i18n="loading_model">Cargando modelo...</span>
-                                    <span id="bg-model-percentage">0%</span>
-                                </div>
-                                <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-1.5">
-                                    <div id="bg-model-progress" class="bg-green-500 h-1.5 rounded-full transition-all" style="width: 0%"></div>
-                                </div>
+                            <div
+                                class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 shadow-inner overflow-hidden">
+                                <div id="ocr-progress"
+                                    class="bg-blue-600 dark:bg-blue-500 h-full rounded-full transition-all duration-300 ease-out relative"
+                                    style="width: 0%"></div>
                             </div>
                         </div>
 
@@ -243,15 +277,23 @@
                         </button>
                 <!-- Contenido SEO -->
                 <article class="prose dark:prose-invert max-w-none mt-12">
-                    <h2 class="text-2xl font-bold" data-i18n="seo_h2">¿Cómo comprimir imágenes o quitar el fondo gratis con esta herramienta?
+                    <h2 class="text-2xl font-bold" data-i18n="seo_h2">¿Cómo unir PDF gratis online con esta herramienta?
                     </h2>
                     <p data-i18n="seo_p">Nuestra herramienta utiliza la tecnología de <strong>procesamiento en el
-                            cliente</strong> y <strong>WebAssembly</strong> para la IA. A diferencia de otros sitios, nosotros no subimos tus fotos a un servidor externo para procesarlas o quitarles el fondo. Todo ocurre en la memoria de tu dispositivo, lo que la convierte en la opción más segura para manejar fotos personales o corporativas.</p>
+                            cliente</strong>. A
+                        diferencia de otros sitios, nosotros no subimos tus documentos a un servidor externo. Todo
+                        ocurre en la memoria de tu navegador, lo que la convierte en la opción más rápida y segura para
+                        manejar documentos sensibles.</p>
 
-                    <h3 class="text-xl font-semibold mt-4" data-i18n="seo_h3">Beneficios de editar imágenes localmente sin registro</h3>
+                    <h3 class="text-xl font-semibold mt-4" data-i18n="seo_h3">Beneficios de extraer texto de PDF sin
+                        registro</h3>
                     <ul class="list-disc pl-6">
-                        <li data-i18n="seo_li1"><strong>Privacidad Radical:</strong> Tus retratos o fotos no salen de tu dispositivo, evitando fugas de información.</li>
-                        <li data-i18n="seo_li2"><strong>Sin límites:</strong> Procesa cuántas imágenes quieras, sin cuentas premium.
+                        <li data-i18n="seo_li1"><strong>Privacidad:</strong> Los datos bancarios o personales no salen
+                            de tu PC.</li>
+                        <li data-i18n="seo_li2"><strong>Velocidad:</strong> Sin colas de espera ni tiempos de subida.
+                        </li>
+                        <li data-i18n="seo_li3"><strong>Sin límites:</strong> Procesa archivos grandes sin restricciones
+                            de cuenta premium.
                         </li>
                     </ul>
                 </article>
@@ -260,12 +302,15 @@
                 <section class="mt-12 space-y-4">
                     <h2 class="text-2xl font-bold mb-6" data-i18n="faq_title">Preguntas Frecuentes (FAQ)</h2>
                     <div class="p-4 border rounded-lg bg-gray-50 dark:bg-gray-800">
-                        <h3 class="font-bold" data-i18n="faq_q1">¿Qué significa que la Inteligencia Artificial se ejecute localmente?</h3>
-                        <p class="text-sm" data-i18n="faq_a1">Significa que en vez de enviar tu foto a un servidor en la nube para procesarla, tu propio navegador descarga el 'cerebro' matemático y recorta el fondo utilizando tu propio procesador. ¡100% privado!</p>
+                        <h3 class="font-bold" data-i18n="faq_q1">¿Es seguro subir mis documentos?</h3>
+                        <p class="text-sm" data-i18n="faq_a1">Absolutamente. PDF Quick-Tool procesa los archivos
+                            localmente. Tus PDFs nunca
+                            se envían a la nube.</p>
                     </div>
                     <div class="p-4 border rounded-lg bg-gray-50 dark:bg-gray-800">
                         <h3 class="font-bold" data-i18n="faq_q2">¿Tiene algún costo o límite de uso?</h3>
-                        <p class="text-sm" data-i18n="faq_a2">No. Es totalmente gratuito y no requiere registro previo para funcionar.</p>
+                        <p class="text-sm" data-i18n="faq_a2">No. Es totalmente gratuito y no requiere registro previo
+                            para funcionar.</p>
                     </div>
                 </section>
             </div>
@@ -285,13 +330,13 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
                 <!-- Columna 1: Seguridad y Confianza -->
                 <div>
-                    <h3 class="text-lg font-bold mb-4 text-gray-900 dark:text-gray-100">Image Quick-Tool</h3>
+                    <h3 class="text-lg font-bold mb-4 text-gray-900 dark:text-gray-100">PDF Quick-Tool</h3>
                     <p class="text-sm text-gray-600 dark:text-gray-400 mb-2" data-i18n="footer_trust">
-                        <i class="fas fa-shield-alt text-green-500 mr-2"></i> Procesamiento 100% local. Tus fotos
+                        <i class="fas fa-shield-alt text-green-500 mr-2"></i> Procesamiento 100% local. Tus archivos
                         nunca salen de tu navegador.
                     </p>
                     <p class="text-xs text-gray-600 dark:text-gray-400" data-i18n="footer_copy">
-                        &copy; 2026 Image Quick-Tool. Herramienta de código abierto.
+                        &copy; 2026 PDF Quick-Tool. Herramienta de código abierto.
                     </p>
                 </div>
 
@@ -309,12 +354,6 @@
                         <li><a href="#" onclick="resetConsent(event)"
                                 class="underline hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                                 data-i18n="footer_cookie_settings">Configuración de Cookies</a></li>
-                    </ul>
-                    <h4 class="font-bold mt-6 mb-2 text-gray-900 dark:text-gray-100" data-i18n="footer_tools_title">Nuestras Herramientas</h4>
-                    <ul class="space-y-2 text-sm text-gray-700 dark:text-gray-300">
-                        <li><a href="https://pdf-quick-tool.github.io/" class="underline hover:text-blue-600 dark:hover:text-blue-400 transition-colors">PDF Quick-Tool</a></li>
-                        <li><a href="https://image-quick-tool.github.io/" class="font-bold text-blue-600 dark:text-blue-400 hover:text-blue-700 transition-colors">Image Quick-Tool</a></li>
-                        <li><a href="https://color-quick-tool.github.io/" class="underline hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Color Quick-Tool</a></li>
                     </ul>
                 </div>
 
@@ -362,198 +401,210 @@
     <script>
         const translations = {
             es: {
-                title_main: "Image Quick-Tool",
-                subtitle_main: "La herramienta definitiva para <strong>comprimir imágenes gratis online</strong> y <strong>editar fotos sin registro</strong>. 100% privado y seguro.",
-                tab_compress: "Comprimir",
-                tab_resize: "Redimensionar",
-                tab_format: "Convertir Formato",
-                tab_removebg: "Quitar Fondo",
-                drop_zone_title: "Arrastra tus fotos aquí o haz clic para subir",
-                drop_zone_subtitle: "Admite JPG, PNG y WEBP",
-                compress_quality: "Calidad de Compresión (1-100%):",
-                resize_width: "Ancho (px):",
-                resize_height: "Alto (px):",
-                resize_aspect_ratio_note: "* Si dejas un valor vacío, mantendremos la proporción original.",
-                format_to: "Convertir a formato:",
-                removebg_title: "IA Local: Quitar Fondo",
-                removebg_disclaimer: "El proceso ocurre 100% en tu dispositivo. La IA descargará los archivos (aprox. 40MB) la primera vez.",
-                loading_model: "Cargando modelo...",
-                process_btn: "Procesar Imagen",
+                title_main: "PDF Quick-Tool",
+                subtitle_main: "La herramienta definitiva para <strong>unir PDF gratis online</strong> e <strong>extraer texto de PDF sin registro</strong>. 100% privado y seguro.",
+                tab_merge: "Unir PDFs",
+                tab_extract: "Extraer Texto",
+                tab_remove: "Eliminar Páginas",
+                drop_zone_title: "Arrastra tus archivos aquí o haz clic para subir",
+                drop_zone_subtitle: "Solo archivos .pdf admitidos",
+                pages_to_remove: "Páginas a eliminar (ej: 1, 3-5):",
+                process_btn: "Procesar Archivo",
                 processing_btn: "Procesando...",
-                seo_h2: "¿Cómo comprimir imágenes o quitar el fondo gratis con esta herramienta?",
-                seo_p: "Nuestra herramienta utiliza <strong>procesamiento en el cliente</strong> y <strong>WebAssembly</strong> para la IA. Todo ocurre en la memoria de tu dispositivo, lo que la convierte en la opción más segura.",
-                seo_h3: "Beneficios de editar imágenes localmente sin registro",
-                seo_li1: "<strong>Privacidad Radical:</strong> Tus retratos o fotos no salen de tu dispositivo.",
-                seo_li2: "<strong>Sin límites:</strong> Procesa cuántas imágenes quieras, sin cuentas premium.",
+                seo_h2: "¿Cómo unir PDF gratis online con esta herramienta?",
+                seo_p: "Nuestra herramienta utiliza la tecnología de <strong>procesamiento en el cliente</strong>. A diferencia de otros sitios, nosotros no subimos tus documentos a un servidor externo. Todo ocurre en la memoria de tu navegador, lo que la convierte en la opción más rápida y segura para manejar documentos sensibles.",
+                seo_h3: "Beneficios de extraer texto de PDF sin registro",
+                seo_li1: "<strong>Privacidad:</strong> Los datos bancarios o personales no salen de tu PC.",
+                seo_li2: "<strong>Velocidad:</strong> Sin colas de espera ni tiempos de subida.",
+                seo_li3: "<strong>Sin límites:</strong> Procesa archivos grandes sin restricciones de cuenta premium.",
                 faq_title: "Preguntas Frecuentes (FAQ)",
-                faq_q1: "¿Qué significa que la Inteligencia Artificial se ejecute localmente?",
-                faq_a1: "Significa que en vez de enviar tu foto a un servidor en la nube, tu propio navegador recorta el fondo utilizando tu propio procesador. ¡100% privado!",
+                faq_q1: "¿Es seguro subir mis documentos?",
+                faq_a1: "Absolutamente. PDF Quick-Tool procesa los archivos localmente. Tus PDFs nunca se envían a la nube.",
                 faq_q2: "¿Tiene algún costo o límite de uso?",
                 faq_a2: "No. Es totalmente gratuito y no requiere registro previo para funcionar.",
-                footer_copy: "&copy; 2026 Image Quick-Tool. Herramienta de código abierto.",
+                footer_copy: "&copy; 2026 PDF Quick-Tool. Herramienta de código abierto para procesamiento local.",
+                alert_pdf_loading: "La librería PDF aún se está cargando. Reintenta en un momento.",
+                alert_pdfjs_loading: "La librería PDF.js aún se está cargando. Reintenta en un momento.",
                 alert_error: "Error al procesar: ",
-                file_processed: "procesada",
-                page_title: "Image Quick-Tool: Comprimir, Redimensionar y Quitar Fondo Gratis Online",
-                meta_description: "Herramienta gratuita para comprimir imágenes, redimensionar y quitar fondos localmente. Privacidad total: tus fotos nunca salen de tu navegador.",
-                meta_keywords: "comprimir imagen gratis online, redimensionar foto, quitar fondo ia gratis, image quick-tool",
-                footer_trust: "<i class=\"fas fa-shield-alt text-green-500 mr-2\"></i> Procesamiento 100% local. Tus fotos nunca salen de tu dispositivo.",
+                file_merged: "unido.pdf",
+                file_extracted: "texto_extraido_",
+                file_modified: "modificado.pdf",
+                page_text: "Página",
+                page_title: "PDF Quick-Tool: Unir, Dividir y Extraer Texto Gratis Online",
+                meta_description: "Herramienta gratuita para unir PDF, extraer texto y eliminar páginas localmente. Privacidad total: tus archivos nunca salen de tu navegador.",
+                meta_keywords: "unir pdf gratis online, extraer texto de pdf sin registro, eliminar paginas pdf, pdf quick-tool",
+                footer_trust: "<i class=\"fas fa-shield-alt text-green-500 mr-2\"></i> Procesamiento 100% local. Tus archivos nunca salen de tu navegador.",
                 footer_legal_title: "Legal",
                 footer_privacy: "Política de Privacidad",
                 footer_terms: "Términos de Servicio",
-                footer_tools_title: "Nuestras Herramientas",
                 footer_support_title: "Apoya el Proyecto",
-                footer_support_text: "Mantenemos esta herramienta gratuita gracias a la comunidad. Para contacto: <a href='mailto:soporte.pdfquicktool@gmail.com' class='text-blue-700 dark:text-blue-400 underline'>soporte.pdfquicktool@gmail.com</a>",
+                footer_support_text: "Mantenemos esta herramienta gratuita gracias a la comunidad. Para soporte: <a href='mailto:soporte.pdfquicktool@gmail.com' class='text-blue-700 dark:text-blue-400 underline hover:no-underline'>soporte.pdfquicktool@gmail.com</a>",
                 cookie_message: "Esta herramienta es gratuita y privada (procesamiento local). Usamos cookies para mostrar anuncios que financian el proyecto. ¿Nos apoyas aceptando?",
                 cookie_privacy_link: "Conoce más",
                 cookie_accept: "Aceptar y Usar Gratis",
                 cookie_decline: "Rechazar",
                 footer_cookie_settings: "Configuración de Cookies",
                 footer_coffee_btn: "¿Te sirvió? Invitame un café en Ko-fi",
-                kofi_button: "Apoyame"
+                kofi_button: "Apoyame",
+                enable_ocr: "Habilitar OCR (Para PDFs escaneados)",
+                ocr_disclaimer: "El proceso es local pero puede ser lento y requiere descargar archivos adicionales (aprox. 10MB) la primera vez.",
+                ocr_loading_worker: "Configurando motor de OCR...",
+                ocr_processing_page: "Reconociendo texto: Página ",
+                ocr_complete: "OCR completado!",
+                ocr_suggest: "No se detectó texto. ¿Quieres intentar habilitar OCR?",
+                ocr_tip_text: "Este PDF parece una imagen. ¡Activá el OCR arriba para leerlo!",
+                ocr_title: "Optimizar Lectura (OCR)",
+                ocr_subtitle: "Detecta texto en imágenes o fotos",
+                ocr_on: "ACTIVADO",
+                ocr_off: "DESACTIVADO",
+                ocr_privacy_note: "Privacidad 100% Local"
             },
             en: {
-                title_main: "Image Quick-Tool",
-                subtitle_main: "The ultimate tool to <strong>compress images online for free</strong> and <strong>edit photos without registration</strong>. 100% private and secure.",
-                tab_compress: "Compress",
-                tab_resize: "Resize",
-                tab_format: "Convert Format",
-                tab_removebg: "Remove Background",
-                drop_zone_title: "Drag your photos here or click to upload",
-                drop_zone_subtitle: "Supports JPG, PNG and WEBP",
-                compress_quality: "Compression Quality (1-100%):",
-                resize_width: "Width (px):",
-                resize_height: "Height (px):",
-                resize_aspect_ratio_note: "* If you leave one value empty, we will keep the original aspect ratio.",
-                format_to: "Convert to format:",
-                removebg_title: "Local AI: Remove Background",
-                removebg_disclaimer: "The process happens 100% on your device. The AI will download files (approx. 40MB) the first time.",
-                loading_model: "Loading model...",
-                process_btn: "Process Image",
+                title_main: "PDF Quick-Tool",
+                subtitle_main: "The ultimate tool to <strong>merge PDFs online for free</strong> and <strong>extract text from PDFs without registration</strong>. 100% private and secure.",
+                tab_merge: "Merge PDFs",
+                tab_extract: "Extract Text",
+                tab_remove: "Remove Pages",
+                drop_zone_title: "Drag your files here or click to upload",
+                drop_zone_subtitle: "Only .pdf files are supported",
+                pages_to_remove: "Pages to remove (e.g., 1, 3-5):",
+                process_btn: "Process File",
                 processing_btn: "Processing...",
-                seo_h2: "How to compress images or remove the background for free with this tool?",
-                seo_p: "Our tool uses <strong>client-side processing</strong> and <strong>WebAssembly</strong> for AI. Everything happens in your device memory, making it the safest option.",
-                seo_h3: "Benefits of editing images locally without registration",
-                seo_li1: "<strong>Radical Privacy:</strong> Your portraits or photos don't leave your device.",
-                seo_li2: "<strong>No limits:</strong> Process as many images as you want, without premium accounts.",
+                seo_h2: "How to merge PDFs online for free with this tool?",
+                seo_p: "Our tool uses <strong>client-side processing</strong> technology. Unlike other sites, we do not upload your documents to an external server. Everything happens in your browser's memory, making it the fastest and most secure option for handling sensitive documents.",
+                seo_h3: "Benefits of extracting text from PDFs without registration",
+                seo_li1: "<strong>Privacy:</strong> Bank or personal data does not leave your PC.",
+                seo_li2: "<strong>Speed:</strong> No waiting queues or upload times.",
+                seo_li3: "<strong>No limits:</strong> Process large files without premium account restrictions.",
                 faq_title: "Frequently Asked Questions (FAQ)",
-                faq_q1: "What does it mean that AI runs locally?",
-                faq_a1: "It means instead of sending your photo to a cloud server, your own browser cuts out the background using your own processor. 100% private!",
-                faq_q2: "Is there any cost or limit of use?",
-                faq_a2: "No. It's completely free and does not require prior registration to work.",
-                footer_copy: "&copy; 2026 Image Quick-Tool. Open source tool.",
-                alert_error: "Error processing: ",
-                file_processed: "processed",
-                page_title: "Image Quick-Tool: Compress, Resize & Remove Background Free Online",
-                meta_description: "Free tool to compress images, resize and remove backgrounds locally. Total privacy: your photos never leave your browser.",
-                meta_keywords: "compress image free online, resize photo, free ai background remover, image quick-tool",
-                footer_trust: "<i class=\"fas fa-shield-alt text-green-500 mr-2\"></i> 100% local processing. Your photos never leave your device.",
+                faq_q1: "Is it safe to upload my documents?",
+                faq_a1: "Absolutely. PDF Quick-Tool processes files locally. Your PDFs are never sent to the cloud.",
+                faq_q2: "Is there any cost or usage limit?",
+                faq_a2: "No. It is completely free and requires no prior registration to work.",
+                footer_copy: "&copy; 2026 PDF Quick-Tool. Open source tool for local processing.",
+                alert_pdf_loading: "The PDF library is still loading. Try again in a moment.",
+                alert_pdfjs_loading: "The PDF.js library is still loading. Try again in a moment.",
+                alert_error: "Processing error: ",
+                file_merged: "merged.pdf",
+                file_extracted: "extracted_text_",
+                file_modified: "modified.pdf",
+                page_text: "Page",
+                page_title: "PDF Quick-Tool: Merge, Split & Extract Text Free Online",
+                meta_description: "Free tool to merge PDFs, extract text, and remove pages locally. Total privacy: your files never leave your browser.",
+                meta_keywords: "merge pdf free online, extract text from pdf without registration, remove pdf pages, pdf quick-tool",
+                footer_trust: "<i class=\"fas fa-shield-alt text-green-500 mr-2\"></i> 100% local processing. Your files never leave your browser.",
                 footer_legal_title: "Legal",
                 footer_privacy: "Privacy Policy",
                 footer_terms: "Terms of Service",
-                footer_tools_title: "Our Tools",
                 footer_support_title: "Support the Project",
-                footer_support_text: "We keep this tool free thanks to the community. Contact: <a href='mailto:soporte.pdfquicktool@gmail.com' class='text-blue-700 dark:text-blue-400 underline'>soporte.pdfquicktool@gmail.com</a>",
+                footer_support_text: "We keep this tool free thanks to the community. For support: <a href='mailto:soporte.pdfquicktool@gmail.com' class='text-blue-700 dark:text-blue-400 underline hover:no-underline'>soporte.pdfquicktool@gmail.com</a>",
                 cookie_message: "This tool is free and private (local processing). We use cookies to show ads that fund the project. Will you support us by accepting?",
                 cookie_privacy_link: "Learn more",
                 cookie_accept: "Accept and Use for Free",
                 cookie_decline: "Decline",
                 footer_cookie_settings: "Cookie Settings",
                 footer_coffee_btn: "Did it help? Buy me a coffee on Ko-fi",
-                kofi_button: "Support me"
+                kofi_button: "Support me",
+                enable_ocr: "Enable OCR (For scanned PDFs)",
+                ocr_disclaimer: "Processing is local but can be slow and requires additional files (approx. 10MB) the first time.",
+                ocr_loading_worker: "Setting up OCR engine...",
+                ocr_processing_page: "Recognizing text: Page ",
+                ocr_complete: "OCR Complete!",
+                ocr_suggest: "No text detected. Do you want to try enabling OCR?",
+                ocr_tip_text: "This PDF seems to be an image. Enable OCR above to read it!",
+                ocr_title: "Optimize Reading (OCR)",
+                ocr_subtitle: "Detect text in images or photos",
+                ocr_on: "ENABLED",
+                ocr_off: "DISABLED",
+                ocr_privacy_note: "100% Local Privacy"
             },
             pt: {
-                title_main: "Image Quick-Tool",
-                subtitle_main: "A ferramenta definitiva para <strong>comprimir imagens grátis online</strong> e <strong>editar fotos sem registro</strong>. 100% privado e seguro.",
-                tab_compress: "Comprimir",
-                tab_resize: "Redimensionar",
-                tab_format: "Converter Formato",
-                tab_removebg: "Remover Fundo",
-                drop_zone_title: "Arraste suas fotos aqui ou clique para enviar",
-                drop_zone_subtitle: "Suporta JPG, PNG e WEBP",
-                compress_quality: "Qualidade de Compressão (1-100%):",
-                resize_width: "Largura (px):",
-                resize_height: "Altura (px):",
-                resize_aspect_ratio_note: "* Se você deixar um valor vazio, manteremos a proporção original.",
-                format_to: "Converter para o formato:",
-                removebg_title: "IA Local: Remover Fundo",
-                removebg_disclaimer: "O processo acontece 100% no seu dispositivo. A IA baixará arquivos (aprox. 40MB) na primeira vez.",
-                loading_model: "Carregando modelo...",
-                process_btn: "Processar Imagem",
+                title_main: "PDF Quick-Tool",
+                subtitle_main: "A ferramenta definitiva para <strong>unir PDF grátis online</strong> e <strong>extrair texto de PDF sem registro</strong>. 100% privado e seguro.",
+                tab_merge: "Unir PDFs",
+                tab_extract: "Extrair Texto",
+                tab_remove: "Remover Páginas",
+                drop_zone_title: "Arraste seus archivos aqui ou clique para fazer upload",
+                drop_zone_subtitle: "Apenas arquivos .pdf são suportados",
+                pages_to_remove: "Páginas a remover (ex: 1, 3-5):",
+                process_btn: "Processar Arquivo",
                 processing_btn: "Processando...",
-                seo_h2: "Como comprimir imagens ou remover o fundo gratuitamente com esta ferramenta?",
-                seo_p: "Nossa ferramenta usa <strong>processamento no cliente</strong> e <strong>WebAssembly</strong> para a IA. Tudo acontece na memória do seu dispositivo, tornando a opção mais segura.",
-                seo_h3: "Benefícios de editar imagens localmente sem registro",
-                seo_li1: "<strong>Privacidade Radical:</strong> Seus retratos ou fotos não saem do seu dispositivo.",
-                seo_li2: "<strong>Sem limites:</strong> Processe quantas imagens quiser, sem contas premium.",
+                seo_h2: "Como unir PDF grátis online com esta ferramenta?",
+                seo_p: "Nossa ferramenta utiliza a tecnologia de <strong>processamento no cliente</strong>. Diferente de outros sites, não enviamos seus documentos para um servidor externo. Tudo acontece na memória do seu navegador, tornando-a a opção más rápida e segura para lidar com documentos sensíveis.",
+                seo_h3: "Benefícios de extrair texto de PDF sem registro",
+                seo_li1: "<strong>Privacidade:</strong> Dados bancários ou pessoais não saem do seu PC.",
+                seo_li2: "<strong>Velocidade:</strong> Sem filas de espera ou tempo de upload.",
+                seo_li3: "<strong>Sem limites:</strong> Processe arquivos grandes sem restrições de contas premium.",
                 faq_title: "Perguntas Frequentes (FAQ)",
-                faq_q1: "O que significa que a IA roda localmente?",
-                faq_a1: "Significa que em vez de enviar sua foto para um servidor na nuvem, o próprio navegador recorta o fundo usando o seu processador. 100% privado!",
-                faq_q2: "Há custos ou limites de uso?",
-                faq_a2: "Não. É totalmente gratuito e não requer registro prévio.",
-                footer_copy: "&copy; 2026 Image Quick-Tool. Ferramenta de código aberto.",
-                alert_error: "Erro ao processar: ",
-                file_processed: "processada",
-                page_title: "Image Quick-Tool: Comprimir, Redimensionar e Remover Fundo Grátis Online",
-                meta_description: "Ferramenta gratuita para comprimir imagens, redimensionar e remover fundos localmente. Privacidade total: suas fotos nunca saem do seu navegador.",
-                meta_keywords: "comprimir imagem grátis online, redimensionar foto, remover fundo ia gratis, image quick-tool",
-                footer_trust: "<i class=\"fas fa-shield-alt text-green-500 mr-2\"></i> Processamento 100% local. Suas fotos nunca saem do dispositivo.",
+                faq_q1: "É seguro enviar meus documentos?",
+                faq_a1: "Absolutamente. O PDF Quick-Tool processa os arquivos localmente. Seus PDFs nunca são enviados para a nuvem.",
+                faq_q2: "Existe algum custo ou limite de uso?",
+                faq_a2: "Não. É totalmente gratuito y não requer registro prévio para funcionar.",
+                footer_copy: "&copy; 2026 PDF Quick-Tool. Ferramenta de código abierto para processamento local.",
+                alert_pdf_loading: "A biblioteca PDF ainda está carregando. Tente novamente em um momento.",
+                alert_pdfjs_loading: "A biblioteca PDF.js ainda está carregando. Tente novamente em um momento.",
+                alert_error: "Erro de processamento: ",
+                file_merged: "unido.pdf",
+                file_extracted: "texto_extraido_",
+                file_modified: "modificado.pdf",
+                page_text: "Página",
+                page_title: "PDF Quick-Tool: Unir, Dividir e Extrair Texto Grátis Online",
+                meta_description: "Ferramenta gratuita para unir PDF, extrair texto e remover páginas localmente. Privacidade total: seus arquivos nunca saem do seu navegador.",
+                meta_keywords: "unir pdf grátis online, extrair texto de pdf sem registro, remover páginas pdf, pdf quick-tool",
+                footer_trust: "<i class=\"fas fa-shield-alt text-green-500 mr-2\"></i> Processamento 100% local. Seus arquivos nunca saem do seu navegador.",
                 footer_legal_title: "Legal",
                 footer_privacy: "Política de Privacidade",
                 footer_terms: "Termos de Serviço",
-                footer_tools_title: "Nossas Ferramentas",
                 footer_support_title: "Apoie o Projeto",
-                footer_support_text: "Mantemos esta ferramenta gratuita graças à comunidade. Contato: <a href='mailto:soporte.pdfquicktool@gmail.com' class='text-blue-700 dark:text-blue-400 underline'>soporte.pdfquicktool@gmail.com</a>",
-                cookie_message: "Esta ferramenta é gratuita e privada (processamento local). Usamos cookies para mostrar anúncios que financiam o projeto. Você nos apoia aceitando?",
+                footer_support_text: "Mantemos esta ferramenta gratuita graças à comunidade. Para suporte: <a href='mailto:soporte.pdfquicktool@gmail.com' class='text-blue-700 dark:text-blue-400 underline hover:no-underline'>soporte.pdfquicktool@gmail.com</a>",
+                cookie_message: "Esta ferramenta é gratuita e privada (processamento local). Usamos cookies para mostrar anúncios que financiam el projeto. Você nos apoia aceitando?",
                 cookie_privacy_link: "Saiba mais",
                 cookie_accept: "Aceitar e Usar Grátis",
                 cookie_decline: "Recusar",
                 footer_cookie_settings: "Configurações de Cookies",
-                footer_coffee_btn: "Ajudou? Pague-me um café no Ko-fi",
+                footer_coffee_btn: "Ajudou você? Pague-me um café no Ko-fi",
                 kofi_button: "Apoie-me"
             },
             de: {
-                title_main: "Image Quick-Tool",
-                subtitle_main: "Das ultimative Werkzeug, um <strong>Bilder gratis online zu komprimieren</strong> und <strong>Fotos ohne Registrierung zu bearbeiten</strong>. 100% privat & sicher.",
-                tab_compress: "Komprimieren",
-                tab_resize: "Größe ändern",
-                tab_format: "Format konvertieren",
-                tab_removebg: "Hintergrund entfernen",
-                drop_zone_title: "Ziehen Sie Ihre Fotos hierher oder klicken Sie zum Hochladen",
-                drop_zone_subtitle: "Unterstützt JPG, PNG und WEBP",
-                compress_quality: "Komprimierungsqualität (1-100%):",
-                resize_width: "Breite (px):",
-                resize_height: "Höhe (px):",
-                resize_aspect_ratio_note: "* Wenn Sie einen Wert leer lassen, behalten wir das ursprüngliche Seitenverhältnis bei.",
-                format_to: "Konvertieren in Format:",
-                removebg_title: "Lokale KI: Hintergrund entfernen",
-                removebg_disclaimer: "Der Prozess findet zu 100% auf Ihrem Gerät statt. Die KI lädt beim ersten Mal Dateien (~40 MB) herunter.",
-                loading_model: "Modell wird geladen...",
-                process_btn: "Bild verarbeiten",
+                title_main: "PDF Quick-Tool",
+                subtitle_main: "Das ultimative Werkzeug, um <strong>PDFs kostenlos online zusammenzuführen</strong> und <strong>Text aus PDFs ohne Registrierung zu extrahieren</strong>. 100% privat und sicher.",
+                tab_merge: "PDFs zusammenführen",
+                tab_extract: "Text extrahieren",
+                tab_remove: "Seiten entfernen",
+                drop_zone_title: "Ziehen Sie Ihre Dateien hierher oder klicken Sie zum Hochladen",
+                drop_zone_subtitle: "Nur .pdf Dateien werden unterstützt",
+                pages_to_remove: "Zu entfernende Seiten (z.B. 1, 3-5):",
+                process_btn: "Datei verarbeiten",
                 processing_btn: "Verarbeitung...",
-                seo_h2: "Wie man mit diesem Tool kostenlos Bilder komprimiert oder Hintergründe entfernt?",
-                seo_p: "Unser Tool verwendet <strong>Client-seitige Verarbeitung</strong> und <strong>WebAssembly</strong> für die KI. Alles geschieht im Speicher Ihres Geräts.",
-                seo_h3: "Vorteile der lokalen Bildbearbeitung ohne Registrierung",
-                seo_li1: "<strong>Radikaler Datenschutz:</strong> Ihre Porträts oder Fotos verlassen Ihr Gerät nicht.",
-                seo_li2: "<strong>Keine Limits:</strong> Verarbeiten Sie beliebig viele Bilder ohne Premium-Konten.",
+                seo_h2: "Wie fügt man PDFs kostenlos online mit diesem Tool zusammen?",
+                seo_p: "Unser Tool nutzt die <strong>Client-seitige Verarbeitungstechnologie</strong>. Im Gegensatz zu anderen Websites laden wir Ihre Dokumente nicht auf einen externen Server hoch. Alles passiert im Speicher Ihres Browsers, was es zur schnellsten und sichersten Option für sensible Dokumente macht.",
+                seo_h3: "Vorteile der Textextraktion aus PDFs ohne Registrierung",
+                seo_li1: "<strong>Privatsphäre:</strong> Bank- oder persönliche Daten verlassen Ihren PC nicht.",
+                seo_li2: "<strong>Geschwindigkeit:</strong> Keine Warteschlangen oder Upload-Zeiten.",
+                seo_li3: "<strong>No limits:</strong> Verarbeiten Sie große Dateien ohne Premium-Account-Einschränkungen.",
                 faq_title: "Häufig gestellte Fragen (FAQ)",
-                faq_q1: "Was bedeutet es, dass die KI lokal läuft?",
-                faq_a1: "Anstatt Ihr Foto an einen Cloud-Server zu senden, schneidet Ihr eigener Browser den Hintergrund mit Ihrem eigenen Prozessor aus. 100% privat!",
-                faq_q2: "Gibt es Nutzungsbeschränkungen oder Kosten?",
-                faq_a2: "Nein. Es ist völlig kostenlos und ohne vorherige Registrierung nutzbar.",
-                footer_copy: "&copy; 2026 Image Quick-Tool. Open-Source-Tool.",
-                alert_error: "Fehler bei der Verarbeitung: ",
-                file_processed: "verarbeitet",
-                page_title: "Image Quick-Tool: Bilder komprimieren, verkleinern & Hintergrund entfernen",
-                meta_description: "Kostenloses Tool zum Komprimieren von Bildern, Ändern der Größe und Entfernen von Hintergründen lokal. Volle Privatsphäre: Ihre Fotos verlassen nie Ihren Browser.",
-                meta_keywords: "bild verkleinern kostenlos online, bildauflösung ändern, hintergrund entfernen ki gratis, image quick-tool",
-                footer_trust: "<i class=\"fas fa-shield-alt text-green-500 mr-2\"></i> 100% lokale Verarbeitung. Ihre Fotos verlassen nie Ihr Gerät.",
+                faq_q1: "Ist es sicher, meine Dokumente hochzuladen?",
+                faq_a1: "Absolut. PDF Quick-Tool verarbeitet Dateien lokal. Ihre PDFs werden niemals in die Cloud gesendet.",
+                faq_q2: "Gibt es Kosten oder Nutzungslimits?",
+                faq_a2: "Noch. Es ist völlig kostenlos und erfordert keine vorherige Registrierung.",
+                footer_copy: "&copy; 2026 PDF Quick-Tool. Open-Source-Tool für lokale Verarbeitung.",
+                alert_pdf_loading: "Die PDF-Bibliothek wird noch geladen. Bitte versuchen Sie es gleich noch einmal.",
+                alert_pdfjs_loading: "Die PDF.js-Bibliothek wird noch geladen. Bitte versuchen Sie es gleich noch einmal.",
+                alert_error: "Verarbeitungsfehler: ",
+                file_merged: "zusammengefuehrt.pdf",
+                file_extracted: "extrahierter_text_",
+                file_modified: "geaendert.pdf",
+                page_text: "Seite",
+                page_title: "PDF Quick-Tool: PDFs gratis online zusammenführen, teilen & Text extrahieren",
+                meta_description: "Kostenloses Tool zum Zusammenführen von PDFs, Extrahieren von Text und Entfernen von Seiten lokal. Volle Privatsphäre: Ihre Dateien verlassen nie Ihren Browser.",
+                meta_keywords: "pdf kostenlos online zusammenführen, text aus pdf ohne registrierung extrahieren, pdf seiten entfernen, pdf quick-tool",
+                footer_trust: "<i class=\"fas fa-shield-alt text-green-500 mr-2\"></i> 100% lokale Verarbeitung. Ihre Dateien verlassen nie Ihren Browser.",
                 footer_legal_title: "Rechtliches",
                 footer_privacy: "Datenschutzerklärung",
                 footer_terms: "Nutzungsbedingungen",
-                footer_tools_title: "Unsere Tools",
                 footer_support_title: "Projekt unterstützen",
-                footer_support_text: "Wir halten dieses Tool dank der Community kostenlos. Kontakt: <a href='mailto:soporte.pdfquicktool@gmail.com' class='text-blue-700 dark:text-blue-400 underline'>soporte.pdfquicktool@gmail.com</a>",
-                cookie_message: "Dieses Tool ist kostenlos und privat (lokale Verarbeitung). Wir verwenden Cookies, um Anzeigen zu zeigen. Unterstützen Sie uns durch Akzeptieren?",
+                footer_support_text: "Wir halten dieses Tool dank der Community kostenlos. Für Support: <a href='mailto:soporte.pdfquicktool@gmail.com' class='text-blue-700 dark:text-blue-400 underline hover:no-underline'>soporte.pdfquicktool@gmail.com</a>",
+                cookie_message: "Dieses Tool ist kostenlos und privat (lokale Verarbeitung). Wir verwenden Cookies, um Anzeigen zu zeigen, die das Projekt finanzieren. Unterstützen Sie uns durch Akzeptieren?",
                 cookie_privacy_link: "Mehr erfahren",
                 cookie_accept: "Akzeptieren & Gratis nutzen",
                 cookie_decline: "Ablehnen",
@@ -562,48 +613,45 @@
                 kofi_button: "Unterstützen"
             },
             fr: {
-                title_main: "Image Quick-Tool",
-                subtitle_main: "L'outil ultime pour <strong>compresser des images gratuitement en ligne</strong> et <strong>éditer des photos sans inscription</strong>. 100% privé et sécurisé.",
-                tab_compress: "Compresser",
-                tab_resize: "Redimensionner",
-                tab_format: "Convertir Format",
-                tab_removebg: "Enlever le fond",
-                drop_zone_title: "Déposez vos photos ici ou cliquez pour télécharger",
-                drop_zone_subtitle: "Prend en charge JPG, PNG et WEBP",
-                compress_quality: "Qualité de compression (1-100%) :",
-                resize_width: "Largeur (px) :",
-                resize_height: "Hauteur (px) :",
-                resize_aspect_ratio_note: "* Si vous laissez une valeur vide, nous conserverons le ratio d'origine.",
-                format_to: "Convertir en format :",
-                removebg_title: "IA Locale : Enlever le fond",
-                removebg_disclaimer: "Le processus a lieu à 100% sur votre appareil. L'IA téléchargera des fichiers (~40 Mo) la première fois.",
-                loading_model: "Chargement du modèle...",
-                process_btn: "Traiter l'image",
+                title_main: "PDF Quick-Tool",
+                subtitle_main: "L'outil ultime pour <strong>fusionner des PDF en ligne gratuitement</strong> et <strong>extraire du texte de PDF sans inscription</strong>. 100% privé et sécurisé.",
+                tab_merge: "Fusionner des PDF",
+                tab_extract: "Extraire le texte",
+                tab_remove: "Supprimer des pages",
+                drop_zone_title: "Déposez vos fichiers ici ou cliquez pour télécharger",
+                drop_zone_subtitle: "Seuls les fichiers .pdf sont pris en charge",
+                pages_to_remove: "Pages à supprimer (ex: 1, 3-5):",
+                process_btn: "Traiter le fichier",
                 processing_btn: "Traitement...",
-                seo_h2: "Comment compresser des images ou enlever le fond gratuitement avec cet outil ?",
-                seo_p: "Notre outil utilise le <strong>traitement côté client</strong> et <strong>WebAssembly</strong> pour l'IA. Tout se passe dans la mémoire de votre appareil, ce qui en fait l'option la plus sûre.",
-                seo_h3: "Avantages de l'édition locale d'images sans inscription",
-                seo_li1: "<strong>Confidentialité totale:</strong> Vos portraits ou photos ne quittent pas votre appareil.",
-                seo_li2: "<strong>Sans limites:</strong> Traitez autant d'images que vous le souhaitez, sans compte premium.",
+                seo_h2: "Comment fusionner des PDF en ligne gratuitement avec cet outil ?",
+                seo_p: "Notre outil utilise la technologie de <strong>traitement côté client</strong>. Contrairement à d'autres sites, nous ne téléchargeons pas vos documents sur un serveur externe. Tout se passe dans la mémoire de votre navigateur, ce qui en fait l'option la plus rapide et la plus sûre pour les documents sensibles.",
+                seo_h3: "Avantages de l'extraction de texte de PDF sans inscription",
+                seo_li1: "<strong>Confidentialité:</strong> Vos données bancaires ou personnelles ne quittent pas votre PC.",
+                seo_li2: "<strong>Vitesse:</strong> Pas de file d'attente ni de temps de téléchargement.",
+                seo_li3: "<strong>Sans limites:</strong> Traitez de gros fichiers sans les restrictions d'un compte premium.",
                 faq_title: "Foire Aux Questions (FAQ)",
-                faq_q1: "Que signifie le fait que l'IA s'exécute localement ?",
-                faq_a1: "Au lieu d'envoyer votre photo sur un serveur cloud, votre propre navigateur découpe le fond en utilisant votre propre processeur. 100% privé !",
+                faq_q1: "Est-il sûr de télécharger mes documents ?",
+                faq_a1: "Absolument. PDF Quick-Tool traite les fichiers localement. Vos PDF ne sont jamais envoyés dans le cloud.",
                 faq_q2: "Y a-t-il un coût ou une limite d'utilisation ?",
-                faq_a2: "Non. C'est totalement gratuit et ne nécessite aucune inscription préalable.",
-                footer_copy: "&copy; 2026 Image Quick-Tool. Outil open source.",
+                faq_a2: "No. C'est totalement gratuit et ne nécessite aucune inscription préalable.",
+                footer_copy: "&copy; 2026 PDF Quick-Tool. Outil open source pour le traitement local.",
+                alert_pdf_loading: "La bibliothèque PDF est en cours de chargement. Veuillez réessayer dans un instant.",
+                alert_pdfjs_loading: "La bibliothèque PDF.js est en cours de chargement. Veuillez réessayer dans un instant.",
                 alert_error: "Erreur de traitement: ",
-                file_processed: "traitee",
-                page_title: "Image Quick-Tool : Compresser, Redimensionner & Enlever Fond Mince En Ligne",
-                meta_description: "Outil gratuit pour compresser des images, redimensionner et supprimer des fonds localement. Confidentialité totale : vos photos ne quittent jamais votre navigateur.",
-                meta_keywords: "compresser image en ligne gratuit, redimensionner photo, enlever le fond ia gratuit, image quick-tool",
-                footer_trust: "<i class=\"fas fa-shield-alt text-green-500 mr-2\"></i> Traitement 100% local. Vos photos ne quittent jamais votre appareil.",
-                footer_legal_title: "Mention légales",
+                file_merged: "fusionne.pdf",
+                file_extracted: "texte_extrait_",
+                file_modified: "modifie.pdf",
+                page_text: "Page",
+                page_title: "PDF Quick-Tool : Fusionner, Séparer et Extraire du Texte Gratuitement en Ligne",
+                meta_description: "Outil gratuit pour fusionner des PDF, extraire du texte et supprimer des pages localement. Confidentialité totale : vos fichiers ne quittent jamais votre navigateur.",
+                meta_keywords: "fusionner pdf en ligne gratuit, extraire texte pdf sans inscription, supprimer pages pdf, pdf quick-tool",
+                footer_trust: "<i class=\"fas fa-shield-alt text-green-500 mr-2\"></i> Traitement 100% local. Vos fichiers ne quittent jamais votre navigateur.",
+                footer_legal_title: "Mentions légales",
                 footer_privacy: "Politique de confidentialité",
                 footer_terms: "Conditions d'utilisation",
-                footer_tools_title: "Nos Outils",
-                footer_support_title: "Soutenir le projet",
-                footer_support_text: "Nous gardons cet outil gratuit grâce à la communauté. Contact : <a href='mailto:soporte.pdfquicktool@gmail.com' class='text-blue-700 dark:text-blue-400 underline'>soporte.pdfquicktool@gmail.com</a>",
-                cookie_message: "Cet outil est gratuit et privé (traitement local). Nous utilisons des cookies pour afficher des annonces. M'accepterez-vous ?",
+                footer_support_title: "Soutenir le proyecto",
+                footer_support_text: "Nous gardons cet outil gratuit grâce à la communauté. Pour le support : <a href='mailto:soporte.pdfquicktool@gmail.com' class='text-blue-700 dark:text-blue-400 underline hover:no-underline'>soporte.pdfquicktool@gmail.com</a>",
+                cookie_message: "Cet outil est gratuit et privé (traitement local). Nous usamos de cookies pour afficher des annonces finançant le projet. Nous soutiendrez-vous en acceptant ?",
                 cookie_privacy_link: "En savoir plus",
                 cookie_accept: "Accepter et utiliser",
                 cookie_decline: "Refuser",
@@ -670,7 +718,7 @@
             }
 
             if (typeof kofiWidgetOverlay !== 'undefined') {
-                kofiWidgetOverlay.draw('imagequicktool', {
+                kofiWidgetOverlay.draw('pdfquicktool', {
                     'type': 'floating-chat',
                     'floating-chat.donateButton.text': translations[lang].kofi_button,
                     'floating-chat.donateButton.background-color': '#323842',
@@ -687,11 +735,15 @@
             const urlParams = new URLSearchParams(window.location.search);
             const urlLang = urlParams.get('lang');
             if (urlLang && translations[urlLang]) {
-                localStorage.setItem('imgqt_lang', urlLang);
+                localStorage.setItem('pdfqt_lang', urlLang);
             }
 
-            const savedLang = localStorage.getItem('imgqt_lang');
-            const consent = localStorage.getItem('imgqt_consent');
+            // Configuración de PDF.js (movido aquí para asegurar que pdfjsLib esté definido con 'defer')
+            if (typeof pdfjsLib !== 'undefined') {
+                pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+            }
+            const savedLang = localStorage.getItem('pdfqt_lang');
+            const consent = localStorage.getItem('pdfqt_consent');
 
             // Caso 1: Todo configurado o fallo previo
             if (savedLang && (consent === 'true' || consent === 'false')) {
@@ -765,14 +817,14 @@
                     
                     if (country !== 'unknown' && !strictCountries.includes(country)) {
                         console.log("Región no estricta detectada. Auto-consentimiento concedido.");
-                        localStorage.setItem('imgqt_consent', 'true');
+                        localStorage.setItem('pdfqt_consent', 'true');
                         loadAds();
                         loadKofi();
                         loadAnalytics();
                     } else if (isMobile) {
                         // Permitir anuncios en móviles incluso sin consentimiento
                         console.log("Dispositivo móvil detectado. Cargando anuncios sin consentimiento requerido.");
-                        localStorage.setItem('imgqt_consent', 'mobile_auto');
+                        localStorage.setItem('pdfqt_consent', 'mobile_auto');
                         loadAds();
                         loadKofi();
                         loadAnalytics();
@@ -810,7 +862,7 @@
         }
 
         function acceptCookies() {
-            localStorage.setItem('imgqt_consent', 'true');
+            localStorage.setItem('pdfqt_consent', 'true');
             if (cookieBanner) cookieBanner.classList.add('translate-y-full');
             loadAds();
             loadKofi();
@@ -818,7 +870,7 @@
         }
 
         function declineCookies() {
-            localStorage.setItem('imgqt_consent', 'false');
+            localStorage.setItem('pdfqt_consent', 'false');
             if (cookieBanner) cookieBanner.classList.add('translate-y-full');
 
             // Limpiar placeholders
@@ -843,7 +895,7 @@
 
         function resetConsent(e) {
             e.preventDefault();
-            localStorage.removeItem('imgqt_consent');
+            localStorage.removeItem('pdfqt_consent');
             location.reload(); // Recarga para volver a evaluar la lógica desde cero
         }
 
@@ -851,7 +903,7 @@
         let adsLoaded = false;
         let kofiLoaded = false;
         async function loadAds() {
-            if (localStorage.getItem('imgqt_consent') !== 'true') return;
+            if (localStorage.getItem('pdfqt_consent') !== 'true') return;
 
             // Limpiar placeholder del sidebar si existe
             const sidebar = document.getElementById('ad-sidebar');
@@ -874,7 +926,7 @@
             const script = document.createElement('script');
             script.src = 'https://storage.ko-fi.com/cdn/scripts/overlay-widget.js';
             script.onload = () => {
-                const lang = localStorage.getItem('imgqt_lang') || 'es';
+                const lang = localStorage.getItem('pdfqt_lang') || 'es';
                 updateKofiWidget(lang);
             };
             document.body.appendChild(script);
@@ -911,12 +963,30 @@
             });
         }
 
-        async function ensureImglyBackgroundRemoval() {
-            if (typeof imglyRemoveBackground === 'undefined') {
-                await loadScript('https://cdn.jsdelivr.net/npm/@imgly/background-removal@1.4.5/dist/iife/index.js');
+        async function ensurePDFLib() {
+            if (typeof PDFLib === 'undefined') {
+                await loadScript('https://unpkg.com/pdf-lib/dist/pdf-lib.min.js');
             }
         }
-        let currentTab = 'compress';
+
+        async function ensurePDFJS() {
+            if (typeof pdfjsLib === 'undefined') {
+                await loadScript('https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js');
+                pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+            }
+        }
+
+        async function ensureTesseract() {
+            if (typeof Tesseract === 'undefined') {
+                await loadScript('https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js');
+            }
+        }
+
+        const getPDFDoc = () => window.PDFLib ? window.PDFLib.PDFDocument : null;
+
+
+
+        let currentTab = 'merge';
         let selectedFiles = [];
 
         // Tab Management
@@ -924,11 +994,8 @@
             currentTab = tab;
             document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('tab-active'));
             document.getElementById(`tab-${tab}`).classList.add('tab-active');
-            
-            document.getElementById('compress-config').classList.toggle('hidden', tab !== 'compress');
-            document.getElementById('resize-config').classList.toggle('hidden', tab !== 'resize');
-            document.getElementById('format-config').classList.toggle('hidden', tab !== 'format');
-            document.getElementById('removebg-config').classList.toggle('hidden', tab !== 'removebg');
+            document.getElementById('remove-pages-config').classList.toggle('hidden', tab !== 'remove');
+            document.getElementById('extract-config').classList.toggle('hidden', tab !== 'extract');
             resetUI();
         }
 
@@ -936,8 +1003,44 @@
             selectedFiles = [];
             document.getElementById('file-list').innerHTML = '';
             document.getElementById('config-area').classList.add('hidden');
-            let bgStatus = document.getElementById('bg-model-status');
-            if(bgStatus) bgStatus.classList.add('hidden');
+            document.getElementById('ocr-status').classList.add('hidden');
+            document.getElementById('ocr-toggle').checked = false;
+            toggleOCRVisuals(document.getElementById('ocr-toggle'));
+        }
+
+        function toggleOCRVisuals(checkbox) {
+            const container = document.getElementById('extract-config');
+            const header = document.getElementById('ocr-header-module');
+            const iconBg = document.getElementById('ocr-icon-bg');
+            const badge = document.getElementById('ocr-status-badge');
+
+            if (checkbox.checked) {
+                container.classList.add('border-blue-500', 'dark:border-blue-500', 'ring-1', 'ring-blue-500/50', 'shadow-md');
+                container.classList.remove('border-gray-100', 'dark:border-gray-700', 'shadow-sm');
+
+                header.classList.add('bg-blue-50/50', 'dark:bg-blue-900/20');
+                header.classList.remove('bg-gray-50', 'dark:bg-gray-800/50');
+
+                iconBg.classList.add('bg-blue-600', 'dark:bg-blue-500', 'text-white', 'dark:text-white');
+                iconBg.classList.remove('bg-blue-100', 'dark:bg-blue-900/60', 'text-blue-700', 'dark:text-blue-300');
+
+                badge.innerText = translations[currentLang].ocr_on;
+                badge.classList.remove('bg-gray-100', 'dark:bg-gray-700', 'text-gray-600', 'dark:text-gray-300', 'border-gray-200', 'dark:border-gray-600');
+                badge.classList.add('bg-blue-100', 'dark:bg-blue-900/40', 'text-blue-700', 'dark:text-blue-300', 'border-blue-200', 'dark:border-blue-800');
+            } else {
+                container.classList.remove('border-blue-500', 'dark:border-blue-500', 'ring-1', 'ring-blue-500/50', 'shadow-md');
+                container.classList.add('border-gray-100', 'dark:border-gray-700', 'shadow-sm');
+
+                header.classList.remove('bg-blue-50/50', 'dark:bg-blue-900/20');
+                header.classList.add('bg-gray-50', 'dark:bg-gray-800/50');
+
+                iconBg.classList.remove('bg-blue-600', 'dark:bg-blue-500', 'text-white', 'dark:text-white');
+                iconBg.classList.add('bg-blue-100', 'dark:bg-blue-900/60', 'text-blue-700', 'dark:text-blue-300');
+
+                badge.innerText = translations[currentLang].ocr_off;
+                badge.classList.add('bg-gray-100', 'dark:bg-gray-700', 'text-gray-600', 'dark:text-gray-300', 'border-gray-200', 'dark:border-gray-600');
+                badge.classList.remove('bg-blue-100', 'dark:bg-blue-900/40', 'text-blue-700', 'dark:text-blue-300', 'border-blue-200', 'dark:border-blue-800');
+            }
         }
 
         // File Selection Logic
@@ -973,17 +1076,36 @@
         };
 
         async function handleFiles(files) {
-            const imageFiles = files.filter(f => f.type.startsWith('image/'));
+            const pdfFiles = files.filter(f => f.name.toLowerCase().endsWith('.pdf'));
 
-            if (imageFiles.length === 0) return;
+            if (pdfFiles.length === 0) return;
 
-            // Limitar a máximo 20 archivos por sesion de procesamiento
-            if (selectedFiles.length + imageFiles.length > 20) {
-                alert(currentLang === 'es' ? 'Máximo 20 imágenes a la vez.' : 'Maximum 20 images at once.');
-                imageFiles.splice(20 - selectedFiles.length);
+            if (currentTab === 'merge') {
+                // Agregar archivos a la lista existente
+                selectedFiles = [...selectedFiles, ...pdfFiles];
+            } else {
+                // Solo un archivo para extraer o eliminar
+                selectedFiles = [pdfFiles[0]];
+
+                // Proactive OCR Check
+                if (currentTab === 'extract') {
+                    try {
+                        await ensurePDFJS();
+                        const arrayBuffer = await pdfFiles[0].arrayBuffer();
+                        const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+                        const page = await pdf.getPage(1);
+                        const textContent = await page.getTextContent();
+                        const hasText = textContent.items.some(item => item.str.trim().length > 0);
+
+                        const tipEl = document.getElementById('ocr-tip');
+                        if (!hasText) {
+                            tipEl.classList.remove('hidden');
+                        } else {
+                            tipEl.classList.add('hidden');
+                        }
+                    } catch (e) { console.error("Proactive check failed", e); }
+                }
             }
-
-            selectedFiles = [...selectedFiles, ...imageFiles];
             updateFileList();
         }
 
@@ -997,7 +1119,7 @@
             list.innerHTML = selectedFiles.map((f, index) => `
                 <div class="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg flex items-center justify-between group animate-fade-in">
                     <div class="flex items-center overflow-hidden">
-                        <i class="fas fa-image text-blue-500 mr-3 flex-shrink-0"></i>
+                        <i class="fas fa-file-pdf text-blue-500 mr-3 flex-shrink-0"></i>
                         <span class="truncate text-sm font-medium">${f.name}</span>
                     </div>
                     <button onclick="removeFile(${index})" class="text-gray-400 hover:text-red-500 transition-colors p-1" title="Eliminar">
@@ -1013,35 +1135,14 @@
             }
         }
 
-        // Image Processing Helpers
-        function createImageData(file) {
-            return new Promise((resolve, reject) => {
-                const reader = new FileReader();
-                reader.onload = (e) => {
-                    const img = new Image();
-                    img.onload = () => resolve(img);
-                    img.onerror = reject;
-                    img.src = e.target.result;
-                };
-                reader.onerror = reject;
-                reader.readAsDataURL(file);
-            });
-        }
-
-        function downloadBlob(blob, filename) {
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement("a");
-            a.href = url;
-            a.download = filename;
-            a.click();
-            setTimeout(() => URL.revokeObjectURL(url), 100);
-        }
-
-        // Main Dispatcher
+        // PDF Processing
         let isProcessing = false;
         document.getElementById('process-btn').onclick = async () => {
-            if (isProcessing || selectedFiles.length === 0) return;
-            
+            if (isProcessing) return;
+            if (currentTab === 'merge' && selectedFiles.length < 2) {
+                alert(currentLang === 'es' ? 'Selecciona al menos 2 archivos para unir.' : 'Please select at least 2 files to merge.');
+                return;
+            }
             const loader = document.getElementById('loader');
             const btnText = document.getElementById('btn-text');
 
@@ -1050,25 +1151,18 @@
             isProcessing = true;
 
             try {
-                if (currentTab === 'removebg') {
-                    await ensureImglyBackgroundRemoval();
-                }
-
-                for (let i = 0; i < selectedFiles.length; i++) {
-                    const file = selectedFiles[i];
-                    if (currentTab === 'compress') {
-                        await processCompress(file);
-                    } else if (currentTab === 'resize') {
-                        await processResize(file);
-                    } else if (currentTab === 'format') {
-                        await processFormat(file);
-                    } else if (currentTab === 'removebg') {
-                        await processRemoveBg(file);
-                    }
+                if (currentTab === 'merge') {
+                    await ensurePDFLib();
+                    await mergePDFs();
+                } else if (currentTab === 'extract') {
+                    await ensurePDFJS();
+                    await extractText();
+                } else if (currentTab === 'remove') {
+                    await ensurePDFLib();
+                    await removePages();
                 }
             } catch (err) {
-                console.error(err);
-                alert(translations[currentLang].alert_error + (err.message || 'Unknown Error'));
+                alert(translations[currentLang].alert_error + err.message);
             } finally {
                 loader.classList.add('hidden');
                 btnText.innerText = translations[currentLang].process_btn;
@@ -1076,123 +1170,177 @@
             }
         };
 
-        // Specific Processors
-        async function processCompress(file) {
-            const quality = document.getElementById('quality-slider').value / 100;
-            const img = await createImageData(file);
-            const canvas = document.createElement('canvas');
-            canvas.width = img.width;
-            canvas.height = img.height;
-            const ctx = canvas.getContext('2d');
-            ctx.drawImage(img, 0, 0);
-
-            // Compress to JPEG if not PNG with transparency needed, but for general compression WEBP/JPEG is used.
-            const outType = file.type === 'image/png' ? 'image/webp' : file.type;
-            const ext = outType.split('/')[1].replace('jpeg', 'jpg');
-            
-            return new Promise((resolve) => {
-                canvas.toBlob((blob) => {
-                    const baseName = file.name.substring(0, file.name.lastIndexOf('.')) || 'image';
-                    downloadBlob(blob, `${baseName}_min.${ext}`);
-                    resolve();
-                }, outType, quality);
-            });
-        }
-
-        async function processResize(file) {
-            let targetW = parseInt(document.getElementById('resize-width').value);
-            let targetH = parseInt(document.getElementById('resize-height').value);
-            
-            const img = await createImageData(file);
-            
-            if (!targetW && !targetH) {
-                targetW = img.width;
-                targetH = img.height;
-            } else if (!targetH) {
-                targetH = Math.round((targetW / img.width) * img.height);
-            } else if (!targetW) {
-                targetW = Math.round((targetH / img.height) * img.width);
+        async function mergePDFs() {
+            const PDFDocument = getPDFDoc();
+            if (!PDFDocument) {
+                alert(translations[currentLang].alert_pdf_loading);
+                return;
             }
 
-            const canvas = document.createElement('canvas');
-            canvas.width = targetW;
-            canvas.height = targetH;
-            const ctx = canvas.getContext('2d');
-            ctx.imageSmoothingQuality = 'high';
-            ctx.drawImage(img, 0, 0, targetW, targetH);
-            
-            return new Promise((resolve) => {
-                canvas.toBlob((blob) => {
-                    const baseName = file.name.substring(0, file.name.lastIndexOf('.')) || 'image';
-                    const ext = file.name.split('.').pop() || 'png';
-                    downloadBlob(blob, `${baseName}_${targetW}x${targetH}.${ext}`);
-                    resolve();
-                }, file.type, 0.95);
-            });
-        }
-
-        async function processFormat(file) {
-            const targetFormat = document.getElementById('format-select').value;
-            const img = await createImageData(file);
-            const canvas = document.createElement('canvas');
-            canvas.width = img.width;
-            canvas.height = img.height;
-            const ctx = canvas.getContext('2d');
-            
-            // Fill with white if converting from PNG with alpha to JPEG
-            if(targetFormat === 'image/jpeg' && file.type === 'image/png') {
-                ctx.fillStyle = '#FFFFFF';
-                ctx.fillRect(0,0, canvas.width, canvas.height);
+            const mergedPdf = await PDFDocument.create();
+            for (const file of selectedFiles) {
+                const arrayBuffer = await file.arrayBuffer();
+                const pdf = await PDFDocument.load(arrayBuffer);
+                const copiedPages = await mergedPdf.copyPages(pdf, pdf.getPageIndices());
+                copiedPages.forEach(page => mergedPdf.addPage(page));
             }
-            ctx.drawImage(img, 0, 0);
-            
-            return new Promise((resolve) => {
-                canvas.toBlob((blob) => {
-                    const ext = targetFormat.split('/')[1].replace('jpeg', 'jpg');
-                    const baseName = file.name.substring(0, file.name.lastIndexOf('.')) || 'image';
-                    downloadBlob(blob, `${baseName}.${ext}`);
-                    resolve();
-                }, targetFormat, 0.95);
-            });
+            download(await mergedPdf.save(), translations[currentLang].file_merged);
         }
 
-        async function processRemoveBg(file) {
-            const bgStatus = document.getElementById('bg-model-status');
-            const bgProgressText = document.getElementById('bg-model-percentage');
-            const bgProgressBar = document.getElementById('bg-model-progress');
-            
-            if(bgStatus) bgStatus.classList.remove('hidden');
-            if(bgProgressText) bgProgressText.innerText = "0%";
-            if(bgProgressBar) bgProgressBar.style.width = "0%";
+        async function extractText() {
+            if (typeof pdfjsLib === 'undefined') {
+                alert(translations[currentLang].alert_pdfjs_loading);
+                return;
+            }
 
-            const config = {
-                publicPath: 'https://unpkg.com/@imgly/background-removal@1.4.5/dist/', 
-                progress: (key, current, total) => {
-                    if (total > 0 && bgProgressText && bgProgressBar) {
-                        const percent = Math.round((current / total) * 100);
-                        bgProgressText.innerText = `${percent}%`;
-                        bgProgressBar.style.width = `${percent}%`;
+            const file = selectedFiles[0];
+            const arrayBuffer = await file.arrayBuffer();
+            const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+            const useOCR = document.getElementById('ocr-toggle').checked;
+
+            let fullText = '';
+            let textFound = false;
+
+            if (useOCR) {
+                await ensureTesseract();
+                const ocrStatus = document.getElementById('ocr-status');
+                const ocrStatusText = document.getElementById('ocr-status-text');
+                const ocrProgress = document.getElementById('ocr-progress');
+
+                ocrStatus.classList.remove('hidden');
+                ocrStatusText.innerText = translations[currentLang].ocr_loading_worker;
+                ocrProgress.style.width = '0%';
+                document.getElementById('ocr-percentage').innerText = '0%';
+
+                // Map 2-letter codes to Tesseract 3-letter codes
+                const langMap = {
+                    'es': 'spa',
+                    'en': 'eng',
+                    'pt': 'por',
+                    'de': 'deu',
+                    'fr': 'fra'
+                };
+                const tesseractLang = langMap[currentLang] || 'eng';
+
+                const worker = await Tesseract.createWorker(tesseractLang, 1, {
+                    logger: m => {
+                        if (m.status === 'recognizing text') {
+                            const pageNum = parseInt(ocrStatusText.getAttribute('data-page') || 1);
+                            const totalPages = pdf.numPages;
+                            const pageProgress = m.progress;
+                            const totalProgress = ((pageNum - 1) / totalPages) + (pageProgress / totalPages);
+                            const percentage = Math.round(totalProgress * 100);
+                            ocrProgress.style.width = `${percentage}%`;
+                            document.getElementById('ocr-percentage').innerText = `${percentage}%`;
+                        }
+                    }
+                });
+
+                for (let i = 1; i <= pdf.numPages; i++) {
+                    ocrStatusText.innerText = translations[currentLang].ocr_processing_page + i + '/' + pdf.numPages;
+                    ocrStatusText.setAttribute('data-page', i);
+                    const page = await pdf.getPage(i);
+                    const viewport = page.getViewport({ scale: 1.5 }); // Balanced scale for speed/accuracy
+                    const canvas = document.createElement('canvas');
+                    const context = canvas.getContext('2d');
+                    canvas.height = viewport.height;
+                    canvas.width = viewport.width;
+
+                    await page.render({ canvasContext: context, viewport: viewport }).promise;
+
+                    const { data: { text } } = await worker.recognize(canvas);
+                    fullText += `--- ${translations[currentLang].page_text} ${i} ---\n${text}\n\n`;
+                    const currentPercentage = Math.round((i / pdf.numPages) * 100);
+                    ocrProgress.style.width = `${currentPercentage}%`;
+                    document.getElementById('ocr-percentage').innerText = `${currentPercentage}%`;
+                }
+
+                await worker.terminate();
+                ocrStatusText.innerText = translations[currentLang].ocr_complete;
+                textFound = fullText.trim().length > 0;
+            } else {
+                for (let i = 1; i <= pdf.numPages; i++) {
+                    const page = await pdf.getPage(i);
+                    const textContent = await page.getTextContent();
+                    const pageText = textContent.items.map(item => item.str).join(' ');
+                    if (pageText.trim()) textFound = true;
+                    fullText += `--- ${translations[currentLang].page_text} ${i} ---\n${pageText}\n\n`;
+                }
+            }
+
+            if (!textFound && !useOCR) {
+                if (confirm(translations[currentLang].ocr_suggest)) {
+                    document.getElementById('ocr-toggle').checked = true;
+                    // No descargamos nada automáticamente, dejamos que el usuario haga click de nuevo?
+                    // O relanzamos? Relancemos para mejor UX.
+                    await extractText();
+                    return;
+                }
+            }
+
+            const blob = new Blob([fullText], { type: "text/plain" });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = translations[currentLang].file_extracted + file.name.replace('.pdf', '') + ".txt";
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        async function removePages() {
+            const PDFDocument = getPDFDoc();
+            if (!PDFDocument) {
+                alert(translations[currentLang].alert_pdf_loading);
+                return;
+            }
+
+            const file = selectedFiles[0];
+            const indicesStr = document.getElementById('pages-to-remove').value;
+
+            // Parse comma-separated values and ranges (e.g., "1, 3-5")
+            const indicesToRemove = new Set();
+            if (indicesStr.trim()) {
+                const parts = indicesStr.split(',');
+                for (const part of parts) {
+                    const trimmedPart = part.trim();
+                    if (trimmedPart.includes('-')) {
+                        const [start, end] = trimmedPart.split('-').map(n => parseInt(n.trim()));
+                        if (!isNaN(start) && !isNaN(end) && start <= end) {
+                            for (let i = start; i <= end; i++) {
+                                indicesToRemove.add(i - 1); // 0-indexed
+                            }
+                        }
+                    } else {
+                        const num = parseInt(trimmedPart);
+                        if (!isNaN(num)) {
+                            indicesToRemove.add(num - 1); // 0-indexed
+                        }
                     }
                 }
-            };
-            
-            try {
-                // Importar dinámicamente el módulo usando esm.sh compilado con todo en uno
-                if (!window.imglyRemoveBackground) {
-                    const module = await import("https://esm.sh/@imgly/background-removal@1.4.5?bundle");
-                    window.imglyRemoveBackground = module.default || module.removeBackground;
-                }
-
-                const blob = await window.imglyRemoveBackground(file, config);
-                const baseName = file.name.substring(0, file.name.lastIndexOf('.')) || 'image';
-                downloadBlob(blob, `${baseName}_nobg.png`);
-            } catch(e) {
-                console.error("RemoveBG Error: ", e);
-                alert("Error al quitar el fondo: Revisa la consola o desactiva tu bloqueador de anuncios.");
-                throw e;
-            } finally {
-                if(bgStatus) bgStatus.classList.add('hidden');
             }
+
+            const arrayBuffer = await file.arrayBuffer();
+            const pdf = await PDFDocument.load(arrayBuffer);
+
+            // Lógica inversa: mantener las páginas que no están en la lista
+            const total = pdf.getPageCount();
+            const newPdf = await PDFDocument.create();
+            const indicesToRemoveArray = Array.from(indicesToRemove);
+            const indicesToKeep = Array.from({ length: total }, (_, i) => i).filter(i => !indicesToRemoveArray.includes(i));
+
+            const copiedPages = await newPdf.copyPages(pdf, indicesToKeep);
+            copiedPages.forEach(page => newPdf.addPage(page));
+
+            download(await newPdf.save(), translations[currentLang].file_modified);
+        }
+
+        function download(data, name) {
+            const blob = new Blob([data], { type: "application/pdf" });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = name;
+            a.click();
         }
     </script>
 
