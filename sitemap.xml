@@ -35,4 +35,19 @@
     <lastmod>2026-04-14</lastmod>
     <priority>0.3</priority>
   </url>
+  <url>
+    <loc>https://pdf-quick-tool.github.io/og-image.png</loc>
+    <lastmod>2026-04-14</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://pdf-quick-tool.github.io/favicon.svg</loc>
+    <lastmod>2026-04-14</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://pdf-quick-tool.github.io/favicon.ico</loc>
+    <lastmod>2026-04-14</lastmod>
+    <priority>0.6</priority>
+  </url>
 </urlset>
