@@ -1,6 +1,20 @@
 User-agent: *
 Allow: /
-Disallow: /seguro.html
-Disallow: /seguro2.html
+Crawl-delay: 1
 
+# Bloquear bots innecesarios
+User-agent: AhrefsBot
+Disallow: /
+User-agent: MJ12bot
+Disallow: /
+User-agent: DotBot
+Disallow: /
+
+# Permitir bots importantes
+User-agent: Googlebot
+Allow: /
+User-agent: Bingbot
+Allow: /
+User-agent: Slurp
+Allow: /
 Sitemap: https://pdf-quick-tool.github.io/sitemap.xml
