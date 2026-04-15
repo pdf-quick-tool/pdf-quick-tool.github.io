@@ -48,18 +48,19 @@
     <!-- Favicon optimizado para Google Search Console -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='15' fill='%233b82f6'/><rect x='8' y='6' width='16' height='20' rx='2' fill='white' opacity='0.95'/><text x='16' y='15' font-family='Arial' font-size='5' font-weight='bold' text-anchor='middle' fill='%231d4ed8'>PDF</text><circle cx='16' cy='20' r='3' fill='%2310b981'/><path d='M14 20 L15.5 21.5 L18 18.5' stroke='white' stroke-width='1.5' fill='none'/></svg>" />
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='15' fill='%233b82f6'/><rect x='8' y='6' width='16' height='20' rx='2' fill='white' opacity='0.95'/><text x='16' y='15' font-family='Arial' font-size='5' font-weight='bold' text-anchor='middle' fill='%231d4ed8'>PDF</text><circle cx='16' cy='20' r='3' fill='%2310b981'/><path d='M14 20 L15.5 21.5 L18 18.5' stroke='white' stroke-width='1.5' fill='none'/></svg>" />
     <link rel="shortcut icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico" />
     <meta name="msapplication-TileImage" content="/favicon.ico" />
     <meta name="msapplication-TileColor" content="#3b82f6" />
-    
+
     <!-- Configuración específica para Google Search -->
     <link rel="icon" type="image/png" sizes="48x48" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico" />
-    
+
     <!-- Schema.org markup for Google -->
     <script type="application/ld+json">
     {
@@ -159,6 +160,35 @@
             aspect-ratio: 160 / 600;
         }
 
+        /* Controlar dimensiones de anuncios nativos */
+        #container-9c0160470687def6fc582f0096557057,
+        #container-9c0160470687def6fc582f0096557057-dropzone {
+            max-width: 100% !important;
+            overflow: hidden !important;
+        }
+
+        #container-9c0160470687def6fc582f0096557057>div,
+        #container-9c0160470687def6fc582f0096557057-dropzone>div {
+            max-width: 100% !important;
+            overflow: hidden !important;
+        }
+
+        .container-9c0160470687def6fc582f0096557057__bn-container {
+            max-width: 100% !important;
+            overflow: hidden !important;
+        }
+
+        .container-9c0160470687def6fc582f0096557057__img {
+            max-width: 100% !important;
+            height: auto !important;
+            object-fit: cover !important;
+        }
+
+        .container-9c0160470687def6fc582f0096557057__img-container {
+            max-width: 100% !important;
+            overflow: hidden !important;
+        }
+
         #cookie-banner {
             min-height: 80px;
         }
@@ -200,36 +230,41 @@
         </p>
     </header>
 
-    <main class="container mx-auto px-4 py-6 max-w-5xl">
-        <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
-
-            <!-- Columna Principal -->
-            <div class="lg:col-span-3 space-y-6">
+    <main class="main-wrapper">
+        <!-- Columna Izquierda: Funcionalidades, Guía, SEO, FAQ -->
+        <div class="functional-column">
+            <div class="space-y-12">
 
                 <!-- Tabs -->
-                <nav class="flex justify-around border-b border-gray-200 dark:border-gray-700 mb-8">
-                    <button onclick="switchTab('merge')" id="tab-merge" class="tab-btn pb-4 font-semibold tab-active"
+                <nav class="flex justify-around border-b border-gray-200 dark:border-gray-700 mb-8" role="tablist">
+                    <button onclick="switchTab('merge')" id="tab-merge" role="tab" aria-selected="true" class="tab-btn pb-4 font-semibold tab-active"
                         data-i18n="tab_merge">Unir PDFs</button>
-                    <button onclick="switchTab('extract')" id="tab-extract" class="tab-btn pb-4 font-semibold"
-                        data-i18n="tab_extract">Extraer
-                        Texto</button>
-                    <button onclick="switchTab('remove')" id="tab-remove" class="tab-btn pb-4 font-semibold"
-                        data-i18n="tab_remove">Eliminar
-                        Páginas</button>
+                    <button onclick="switchTab('extract')" id="tab-extract" role="tab" aria-selected="false" class="tab-btn pb-4 font-semibold text-gray-500"
+                        data-i18n="tab_extract">Extraer Texto</button>
+                    <button onclick="switchTab('remove')" id="tab-remove" role="tab" aria-selected="false" class="tab-btn pb-4 font-semibold text-gray-500"
+                        data-i18n="tab_remove">Eliminar Páginas</button>
                 </nav>
 
                 <!-- Herramienta Interactiva -->
-                <section
-                    class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700">
-                    <div id="drop-zone"
-                        class="border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-xl p-12 text-center transition-all cursor-pointer hover:border-blue-400">
-                        <i class="fas fa-file-pdf text-5xl text-blue-500 mb-4" style="width: 48px; height: 48px;"></i>
-                        <p class="text-lg font-medium" data-i18n="drop_zone_title">Arrastra tus archivos aquí o haz clic
-                            para subir</p>
-                        <p class="text-sm text-gray-600 dark:text-gray-400 mt-2" data-i18n="drop_zone_subtitle">Solo
-                            archivos .pdf
-                            admitidos</p>
-                        <input type="file" id="file-input" class="hidden" multiple accept=".pdf">
+                <section class="tool-section">
+
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                        <!-- Drop Zone - 2 columnas -->
+                        <div class="lg:col-span-2">
+                            <div id="drop-zone"
+                                class="border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-xl p-12 text-center transition-all cursor-pointer hover:border-blue-400">
+                                <i class="fas fa-file-pdf text-5xl text-blue-500 mb-4"
+                                    style="width: 48px; height: 48px;"></i>
+                                <p class="text-lg font-medium" data-i18n="drop_zone_title">Arrastra tus archivos aquí o
+                                    haz clic
+                                    para subir</p>
+                                <p class="text-sm text-gray-600 dark:text-gray-400 mt-2" data-i18n="drop_zone_subtitle">
+                                    Solo
+                                    archivos .pdf
+                                    admitidos</p>
+                                <input type="file" id="file-input" class="hidden" multiple accept=".pdf">
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Lista de archivos seleccionados -->
@@ -328,54 +363,140 @@
                                 class="hidden w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin">
                             </div>
                         </button>
-                <!-- Contenido SEO -->
-                <article class="prose dark:prose-invert max-w-none mt-12">
-                    <h2 class="text-2xl font-bold" data-i18n="seo_h2">¿Cómo unir PDF gratis online con esta herramienta?
-                    </h2>
-                    <p data-i18n="seo_p">Nuestra herramienta utiliza la tecnología de <strong>procesamiento en el
-                            cliente</strong>. A
-                        diferencia de otros sitios, nosotros no subimos tus documentos a un servidor externo. Todo
-                        ocurre en la memoria de tu navegador, lo que la convierte en la opción más rápida y segura para
-                        manejar documentos sensibles.</p>
 
-                    <h3 class="text-xl font-semibold mt-4" data-i18n="seo_h3">Beneficios de extraer texto de PDF sin
-                        registro</h3>
-                    <ul class="list-disc pl-6">
-                        <li data-i18n="seo_li1"><strong>Privacidad:</strong> Los datos bancarios o personales no salen
-                            de tu PC.</li>
-                        <li data-i18n="seo_li2"><strong>Velocidad:</strong> Sin colas de espera ni tiempos de subida.
-                        </li>
-                        <li data-i18n="seo_li3"><strong>Sin límites:</strong> Procesa archivos grandes sin restricciones
-                            de cuenta premium.
-                        </li>
-                    </ul>
-                </article>
+                        <!-- Contenido SEO -->
+                        <article class="prose dark:prose-invert max-w-none mt-12">
+                            <h2 class="text-2xl font-bold" data-i18n="seo_h2">¿Cómo unir PDF gratis online con esta
+                                herramienta?
+                            </h2>
+                            <p data-i18n="seo_p">Nuestra herramienta utiliza la tecnología de <strong>procesamiento en
+                                    el
+                                    cliente</strong>. A
+                                diferencia de otros sitios, nosotros no subimos tus documentos a un servidor externo.
+                                Todo
+                                ocurre en la memoria de tu navegador, lo que la convierte en la opción más rápida y
+                                segura para
+                                manejar documentos sensibles.</p>
 
-                <!-- FAQ Section -->
-                <section class="mt-12 space-y-4">
-                    <h2 class="text-2xl font-bold mb-6" data-i18n="faq_title">Preguntas Frecuentes (FAQ)</h2>
-                    <div class="p-4 border rounded-lg bg-gray-50 dark:bg-gray-800">
-                        <h3 class="font-bold" data-i18n="faq_q1">¿Es seguro subir mis documentos?</h3>
-                        <p class="text-sm" data-i18n="faq_a1">Absolutamente. PDF Quick-Tool procesa los archivos
-                            localmente. Tus PDFs nunca
-                            se envían a la nube.</p>
+                            <h3 class="text-xl font-semibold mt-4" data-i18n="seo_h3">Beneficios de extraer texto de PDF
+                                sin
+                                registro</h3>
+                            <ul class="list-disc pl-6">
+                                <li data-i18n="seo_li1"><strong>Privacidad:</strong> Los datos bancarios o personales no
+                                    salen
+                                    de tu PC.</li>
+                                <li data-i18n="seo_li2"><strong>Velocidad:</strong> Sin colas de espera ni tiempos de
+                                    subida.
+                                </li>
+                                <li data-i18n="seo_li3"><strong>Sin límites:</strong> Procesa archivos grandes sin
+                                    restricciones
+                                    de cuenta premium.
+                                </li>
+                            </ul>
+                        </article>
+
+                        <!-- FAQ Section -->
+                        <section class="mt-12 space-y-4">
+                            <h2 class="text-2xl font-bold mb-6" data-i18n="faq_title">Preguntas Frecuentes (FAQ)</h2>
+                            <div class="p-4 border rounded-lg bg-gray-50 dark:bg-gray-800">
+                                <h3 class="font-bold" data-i18n="faq_q1">¿Es seguro subir mis documentos?</h3>
+                                <p class="text-sm" data-i18n="faq_a1">Absolutamente. PDF Quick-Tool procesa los archivos
+                                    localmente. Tus PDFs nunca
+                                    se envían a la nube.</p>
+                            </div>
+                            <div class="p-4 border rounded-lg bg-gray-50 dark:bg-gray-800">
+                                <h3 class="font-bold" data-i18n="faq_q2">¿Tiene algún costo o límite de uso?</h3>
+                                <p class="text-sm" data-i18n="faq_a2">No. Es totalmente gratuito y no requiere registro
+                                    previo
+                                    para funcionar.</p>
+                            </div>
+                        </section>
                     </div>
-                    <div class="p-4 border rounded-lg bg-gray-50 dark:bg-gray-800">
-                        <h3 class="font-bold" data-i18n="faq_q2">¿Tiene algún costo o límite de uso?</h3>
-                        <p class="text-sm" data-i18n="faq_a2">No. Es totalmente gratuito y no requiere registro previo
-                            para funcionar.</p>
+
+                    <!-- Guía de Uso -->
+                    <section id="usage-guide" class="mt-16">
+                        <div class="text-center mb-12">
+                            <h2 class="text-3xl font-extrabold text-gray-900 dark:text-gray-100" data-i18n="guide_title">Cómo usar PDF Quick Tool</h2>
+                            <p class="text-gray-500 dark:text-gray-400 mt-3 text-lg" data-i18n="guide_subtitle">Guía rápida para cada función</p>
+                        </div>
+
+                        <div class="guide-grid">
+                            <!-- Unir PDFs -->
+                            <div class="guide-card">
+                                <img src="img/unir-pdf-fusionar-pdf-quick-tool.png" alt="Unir PDFs" class="guide-card-img" loading="lazy" width="400" height="200">
+                                <div class="p-6">
+                                    <div class="flex items-center gap-3 mb-5">
+                                        <span class="guide-badge guide-badge-blue" data-i18n="card1_badge">Paso a paso</span>
+                                        <h3 class="text-lg font-bold" data-i18n="card1_title">Unir PDFs</h3>
+                                    </div>
+                                    <ol class="space-y-3 text-sm">
+                                        <li class="flex gap-3 items-start"><span class="text-blue-500 font-bold shrink-0">1.</span> <span data-i18n="card1_s1">Selecciona "Unir PDFs"</span></li>
+                                        <li class="flex gap-3 items-start"><span class="text-blue-500 font-bold shrink-0">2.</span> <span data-i18n="card1_s2">Sube tus archivos PDF</span></li>
+                                        <li class="flex gap-3 items-start"><span class="text-blue-500 font-bold shrink-0">3.</span> <span data-i18n="card1_s3">Reordena si es necesario</span></li>
+                                        <li class="flex gap-3 items-start"><span class="text-blue-500 font-bold shrink-0">4.</span> <span data-i18n="card1_s4">Clic en "Procesar"</span></li>
+                                        <li class="flex gap-3 items-start"><span class="text-blue-500 font-bold shrink-0">5.</span> <span data-i18n="card1_s5">Descarga tu PDF fusionado</span></li>
+                                    </ol>
+                                </div>
+                            </div>
+
+                            <!-- Extraer Texto -->
+                            <div class="guide-card">
+                                <img src="img/extraer-texto-ocr-pdf-quick-tool.png" alt="Extraer texto" class="guide-card-img" loading="lazy" width="400" height="200">
+                                <div class="p-6">
+                                    <div class="flex items-center gap-3 mb-5">
+                                        <span class="guide-badge guide-badge-green" data-i18n="card2_badge">Con OCR</span>
+                                        <h3 class="text-lg font-bold" data-i18n="card2_title">Extraer Texto</h3>
+                                    </div>
+                                    <ol class="space-y-3 text-sm">
+                                        <li class="flex gap-3 items-start"><span class="text-green-500 font-bold shrink-0">1.</span> <span data-i18n="card2_s1">Selecciona "Extraer Texto"</span></li>
+                                        <li class="flex gap-3 items-start"><span class="text-green-500 font-bold shrink-0">2.</span> <span data-i18n="card2_s2">Sube tu archivo PDF</span></li>
+                                        <li class="flex gap-3 items-start"><span class="text-green-500 font-bold shrink-0">3.</span> <span data-i18n="card2_s3">Activa OCR si es necesario</span></li>
+                                        <li class="flex gap-3 items-start"><span class="text-green-500 font-bold shrink-0">4.</span> <span data-i18n="card2_s4">Clic en "Procesar"</span></li>
+                                        <li class="flex gap-3 items-start"><span class="text-green-500 font-bold shrink-0">5.</span> <span data-i18n="card2_s5">Copia o descarga el texto</span></li>
+                                    </ol>
+                                </div>
+                            </div>
+
+                            <!-- Eliminar Páginas -->
+                            <div class="guide-card">
+                                <img src="img/eliminar-paginas-pdf-quick-tool.png" alt="Eliminar páginas" class="guide-card-img" loading="lazy" width="400" height="200">
+                                <div class="p-6">
+                                    <div class="flex items-center gap-3 mb-5">
+                                        <span class="guide-badge guide-badge-red" data-i18n="card3_badge">Rangos</span>
+                                        <h3 class="text-lg font-bold" data-i18n="card3_title">Eliminar Páginas</h3>
+                                    </div>
+                                    <ol class="space-y-3 text-sm">
+                                        <li class="flex gap-3 items-start"><span class="text-red-500 font-bold shrink-0">1.</span> <span data-i18n="card3_s1">Selecciona "Eliminar Páginas"</span></li>
+                                        <li class="flex gap-3 items-start"><span class="text-red-500 font-bold shrink-0">2.</span> <span data-i18n="card3_s2">Sube tu archivo PDF</span></li>
+                                        <li class="flex gap-3 items-start"><span class="text-red-500 font-bold shrink-0">3.</span> <span data-i18n="card3_s3">Elige las páginas/rangos</span></li>
+                                        <li class="flex gap-3 items-start"><span class="text-red-500 font-bold shrink-0">4.</span> <span data-i18n="card3_s4">Clic en "Procesar"</span></li>
+                                        <li class="flex gap-3 items-start"><span class="text-red-500 font-bold shrink-0">5.</span> <span data-i18n="card3_s5">Descarga el PDF final</span></li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div> <!-- Cierre space-y-12 -->
+            </div> <!-- Cierre functional-column -->
+
+            <aside class="ad-sidebar">
+                <div class="ad-sidebar-sticky">
+                    <div class="ad-sidebar-card">
+                        <div class="w-full flex flex-col items-center gap-8" id="sidebar-ads-container">
+                            <!-- Contenedor de anuncio principal de Adsterra -->
+                            <div class="w-full min-h-[250px]" id="sidebar-ad-wrapper">
+                                <div id="container-9c0160470687def6fc582f0096557057"></div>
+                                <script async="async" data-cfasync="false" src="https://pl28904959.profitablecpmratenetwork.com/9c0160470687def6fc582f0096557057/invoke.js"></script>
+                            </div>
+                            
+                            <!-- Segundo espacio para anuncios -->
+                            <div id="ad-sidebar-extra" class="w-full min-h-[150px]"></div>
+                        </div>
                     </div>
-                </section>
-            </div>
+                </div>
+            </aside>
+        </main>
 
-
-        </div>
-    </main>
-
-    <!-- Native Banner Ad - relocated for better UX -->
-    <div id="native-banner-container" class="w-full flex justify-center my-8 min-h-[90px]">
-        <div id="container-9c0160470687def6fc582f0096557057"></div>
-    </div>
 
     <footer class="bg-gray-100 dark:bg-gray-950 py-12 mt-20 border-t dark:border-gray-800 pb-32">
         <!-- pb-32 para el banner de cookies -->
@@ -510,7 +631,30 @@
                 ocr_subtitle: "Detecta texto en imágenes o fotos",
                 ocr_on: "ACTIVADO",
                 ocr_off: "DESACTIVADO",
-                ocr_privacy_note: "Privacidad 100% Local"
+                ocr_privacy_note: "Privacidad 100% Local",
+                guide_title: "Cómo usar PDF Quick Tool",
+                guide_subtitle: "Guía rápida para cada función",
+                card1_badge: "Paso a paso",
+                card1_title: "Unir PDFs",
+                card1_s1: "Selecciona \"Unir PDFs\"",
+                card1_s2: "Sube tus archivos PDF",
+                card1_s3: "Reordena si es necesario",
+                card1_s4: "Clic en \"Procesar\"",
+                card1_s5: "Descarga tu PDF fusionado",
+                card2_badge: "Con OCR",
+                card2_title: "Extraer Texto",
+                card2_s1: "Selecciona \"Extraer Texto\"",
+                card2_s2: "Sube tu archivo PDF",
+                card2_s3: "Activa OCR si es necesario",
+                card2_s4: "Clic en \"Procesar\"",
+                card2_s5: "Copia o descarga el texto",
+                card3_badge: "Rangos",
+                card3_title: "Eliminar Páginas",
+                card3_s1: "Selecciona \"Eliminar Páginas\"",
+                card3_s2: "Sube tu archivo PDF",
+                card3_s3: "Elige las páginas/rangos",
+                card3_s4: "Clic en \"Procesar\"",
+                card3_s5: "Descarga el PDF final"
             },
             en: {
                 title_main: "PDF Quick-Tool",
@@ -569,7 +713,30 @@
                 ocr_subtitle: "Detect text in images or photos",
                 ocr_on: "ENABLED",
                 ocr_off: "DISABLED",
-                ocr_privacy_note: "100% Local Privacy"
+                ocr_privacy_note: "100% Local Privacy",
+                guide_title: "How to use PDF Quick Tool",
+                guide_subtitle: "Quick guide for every function",
+                card1_badge: "Step by step",
+                card1_title: "Merge PDFs",
+                card1_s1: "Select \"Merge PDFs\"",
+                card1_s2: "Upload your PDF files",
+                card1_s3: "Reorder if necessary",
+                card1_s4: "Click on \"Process\"",
+                card1_s5: "Download merged PDF",
+                card2_badge: "With OCR",
+                card2_title: "Extract Text",
+                card2_s1: "Select \"Extract Text\"",
+                card2_s2: "Upload your PDF file",
+                card2_s3: "Enable OCR if needed",
+                card2_s4: "Click on \"Process\"",
+                card2_s5: "Copy or download text",
+                card3_badge: "Ranges",
+                card3_title: "Remove Pages",
+                card3_s1: "Select \"Remove Pages\"",
+                card3_s2: "Upload your PDF file",
+                card3_s3: "Choose pages/ranges",
+                card3_s4: "Click on \"Process\"",
+                card3_s5: "Download final PDF"
             },
             pt: {
                 title_main: "PDF Quick-Tool",
@@ -616,7 +783,30 @@
                 cookie_decline: "Recusar",
                 footer_cookie_settings: "Configurações de Cookies",
                 footer_coffee_btn: "Ajudou você? Pague-me um café no Ko-fi",
-                kofi_button: "Apoie-me"
+                kofi_button: "Apoie-me",
+                guide_title: "Como usar o PDF Quick Tool",
+                guide_subtitle: "Guia rápido para cada função",
+                card1_badge: "Passo a passo",
+                card1_title: "Unir PDFs",
+                card1_s1: "Selecione \"Unir PDFs\"",
+                card1_s2: "Carregue seus arquivos PDF",
+                card1_s3: "Reordene se necessário",
+                card1_s4: "Clique em \"Processar\"",
+                card1_s5: "Baixe seu PDF unido",
+                card2_badge: "Com OCR",
+                card2_title: "Extrair Texto",
+                card2_s1: "Selecione \"Extrair Texto\"",
+                card2_s2: "Carregue seu arquivo PDF",
+                card2_s3: "Ative o OCR se necessário",
+                card2_s4: "Clique em \"Processar\"",
+                card2_s5: "Copie ou baixe o texto",
+                card3_badge: "Intervalos",
+                card3_title: "Remover Páginas",
+                card3_s1: "Selecione \"Remover Páginas\"",
+                card3_s2: "Carregue seu arquivo PDF",
+                card3_s3: "Escolha as páginas/intervalos",
+                card3_s4: "Clique em \"Processar\"",
+                card3_s5: "Baixe o PDF final"
             },
             de: {
                 title_main: "PDF Quick-Tool",
@@ -663,7 +853,30 @@
                 cookie_decline: "Ablehnen",
                 footer_cookie_settings: "Cookie-Einstellungen",
                 footer_coffee_btn: "Hat es geholfen? Spendier mir einen Kaffee auf Ko-fi",
-                kofi_button: "Unterstützen"
+                kofi_button: "Unterstützen",
+                guide_title: "PDF Quick Tool verwenden",
+                guide_subtitle: "Kurzanleitung für jede Funktion",
+                card1_badge: "Schritt für Schritt",
+                card1_title: "PDFs zusammenfügen",
+                card1_s1: "Wählen Sie \"PDFs zusammenfügen\"",
+                card1_s2: "PDF-Dateien hochladen",
+                card1_s3: "Bei Bedarf neu ordnen",
+                card1_s4: "Auf \"Verarbeiten\" klicken",
+                card1_s5: "Zusammengefügtes PDF laden",
+                card2_badge: "Mit OCR",
+                card2_title: "Text extrahieren",
+                card2_s1: "Wählen Sie \"Text extrahieren\"",
+                card2_s2: "PDF-Datei hochladen",
+                card2_s3: "OCR aktivieren falls nötig",
+                card2_s4: "Auf \"Verarbeiten\" klicken",
+                card2_s5: "Text kopieren oder laden",
+                card3_badge: "Bereiche",
+                card3_title: "Seiten entfernen",
+                card3_s1: "Wählen Sie \"Seiten entfernen\"",
+                card3_s2: "PDF-Datei hochladen",
+                card3_s3: "Seiten/Bereiche wählen",
+                card3_s4: "Auf \"Verarbeiten\" klicken",
+                card3_s5: "Finales PDF herunterladen"
             },
             fr: {
                 title_main: "PDF Quick-Tool",
@@ -710,7 +923,30 @@
                 cookie_decline: "Refuser",
                 footer_cookie_settings: "Paramètres des cookies",
                 footer_coffee_btn: "Ça vous a aidé ? Offrez-moi un café sur Ko-fi",
-                kofi_button: "Soutenir"
+                kofi_button: "Soutenir",
+                guide_title: "Comment utiliser PDF Quick Tool",
+                guide_subtitle: "Guide rapide pour chaque fonction",
+                card1_badge: "Étape par étape",
+                card1_title: "Fusionner PDF",
+                card1_s1: "Sélectionnez \"Fusionner PDF\"",
+                card1_s2: "Téléchargez vos fichiers PDF",
+                card1_s3: "Réorganisez si nécessaire",
+                card1_s4: "Cliquez sur \"Traiter\"",
+                card1_s5: "Téléchargez le PDF fusionné",
+                card2_badge: "Avec OCR",
+                card2_title: "Extraire le texte",
+                card2_s1: "Sélectionnez \"Extraire le texte\"",
+                card2_s2: "Téléchargez votre fichier PDF",
+                card2_s3: "Activez l'OCR si nécessaire",
+                card2_s4: "Cliquez sur \"Traiter\"",
+                card2_s5: "Copiez ou téléchargez le texte",
+                card3_badge: "Plages",
+                card3_title: "Supprimer des pages",
+                card3_s1: "Sélectionnez \"Supprimer des pages\"",
+                card3_s2: "Téléchargez votre fichier PDF",
+                card3_s3: "Choisissez les pages/plages",
+                card3_s4: "Cliquez sur \"Traiter\"",
+                card3_s5: "Téléchargez le PDF final"
             }
         };
 
@@ -733,21 +969,22 @@
                 }
             });
 
-            // Actualizar SEO (Títulos y Metadatos Dinámicos) con comprobaciones de seguridad
+            // Actualizar SEO (Títulos y Metadatos Dinámicos)
             const ogTitle = document.querySelector('meta[property="og:title"]');
+            const metaDescription = document.querySelector('meta[name="description"]');
+            const ogDescription = document.querySelector('meta[property="og:description"]');
+            const metaKeywords = document.querySelector('meta[name="keywords"]');
+
             if (translations[lang].page_title) {
                 document.title = translations[lang].page_title;
                 if (ogTitle) ogTitle.content = translations[lang].page_title;
             }
 
-            const metaDesc = document.querySelector('meta[name="description"]');
-            const ogDesc = document.querySelector('meta[property="og:description"]');
             if (translations[lang].meta_description) {
-                if (metaDesc) metaDesc.content = translations[lang].meta_description;
-                if (ogDesc) ogDesc.content = translations[lang].meta_description;
+                if (metaDescription) metaDescription.content = translations[lang].meta_description;
+                if (ogDescription) ogDescription.content = translations[lang].meta_description;
             }
 
-            const metaKeywords = document.querySelector('meta[name="keywords"]');
             if (translations[lang].meta_keywords && metaKeywords) {
                 metaKeywords.content = translations[lang].meta_keywords;
             }
@@ -835,7 +1072,7 @@
                         const navLang = navigator.language.split('-')[0];
                         if (navLang === 'es') {
                             console.log("Hint de navegador: 'es'. Asumimos región no estricta para clics rápidos.");
-                            country = 'LATAM_HINT'; 
+                            country = 'LATAM_HINT';
                         }
                     }
                 }
@@ -867,7 +1104,7 @@
 
                     // Detectar si es móvil
                     const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-                    
+
                     if (country !== 'unknown' && !strictCountries.includes(country)) {
                         console.log("Región no estricta detectada. Auto-consentimiento concedido.");
                         localStorage.setItem('pdfqt_consent', 'true');
@@ -956,21 +1193,8 @@
         let adsLoaded = false;
         let kofiLoaded = false;
         async function loadAds() {
-            if (localStorage.getItem('pdfqt_consent') !== 'true') return;
-
-            // Limpiar placeholder del sidebar si existe
-            const sidebar = document.getElementById('ad-sidebar');
-            if (sidebar) sidebar.innerHTML = '<span class="text-[10px] uppercase tracking-widest opacity-50">Publicidad</span>';
-
-            if (adsLoaded) return;
-            adsLoaded = true;
-            console.log('Cargando Native Banner...');
-            const script = document.createElement('script');
-            script.async = true;
-            script.dataset.cfasync = 'false';
-            script.src = 'https://pl28904959.effectivegatecpm.com/9c0160470687def6fc582f0096557057/invoke.js';
-            // The container is now directly in the HTML for reliability
-            document.body.appendChild(script);
+            // Anuncios cargados estáticamente en el HTML
+            return;
         }
 
         function loadKofi() {
@@ -1045,8 +1269,13 @@
         // Tab Management
         function switchTab(tab) {
             currentTab = tab;
-            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('tab-active'));
-            document.getElementById(`tab-${tab}`).classList.add('tab-active');
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('tab-active');
+                btn.setAttribute('aria-selected', 'false');
+            });
+            const activeBtn = document.getElementById(`tab-${tab}`);
+            activeBtn.classList.add('tab-active');
+            activeBtn.setAttribute('aria-selected', 'true');
             document.getElementById('remove-pages-config').classList.toggle('hidden', tab !== 'remove');
             document.getElementById('extract-config').classList.toggle('hidden', tab !== 'extract');
             resetUI();
