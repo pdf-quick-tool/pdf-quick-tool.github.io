@@ -92,7 +92,7 @@
       "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": "4.8",
-        "reviewCount": "1000+"
+        "reviewCount": "1000"
       }
     }
     </script>
@@ -237,12 +237,13 @@
 
                 <!-- Tabs -->
                 <nav class="flex justify-around border-b border-gray-200 dark:border-gray-700 mb-8" role="tablist">
-                    <button onclick="switchTab('merge')" id="tab-merge" role="tab" aria-selected="true" class="tab-btn pb-4 font-semibold tab-active"
-                        data-i18n="tab_merge">Unir PDFs</button>
-                    <button onclick="switchTab('extract')" id="tab-extract" role="tab" aria-selected="false" class="tab-btn pb-4 font-semibold text-gray-500"
-                        data-i18n="tab_extract">Extraer Texto</button>
-                    <button onclick="switchTab('remove')" id="tab-remove" role="tab" aria-selected="false" class="tab-btn pb-4 font-semibold text-gray-500"
-                        data-i18n="tab_remove">Eliminar Páginas</button>
+                    <button onclick="switchTab('merge')" id="tab-merge" role="tab" aria-selected="true"
+                        class="tab-btn pb-4 font-semibold tab-active" data-i18n="tab_merge">Unir PDFs</button>
+                    <button onclick="switchTab('extract')" id="tab-extract" role="tab" aria-selected="false"
+                        class="tab-btn pb-4 font-semibold text-gray-500" data-i18n="tab_extract">Extraer Texto</button>
+                    <button onclick="switchTab('remove')" id="tab-remove" role="tab" aria-selected="false"
+                        class="tab-btn pb-4 font-semibold text-gray-500" data-i18n="tab_remove">Eliminar
+                        Páginas</button>
                 </nav>
 
                 <!-- Herramienta Interactiva -->
@@ -416,86 +417,124 @@
                     <!-- Guía de Uso -->
                     <section id="usage-guide" class="mt-16">
                         <div class="text-center mb-12">
-                            <h2 class="text-3xl font-extrabold text-gray-900 dark:text-gray-100" data-i18n="guide_title">Cómo usar PDF Quick Tool</h2>
-                            <p class="text-gray-500 dark:text-gray-400 mt-3 text-lg" data-i18n="guide_subtitle">Guía rápida para cada función</p>
+                            <h2 class="text-3xl font-extrabold text-gray-900 dark:text-gray-100"
+                                data-i18n="guide_title">Cómo usar PDF Quick Tool</h2>
+                            <p class="text-gray-500 dark:text-gray-400 mt-3 text-lg" data-i18n="guide_subtitle">Guía
+                                rápida para cada función</p>
                         </div>
 
                         <div class="guide-grid">
                             <!-- Unir PDFs -->
                             <div class="guide-card">
-                                <img src="img/unir-pdf-fusionar-pdf-quick-tool.png" alt="Unir PDFs" class="guide-card-img" loading="lazy" width="400" height="200">
+                                <img src="img/unir-pdf-fusionar-pdf-quick-tool.png" alt="Unir PDFs"
+                                    class="guide-card-img" loading="lazy" width="400" height="200">
                                 <div class="p-6">
                                     <div class="flex items-center gap-3 mb-5">
-                                        <span class="guide-badge guide-badge-blue" data-i18n="card1_badge">Paso a paso</span>
+                                        <span class="guide-badge guide-badge-blue" data-i18n="card1_badge">Paso a
+                                            paso</span>
                                         <h3 class="text-lg font-bold" data-i18n="card1_title">Unir PDFs</h3>
                                     </div>
                                     <ol class="space-y-3 text-sm">
-                                        <li class="flex gap-3 items-start"><span class="text-blue-500 font-bold shrink-0">1.</span> <span data-i18n="card1_s1">Selecciona "Unir PDFs"</span></li>
-                                        <li class="flex gap-3 items-start"><span class="text-blue-500 font-bold shrink-0">2.</span> <span data-i18n="card1_s2">Sube tus archivos PDF</span></li>
-                                        <li class="flex gap-3 items-start"><span class="text-blue-500 font-bold shrink-0">3.</span> <span data-i18n="card1_s3">Reordena si es necesario</span></li>
-                                        <li class="flex gap-3 items-start"><span class="text-blue-500 font-bold shrink-0">4.</span> <span data-i18n="card1_s4">Clic en "Procesar"</span></li>
-                                        <li class="flex gap-3 items-start"><span class="text-blue-500 font-bold shrink-0">5.</span> <span data-i18n="card1_s5">Descarga tu PDF fusionado</span></li>
+                                        <li class="flex gap-3 items-start"><span
+                                                class="text-blue-500 font-bold shrink-0">1.</span> <span
+                                                data-i18n="card1_s1">Selecciona "Unir PDFs"</span></li>
+                                        <li class="flex gap-3 items-start"><span
+                                                class="text-blue-500 font-bold shrink-0">2.</span> <span
+                                                data-i18n="card1_s2">Sube tus archivos PDF</span></li>
+                                        <li class="flex gap-3 items-start"><span
+                                                class="text-blue-500 font-bold shrink-0">3.</span> <span
+                                                data-i18n="card1_s3">Reordena si es necesario</span></li>
+                                        <li class="flex gap-3 items-start"><span
+                                                class="text-blue-500 font-bold shrink-0">4.</span> <span
+                                                data-i18n="card1_s4">Clic en "Procesar"</span></li>
+                                        <li class="flex gap-3 items-start"><span
+                                                class="text-blue-500 font-bold shrink-0">5.</span> <span
+                                                data-i18n="card1_s5">Descarga tu PDF fusionado</span></li>
                                     </ol>
                                 </div>
                             </div>
 
                             <!-- Extraer Texto -->
                             <div class="guide-card">
-                                <img src="img/extraer-texto-ocr-pdf-quick-tool.png" alt="Extraer texto" class="guide-card-img" loading="lazy" width="400" height="200">
+                                <img src="img/extraer-texto-ocr-pdf-quick-tool.png" alt="Extraer texto"
+                                    class="guide-card-img" loading="lazy" width="400" height="200">
                                 <div class="p-6">
                                     <div class="flex items-center gap-3 mb-5">
-                                        <span class="guide-badge guide-badge-green" data-i18n="card2_badge">Con OCR</span>
+                                        <span class="guide-badge guide-badge-green" data-i18n="card2_badge">Con
+                                            OCR</span>
                                         <h3 class="text-lg font-bold" data-i18n="card2_title">Extraer Texto</h3>
                                     </div>
                                     <ol class="space-y-3 text-sm">
-                                        <li class="flex gap-3 items-start"><span class="text-green-500 font-bold shrink-0">1.</span> <span data-i18n="card2_s1">Selecciona "Extraer Texto"</span></li>
-                                        <li class="flex gap-3 items-start"><span class="text-green-500 font-bold shrink-0">2.</span> <span data-i18n="card2_s2">Sube tu archivo PDF</span></li>
-                                        <li class="flex gap-3 items-start"><span class="text-green-500 font-bold shrink-0">3.</span> <span data-i18n="card2_s3">Activa OCR si es necesario</span></li>
-                                        <li class="flex gap-3 items-start"><span class="text-green-500 font-bold shrink-0">4.</span> <span data-i18n="card2_s4">Clic en "Procesar"</span></li>
-                                        <li class="flex gap-3 items-start"><span class="text-green-500 font-bold shrink-0">5.</span> <span data-i18n="card2_s5">Copia o descarga el texto</span></li>
+                                        <li class="flex gap-3 items-start"><span
+                                                class="text-green-500 font-bold shrink-0">1.</span> <span
+                                                data-i18n="card2_s1">Selecciona "Extraer Texto"</span></li>
+                                        <li class="flex gap-3 items-start"><span
+                                                class="text-green-500 font-bold shrink-0">2.</span> <span
+                                                data-i18n="card2_s2">Sube tu archivo PDF</span></li>
+                                        <li class="flex gap-3 items-start"><span
+                                                class="text-green-500 font-bold shrink-0">3.</span> <span
+                                                data-i18n="card2_s3">Activa OCR si es necesario</span></li>
+                                        <li class="flex gap-3 items-start"><span
+                                                class="text-green-500 font-bold shrink-0">4.</span> <span
+                                                data-i18n="card2_s4">Clic en "Procesar"</span></li>
+                                        <li class="flex gap-3 items-start"><span
+                                                class="text-green-500 font-bold shrink-0">5.</span> <span
+                                                data-i18n="card2_s5">Copia o descarga el texto</span></li>
                                     </ol>
                                 </div>
                             </div>
 
                             <!-- Eliminar Páginas -->
                             <div class="guide-card">
-                                <img src="img/eliminar-paginas-pdf-quick-tool.png" alt="Eliminar páginas" class="guide-card-img" loading="lazy" width="400" height="200">
+                                <img src="img/eliminar-paginas-pdf-quick-tool.png" alt="Eliminar páginas"
+                                    class="guide-card-img" loading="lazy" width="400" height="200">
                                 <div class="p-6">
                                     <div class="flex items-center gap-3 mb-5">
                                         <span class="guide-badge guide-badge-red" data-i18n="card3_badge">Rangos</span>
                                         <h3 class="text-lg font-bold" data-i18n="card3_title">Eliminar Páginas</h3>
                                     </div>
                                     <ol class="space-y-3 text-sm">
-                                        <li class="flex gap-3 items-start"><span class="text-red-500 font-bold shrink-0">1.</span> <span data-i18n="card3_s1">Selecciona "Eliminar Páginas"</span></li>
-                                        <li class="flex gap-3 items-start"><span class="text-red-500 font-bold shrink-0">2.</span> <span data-i18n="card3_s2">Sube tu archivo PDF</span></li>
-                                        <li class="flex gap-3 items-start"><span class="text-red-500 font-bold shrink-0">3.</span> <span data-i18n="card3_s3">Elige las páginas/rangos</span></li>
-                                        <li class="flex gap-3 items-start"><span class="text-red-500 font-bold shrink-0">4.</span> <span data-i18n="card3_s4">Clic en "Procesar"</span></li>
-                                        <li class="flex gap-3 items-start"><span class="text-red-500 font-bold shrink-0">5.</span> <span data-i18n="card3_s5">Descarga el PDF final</span></li>
+                                        <li class="flex gap-3 items-start"><span
+                                                class="text-red-500 font-bold shrink-0">1.</span> <span
+                                                data-i18n="card3_s1">Selecciona "Eliminar Páginas"</span></li>
+                                        <li class="flex gap-3 items-start"><span
+                                                class="text-red-500 font-bold shrink-0">2.</span> <span
+                                                data-i18n="card3_s2">Sube tu archivo PDF</span></li>
+                                        <li class="flex gap-3 items-start"><span
+                                                class="text-red-500 font-bold shrink-0">3.</span> <span
+                                                data-i18n="card3_s3">Elige las páginas/rangos</span></li>
+                                        <li class="flex gap-3 items-start"><span
+                                                class="text-red-500 font-bold shrink-0">4.</span> <span
+                                                data-i18n="card3_s4">Clic en "Procesar"</span></li>
+                                        <li class="flex gap-3 items-start"><span
+                                                class="text-red-500 font-bold shrink-0">5.</span> <span
+                                                data-i18n="card3_s5">Descarga el PDF final</span></li>
                                     </ol>
                                 </div>
                             </div>
                         </div>
                     </section>
-                </div> <!-- Cierre space-y-12 -->
-            </div> <!-- Cierre functional-column -->
+            </div> <!-- Cierre space-y-12 -->
+        </div> <!-- Cierre functional-column -->
 
-            <aside class="ad-sidebar">
-                <div class="ad-sidebar-sticky">
-                    <div class="ad-sidebar-card">
-                        <div class="w-full flex flex-col items-center gap-8" id="sidebar-ads-container">
-                            <!-- Contenedor de anuncio principal de Adsterra -->
-                            <div class="w-full min-h-[250px]" id="sidebar-ad-wrapper">
-                                <div id="container-9c0160470687def6fc582f0096557057"></div>
-                                <script async="async" data-cfasync="false" src="https://pl28904959.profitablecpmratenetwork.com/9c0160470687def6fc582f0096557057/invoke.js"></script>
-                            </div>
-                            
-                            <!-- Segundo espacio para anuncios -->
-                            <div id="ad-sidebar-extra" class="w-full min-h-[150px]"></div>
+        <aside class="ad-sidebar">
+            <div class="ad-sidebar-sticky">
+                <div class="ad-sidebar-card">
+                    <div class="w-full flex flex-col items-center gap-8" id="sidebar-ads-container">
+                        <!-- Contenedor de anuncio principal de Adsterra -->
+                        <div class="w-full min-h-[250px]" id="sidebar-ad-wrapper">
+                            <div id="container-9c0160470687def6fc582f0096557057"></div>
+                            <script async="async" data-cfasync="false"
+                                src="https://pl28904959.profitablecpmratenetwork.com/9c0160470687def6fc582f0096557057/invoke.js"></script>
                         </div>
+
+                        <!-- Segundo espacio para anuncios -->
+                        <div id="ad-sidebar-extra" class="w-full min-h-[150px]"></div>
                     </div>
                 </div>
-            </aside>
-        </main>
+            </div>
+        </aside>
+    </main>
 
 
     <footer class="bg-gray-100 dark:bg-gray-950 py-12 mt-20 border-t dark:border-gray-800 pb-32">
