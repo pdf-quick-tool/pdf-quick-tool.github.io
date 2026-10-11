@@ -61,23 +61,106 @@
     overflow: hidden;
 }
 
-#sidebar-ad-wrapper {
-    width: 100%;
-    max-width: 300px; /* Ancho estándar seguro para anuncios laterales */
-    margin: 0 auto;
-    padding: 10px 0;
+/* --- Escritorio (>= 1024px): Barra lateral en 1 columna --- */
+@media (min-width: 1024px) {
+    #sidebar-ad-wrapper {
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+        padding: 10px 0;
+        min-height: 250px;
+        display: flex;
+        justify-content: center;
+    }
+
+    #container-9c0160470687def6fc582f0096557057 {
+        width: 100% !important;
+        max-width: 320px !important;
+    }
+
+    #container-9c0160470687def6fc582f0096557057 > div,
+    #container-9c0160470687def6fc582f0096557057-dropzone {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1.5rem !important;
+        width: 100% !important;
+    }
+
+    .container-9c0160470687def6fc582f0096557057__bn-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        float: none !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        margin-bottom: 1.25rem !important;
+    }
 }
 
-#container-9c0160470687def6fc582f0096557057 {
+/* --- Tablet y Móvil (< 1024px): Cuadrícula Grid 2x2 --- */
+@media (max-width: 1023px) {
+    .ad-sidebar {
+        width: 100%;
+        margin-top: 2rem;
+    }
+
+    .ad-sidebar-card {
+        min-height: auto !important;
+        padding: 1.25rem !important;
+        width: 100% !important;
+    }
+
+    #sidebar-ads-container {
+        width: 100% !important;
+    }
+
+    #sidebar-ad-wrapper {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-height: auto !important;
+        display: block !important;
+    }
+
+    #container-9c0160470687def6fc582f0096557057 {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    #container-9c0160470687def6fc582f0096557057 > div,
+    #container-9c0160470687def6fc582f0096557057-dropzone {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 1rem !important;
+        width: 100% !important;
+    }
+
+    .container-9c0160470687def6fc582f0096557057__bn-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        float: none !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        margin: 0 !important;
+        box-sizing: border-box !important;
+    }
+}
+
+/* Reglas comunes de uniformidad para que ninguna imagen se vea más chica */
+.container-9c0160470687def6fc582f0096557057__img-container {
     width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
 }
 
-/* Permitimos que el script gestione su propio diseño interno para evitar que se auto-cierre */
-#container-9c0160470687def6fc582f0096557057 > div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
+.container-9c0160470687def6fc582f0096557057__img {
+    width: 100% !important;
+    max-width: 100% !important;
+    aspect-ratio: 16 / 10 !important;
+    object-fit: cover !important;
+    border-radius: 0.5rem !important;
+    display: block !important;
 }
 
 .tool-section {
